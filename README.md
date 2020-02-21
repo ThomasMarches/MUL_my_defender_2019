@@ -5,10 +5,6 @@
 Welcome to my Defender,
 a tower defense game made with CSFML where your goal is to build tower and protect your base from waves of ennemy !
 
-## Instalation
-
-You need to install the `mysql_lib` for the highscore
-
 ### Windows Installer
 
 Use [this](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-web-community-8.0.18.0.msi) install
@@ -17,7 +13,8 @@ Use [this](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-we
 
 Clone the repository:
 
-    git clone https://github.com/Arcahub/Runner.git
+    git clone https://github.com/Arcahub/Defender.git
+    git clone https://github.com/ThomasMarchres/Defender.git
 
 Download the version of your distrib on [this link](https://dev.mysql.com/downloads/repo/yum/)
 
@@ -41,11 +38,11 @@ Update :
 
 If you want to play on your own map:
 
-    ./my_runner [MAP]
+    ./my_defender [MAP]
 
 Else to play with the automatic generation
 
-    ./my_runner
+    ./my_defender
 
 ## Player Input
 
@@ -67,5 +64,4 @@ Dash : will dashing you can't be hitted by spike but you can't dash until the pl
 Dev :
 
 Guillaume Mailhol
-
-Big thanks to [TeamCherryGames](https://twitter.com/teamcherrygames?lang=fr) for the sprites from the beautiful game [Hollow Knight](https://store.steampowered.com/app/367520/Hollow_Knight/)
+Thomas Marches
