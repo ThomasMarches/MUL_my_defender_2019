@@ -1,0 +1,9 @@
+125:150:175
+10:11:12
+8:12:16
+1.25:1,5:2.25
+templates/towers/tower3_level1.jpg
+templates/towers/tower3_level2.jpg
+templates/towers/tower3_level3.jpg
+slow:0/0/0
+multi_damage:0/0/0

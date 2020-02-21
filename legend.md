@@ -1,0 +1,83 @@
+# Creation of a map
+
+In this file, i will explain you how to create a proper map for the game my_defender. Good luck !
+
+## The file.
+
+You have to create a .txt file in the folder map.
+
+## Content of the file.
+
+If you want the game to launch, the .txt file of your map needs to contain only  '1'  for a ground,  '2'  for the path of your ennemies, '3'  for a little rock, and 'X' for your base.
+
+## Important information about the file.
+
+You need to put only one base, to take care the the path is joining the base and to be careful that there are grounds for you to put tower on it.
+
+The game won't launch if the map is invalid.
+
+## Exemple of a map.
+
+```bash
+                       
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+111111111111131111111111111111111111
+111111111111111111111111311111111111
+111111111111111111111111111111111111
+111111131111111111111111111111111111
+111111111111111111131111111111111111
+111111111111111111111111111111111111
+111311111111111111111111111111111111
+111111111222222222211111111111111111
+111111111211111111211111111111111111
+111111111211111111211111111111111111
+222222222211111111211111111111111111
+11111111111111111122222222222222222X
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+111111111111111111111111111111111111
+
+```
+
+# Creation of a tower
+
+Here we will explain you how to create your own towers (damage, range, spritesheet, slow, aoe damage).
+
+## The file.
+
+You have to create a .txt file in the folder map and to go inside the file tower_choose.txt and replace the tower by "tower number:name of the txt file to load settings of the tower".
+
+Exemple: tower1:tower1
+
+## Content of the file.
+
+You will put on each line the value you want, and separate the different level of the tower with ':'.
+
+## Exemple of a tower.
+
+```bash
+(level1:level2:level3)
+
+100:150:200 // Cost
+5:6:7 // Damage
+10:15:20 // Range
+1:1,5:2 // Attack speed
+templates/towers/tower1_level1.jpg // Sprite sheet of level 1
+templates/towers/tower1_level2.jpg // Sprite sheet of level 2
+templates/towers/tower1_level3.jpg // Sprite sheet of level 3
+slow:0:0:0 // Slow pourcentage
+multi_damage:0:0:0 // AOE damage
+
+```
+
+#
+
+## Copyright
+
+Made by thomas.marches@epitech.eu && guillaume.maihol@epitech.eu
+
+Project by Epitech Toulouse.
