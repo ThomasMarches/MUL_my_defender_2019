@@ -24,7 +24,7 @@ scene_t *init_game_scene(game_t *game)
     update_text(game->score->text, sfWhite, (sfVector2f) {0, 0}, 32);
     scene->background_color = GAME_BACKGROUND_COLOR;
     scene->handle_event = &handle_event_game;
-    scene->objects_list = NULL;
+    scene->objects_list = generate_map(NULL, "maps/map");
     game->score->score = 0;
     return (scene);
 }
