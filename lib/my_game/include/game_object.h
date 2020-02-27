@@ -37,6 +37,7 @@ typedef enum
     BAR,
     DECOR,
     EFFECT,
+    FLEUR,
     INFO
 } object_type;
 

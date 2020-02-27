@@ -26,6 +26,8 @@ game_object_t *create_main_menu_buttons(void)
     object->callback = &exit_button_function;
     object = create_game_object(object, (char *)TITLE_PATH, \
     (sfVector2f) {0, 0}, DECOR);
+    init_appearing_object(object);
+    object->update = update_appearing_object;
     return (object);
 }
 

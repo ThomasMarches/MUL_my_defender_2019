@@ -11,13 +11,6 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-void save_score(game_t *game)
-{
-    if (game->score->score < game->highscore->score)
-        return;
-    my_nbr_to_str(game->highscore->score);
-}
-
 void init_score(game_t *game)
 {
     score_t *score = NULL;
@@ -38,12 +31,4 @@ void increase_score(game_t *game)
     game->score->score_text = \
     my_strcat((char *)BASE_SCORE, my_nbr_to_str(game->score->score));
     sfText_setString(game->score->text, game->score->score_text);
-    if (game->score->score > game->highscore->score) {
-        game->highscore->score = game->score->score;
-        free (game->highscore->score_text);
-        game->highscore->score_text = \
-        my_strcat((char *)BASE_HIGHSCORE, \
-        my_nbr_to_str(game->highscore->score));
-        sfText_setString(game->highscore->text, game->highscore->score_text);
-    }
 }

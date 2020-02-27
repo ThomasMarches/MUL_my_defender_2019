@@ -44,13 +44,15 @@ scene_t *create_in_game_menu(void)
     scene->objects_list = create_animated_object(scene->objects_list, \
     (char *) TOP_FLEUR_PATH, (sfVector2f) {TOP_FLEUR_X, TOP_FLEUR_Y}, \
     (sfIntRect **) TOP_FLEUR_FRAME_KEYS);
-    scene->objects_list->type = DECOR;
+    scene->objects_list->type = FLEUR;
     scene->objects_list = create_animated_object(scene->objects_list, \
     (char *) BOTTOM_FLEUR_PATH, (sfVector2f) {BOTTOM_FLEUR_X, BOTTOM_FLEUR_Y}, \
     (sfIntRect **) BOTTOM_FLEUR_FRAME_KEYS);
-    scene->objects_list->type = DECOR;
+    scene->objects_list->type = FLEUR;
     scene->objects_list = create_game_object(scene->objects_list, \
     (char *) IN_GAME_MENU_BACKGROUND, (sfVector2f) {0, 0}, DECOR);
+    init_appearing_object(scene->objects_list);
+    scene->objects_list->update = update_appearing_object;
     scene->display = IN_GAME_MENU_SCENE;
     return (scene);
 }
@@ -85,7 +87,6 @@ int do_in_game_menu(game_t *game, scene_t *scene)
 {
     int display = IN_GAME_MENU_SCENE;
 
-    sfSound_pause(game->player->sound_effect);
     while (display != MAIN_MENU_SCENE && display != GAME_SCENE && \
     display != -1 && sfRenderWindow_isOpen(game->window->window)) {
         if (display != IN_GAME_MENU_SCENE) {
@@ -95,6 +96,5 @@ int do_in_game_menu(game_t *game, scene_t *scene)
         } else
             display = in_game_menu_loop(game, game->window->window, scene);
     }
-    sfSound_play(game->player->sound_effect);
     return (display);
 }

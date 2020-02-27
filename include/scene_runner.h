@@ -25,7 +25,7 @@ typedef enum {
 } scene_index;
 
 void init_scenes(game_t *, char *);
-scene_t *init_game_scene(game_t *, char *);
+scene_t *init_game_scene(game_t *);
 scene_t *create_main_menu(void);
 scene_t *create_in_game_menu(void);
 scene_t *create_end_menu(void);

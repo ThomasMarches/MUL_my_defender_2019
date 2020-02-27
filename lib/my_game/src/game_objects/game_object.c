@@ -87,6 +87,8 @@ int z_index_max)
 {
     game_object_t *tmp = object;
 
+    if (object == NULL)
+        return;
     for (int i = z_index_max; i >= 0;) {
         if (object->texture != NULL && object->z_index == i)
             sfRenderWindow_drawSprite(window, object->sprite, NULL);
