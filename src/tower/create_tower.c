@@ -12,8 +12,8 @@
 #include <sys/stat.h>
 
 int get_int_from_param(char *, int, int);
-char *get_string_from_param(char *, int);
 
+char *get_string_from_param(char *, int);
 
 bool update_tower(game_object_t *object, scene_t *scene)
 {

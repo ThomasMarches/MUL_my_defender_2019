@@ -52,7 +52,7 @@ scene_t *init_options_scene(game_t *game)
 
     if (scene == NULL)
         return (NULL);
-    scene->background_color = sfBlack;
+    scene->background_color = sfWhite;
     scene->display = OPTION_SCENE;
     scene->handle_event = &handle_event_options;
     scene->z_index_deepth = 0;
