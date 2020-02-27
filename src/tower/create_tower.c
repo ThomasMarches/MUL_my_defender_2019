@@ -60,14 +60,16 @@ tower_t *create_tower_extend(tower_type_t type)
     return (tower);
 }
 
-game_object_t *create_tower(game_object_t *last, char *path, sfVector2f pos, tower_type_t type)
+game_object_t *create_tower(game_object_t *last, char *path, sfVector2f pos,
+    tower_type_t type)
 {
     tower_t *tower = create_tower_extend(type);
     game_object_t *object = NULL;
 
     if (tower == NULL)
         return (NULL);
-    object = create_game_object(last, get_string_from_param(tower->tower_param, 5), pos, TOWER);
+    object = create_game_object(last,
+    get_string_from_param(tower->tower_param, 5), pos, TOWER);
     if (object == NULL)
         return (NULL);
     object->extend = (void *) tower;
