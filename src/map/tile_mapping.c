@@ -18,11 +18,11 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
     game_object_t *tile = NULL;
 
     switch (id) {
-    case 2:
+    case '2':
         tile = create_game_object(last, GROUND_PATH, (sfVector2f) {x, y},
         GROUND);
         break;
-    case 1:
+    case '1':
         tile = create_game_object(last, GRASS_PATH, (sfVector2f) {x, y}, GRASS);
         break;
     // etc...
