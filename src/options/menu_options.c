@@ -12,10 +12,6 @@ static game_object_t *create_option_object_list(void)
 {
     game_object_t *object = NULL;
 
-    object = create_game_object(object, (char *)OPTION_TITLE, (sfVector2f) \
-    {OPTION_TITLE_X, OPTION_TITLE_Y}, DECOR);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
     object = create_animated_object(object, (char *)TITLE_UNDERLINE_PATH, \
     (sfVector2f) {TITLE_UNDERLINE_X, TITLE_UNDERLINE_Y}, \
     (sfIntRect **)TITLE_UNDERLINE_FRAME_KEYS);
@@ -28,14 +24,20 @@ static game_object_t *create_option_object_list(void)
     VOLUME_BAR_Y, BAR_WIDTH, BAR_HEIGHT + BAR_BOX_OFFSET};
     object = create_game_object(object, (char *) BAR_BACKGROUND_PATH, \
     (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y}, DECOR);
+    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
+    {0, 0}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
     return (object);
 }
 
 void draw_options(scene_t *scene, game_t *game, sfRenderWindow *window)
 {
-    sfText *text = init_text((char *)GLOBAL_VOLUME_TEXT, VOLUME_BAR_X - 300, \
-    VOLUME_BAR_Y - 20, (char *) FONT_PATH);
+    sfText *text = init_text((char *)GLOBAL_VOLUME_TEXT, VOLUME_BAR_X - 270, \
+    VOLUME_BAR_Y - 45, (char *) FONT_PATH);
 
+    sfText_setCharacterSize(text, 60);
+    sfText_setColor(text, sfBlack);
     display_scene(scene, window);
     sfRenderWindow_drawText(window, text, NULL);
     draw_cursor(game->cursor, scene->window);

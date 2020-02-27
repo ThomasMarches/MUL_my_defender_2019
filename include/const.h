@@ -97,6 +97,7 @@ extern const unsigned short TITLE_UNDERLINE_Y;
 extern const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[];
 
 extern const char *ARROW_PATH;
+extern const char *BACKGROUND_INFO;
 extern const sfIntRect *ARROW_LEFT_FRAME_KEYS[];
 extern const sfIntRect *ARROW_RIGHT_FRAME_KEYS[];
 

@@ -12,10 +12,6 @@ game_object_t *create_infos_objects(void)
 {
     game_object_t *object = NULL;
 
-    object = create_game_object(object, (char *)INFOS_TITLE, (sfVector2f) \
-    {INFOS_TITLE_X, INFOS_TITLE_Y}, DECOR);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
     object = create_animated_object(object, (char *)TITLE_UNDERLINE_PATH, \
     (sfVector2f) {TITLE_UNDERLINE_X, TITLE_UNDERLINE_Y}, \
     (sfIntRect **)TITLE_UNDERLINE_FRAME_KEYS);
@@ -31,6 +27,10 @@ game_object_t *create_infos_objects(void)
     object = create_button(object, (char *) ARROW_PATH, (sfVector2f) \
     {INFOS_ARROW_RIGHT_X, INFOS_ARROW_Y}, (sfIntRect **)ARROW_RIGHT_FRAME_KEYS);
     object->callback = &infos_right_arrow_function;
+    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
+    {0, 0}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
     return (object);
 }
 

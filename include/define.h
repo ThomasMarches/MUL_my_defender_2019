@@ -172,6 +172,8 @@ const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[] = {
 };
 
 const char *ARROW_PATH = "templates/menu/arrow.png";
+const char *BACKGROUND_INFO = "templates/menu/in_game_menu_background.jpg";
+
 const sfIntRect *ARROW_LEFT_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 100, 72},
     &(sfIntRect){0, 72, 100, 72},
