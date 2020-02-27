@@ -51,20 +51,16 @@ typedef struct game_object
 {
     sfTexture *texture;                                   /**< Texture of the object*/
     sfSprite *sprite;                                     /**< Sprite of the object*/
-    sfColor sprite_color;                                 /**< Color of the sprite used from fade in/out*/
-    sfSound *sound_effect;                                /**< Sound player*/
     sfVector2f pos;                                       /**< Vector of the position of the object*/
     sfVector2f last_pos;                                  /**< Vector of the previous position of the object after a move*/
     int z_index;                                          /**< Index used to display order in scene*/
     sfIntRect box;                                        /**< Box of the object*/
     sfVector2f move;                                      /**< Vector of the move of the object*/
-    anim_t *anim;                                         /**< Table of animations for the object*/
-    int state;                                            /**< State of the object*/
     object_type type;                                     /**< Type of the object*/
-    sfClock *delta_t;                                     /**< Local clock of the object*/
     bool (*update)(struct game_object *, struct scene *); /**< Update function of the object*/
     void (*callback)(struct game_object *, void *);       /**< Callback function of the object*/
     struct game_object *next;                             /**< Next object in the list*/
+    void *extend;
 } game_object_t;
 
 ////////////////////////////////////////////////////////////
