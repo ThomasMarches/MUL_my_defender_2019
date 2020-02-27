@@ -70,6 +70,7 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
     while (sfRenderWindow_isOpen(window) && scene->display == MAIN_MENU_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);
+        draw_cursor(game->cursor, scene->window);
         draw_main_menu(scene, game, window);
     }
     close_scene(scene, window, clock, game);
