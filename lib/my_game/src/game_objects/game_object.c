@@ -28,6 +28,7 @@ void init_game_object(game_object_t *object)
     object->type = DECOR;
     object->sprite_color = (sfColor) {0, 0, 0, 0};
     object->draw = &draw_object;
+    object->extend = NULL;
 }
 
 game_object_t *create_game_object(game_object_t *last, char *sprite_path, \

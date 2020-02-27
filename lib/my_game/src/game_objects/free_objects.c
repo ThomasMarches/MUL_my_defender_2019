@@ -8,6 +8,13 @@
 #include "my_game.h"
 #include <stdlib.h>
 
+void free_extend(game_object_t *object)
+{
+    if (object->type == TOWER) {
+        free(object->extend);
+    }
+}
+
 void free_anim(game_object_t *object)
 {
     if (object->anim != NULL && object->sound_effect != NULL)
@@ -44,6 +51,8 @@ game_object_t *object)
     if (object->delta_t != NULL)
         sfClock_destroy(object->delta_t);
     free_anim(object);
+    if (object->extend != NULL)
+        free_extend(object->extend);
     free(object);
 }
 
