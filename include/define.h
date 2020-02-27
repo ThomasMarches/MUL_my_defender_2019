@@ -38,7 +38,7 @@ const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
 // MUSIC
 
 const char *MENU_MUSIC_PATH = \
-"templates/sounds/Medieval Music - Cobblestone Village.ogg";
+"templates/sounds/background_menu.wav";
 
 // SCOR
 const char *BASE_SCORE = "Score :";
