@@ -20,7 +20,6 @@ sfIntRect **frame_keys)
     game_object_t *object = create_animated_object(last, path, pos, frame_keys);
 
     object->type = BUTTON;
-    init_appearing_object(object);
     object->update = &update_button;
     return (object);
 }
