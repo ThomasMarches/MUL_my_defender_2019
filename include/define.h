@@ -153,7 +153,7 @@ const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = \
 
 const unsigned short TITLE_X = (WINDOW_WIDTH - 1274) / 2;
 const unsigned short TITLE_Y = 0;
-const char *TITLE_PATH = "templates/menu/title.png";
+const char *TITLE_PATH = "templates/menu/in_game_menu_background.jpg";
 
 const char *TITLE_UNDERLINE_PATH = "templates/menu/title_underline.png";
 const unsigned short TITLE_UNDERLINE_X = 480;
