@@ -36,10 +36,6 @@ void destroy_game(game_t *game)
     sfText_destroy(game->score->text);
     free(game->score->score_text);
     free(game->score);
-    sfFont_destroy((sfFont *)sfText_getFont(game->highscore->text));
-    sfText_destroy(game->highscore->text);
-    free(game->highscore->score_text);
-    free(game->highscore);
     sfSprite_destroy(game->cursor.sprite);
     sfTexture_destroy(game->cursor.texture);
     free(game);
