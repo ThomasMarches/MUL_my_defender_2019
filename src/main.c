@@ -32,23 +32,17 @@ window_t *init_window(void)
 
 int my_runner(int argc, char **argv)
 {
-    char *map = read_map(argv[1]);
-    game_t *game = init_game(map);
+    game_t *game = init_game();
     sfRenderWindow *window = NULL;
-    sfMusic *music = sfMusic_createFromFile(MENU_MUSIC_PATH);
     int display = MAIN_MENU_SCENE;
 
-    if (music == NULL || game == NULL)
+    if (game == NULL)
         return (84);
-    sfMusic_setLoop(music, sfTrue);
-    sfMusic_play(music);
     window  = game->window->window;
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window) && display >= 0)
         display = game->scene_loop[display](game, window);
     destroy_game(game);
-    sfMusic_stop(music);
-    sfMusic_destroy(music);
     return (0);
 }
 

@@ -19,7 +19,7 @@ static game_object_t *create_option_object_list(void)
     object = create_animated_object(object, (char *)TITLE_UNDERLINE_PATH, \
     (sfVector2f) {TITLE_UNDERLINE_X, TITLE_UNDERLINE_Y}, \
     (sfIntRect **)TITLE_UNDERLINE_FRAME_KEYS);
-    object->type = FlEUR;
+    object->type = DECOR;
     object = create_indicator(object, (char *)INDICATOR_PATH, \
     (sfVector2f) {INDICATOR_X, INDICATOR_Y});
     object = create_bar(object, (char *) BAR_PATH, \

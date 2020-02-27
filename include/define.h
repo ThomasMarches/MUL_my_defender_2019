@@ -305,7 +305,7 @@ const unsigned short INDICATOR_WIDTH = 107;
 const unsigned short INDICATOR_X = VOLUME_BAR_X;
 const unsigned short INDICATOR_Y = 400 - 25;
 
-const char *FONT_PATH = "templates/font/Enchanted Land.ttf";
+const char *FONT_PATH = "templates/font/Enchanted Land.otf";
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
 
 // INFO

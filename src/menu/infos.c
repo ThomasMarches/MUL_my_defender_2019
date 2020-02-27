@@ -19,7 +19,7 @@ game_object_t *create_infos_objects(void)
     object = create_animated_object(object, (char *)TITLE_UNDERLINE_PATH, \
     (sfVector2f) {TITLE_UNDERLINE_X, TITLE_UNDERLINE_Y}, \
     (sfIntRect **)TITLE_UNDERLINE_FRAME_KEYS);
-    object->type = FlEUR;
+    object->type = DECOR;
     object = create_animated_object(object, (char *)INFOS_CONTENT_PATH, \
     (sfVector2f) {0, 0}, (sfIntRect **)INFOS_CONTENT_FRAME_KEYS);
     init_appearing_object(object);

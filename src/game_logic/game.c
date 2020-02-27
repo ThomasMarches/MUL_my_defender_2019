@@ -9,14 +9,13 @@
 #include <stdlib.h>
 #include <SFML/Audio.h>
 
-game_t *init_game(char *map)
+game_t *init_game()
 {
     game_t *game = malloc(sizeof(game_t));
 
     if (game == NULL)
         return (NULL);
     game->window = init_window();
-    game->map = map;
     init_score(game);
     game->cursor = init_cursor((char *)CURSOR_PATH);
     if (game->window == NULL || game->score == NULL)
@@ -33,7 +32,6 @@ void destroy_game(game_t *game)
 {
     sfRenderWindow_destroy(game->window->window);
     free(game->window);
-    free(game->map);
     sfFont_destroy((sfFont *)sfText_getFont(game->score->text));
     sfText_destroy(game->score->text);
     free(game->score->score_text);

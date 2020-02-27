@@ -21,10 +21,10 @@ game_object_t *create_end_menu_objects(void)
 
     object = create_animated_object(object, (char *)GG_TOP_PATH, \
     (sfVector2f) {GG_TOP_X, GG_TOP_Y}, (sfIntRect **)GG_TOP_FRAME_KEYS);
-    object->type = FlEUR;
+    object->type = DECOR;
     object = create_animated_object(object, (char *)GG_BOT_PATH, \
     (sfVector2f) {GG_BOT_X, GG_BOT_Y}, (sfIntRect **)GG_BOT_FRAME_KEYS);
-    object->type = FlEUR;
+    object->type = DECOR;
     object = create_text_button(object, (char *)MAIN_MENU_BUTTON_PATH, \
     (sfVector2f) {MAIN_MENU_BUTTON_X, GG_MAIN_MENU_BUTTON_Y});
     object->callback = &main_menu_button_function;

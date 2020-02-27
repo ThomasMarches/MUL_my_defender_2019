@@ -26,16 +26,7 @@ scene_t *init_game_scene(game_t * game, char *map)
     update_text(game->highscore->text, sfWhite, (sfVector2f) {0, 50}, 32);
     scene->background_color = GAME_BACKGROUND_COLOR;
     scene->handle_event = &handle_event_game;
-    scene->objects_list = init_player(NULL);
-    if (scene->objects_list == NULL)
-        return (NULL);
-    game->player = scene->objects_list;
+    scene->objects_list = NULL;
     game->score->score = 0;
-    scene->objects_list = init_background(scene->objects_list);
-    if (scene->objects_list == NULL)
-        return (NULL);
-    scene->objects_list = init_player_ground(scene->objects_list, map);
-    if (scene->objects_list == NULL)
-        return (NULL);
     return (scene);
 }

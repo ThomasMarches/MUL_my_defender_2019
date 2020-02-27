@@ -20,6 +20,7 @@
 #include "const.h"
 #include "my_graph.h"
 #include "my_game.h"
+#include "tower.h"
 
 typedef struct game_object game_object_t;
 
@@ -35,7 +36,7 @@ typedef struct score {
     char *score_text;
 } score_t;
 
-game_t *init_game(char *);
+game_t *init_game();
 int game_loop(game_t *, sfRenderWindow *);
 void destroy_game(game_t *);
 void draw_game(scene_t *, game_t *, sfRenderWindow *);

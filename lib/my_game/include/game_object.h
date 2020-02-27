@@ -31,16 +31,12 @@ typedef struct anim
 
 typedef enum
 {
-    PLAYER,
-    SOLID,
+    TOWER,
     BUTTON,
     TEXT_BUTTON,
     BAR,
     DECOR,
     EFFECT,
-    TRAP,
-    CHUNK,
-    FlEUR,
     INFO
 } object_type;
 
@@ -65,6 +61,7 @@ typedef struct game_object
     bool (*update)(struct game_object *, struct scene *); /**< Update function of the object*/
     void (*callback)(struct game_object *, void *);       /**< Callback function of the object*/
     struct game_object *next;                             /**< Next object in the list*/
+    void *extend;
 } game_object_t;
 
 ////////////////////////////////////////////////////////////

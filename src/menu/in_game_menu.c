@@ -44,11 +44,11 @@ scene_t *create_in_game_menu(void)
     scene->objects_list = create_animated_object(scene->objects_list, \
     (char *) TOP_FLEUR_PATH, (sfVector2f) {TOP_FLEUR_X, TOP_FLEUR_Y}, \
     (sfIntRect **) TOP_FLEUR_FRAME_KEYS);
-    scene->objects_list->type = FlEUR;
+    scene->objects_list->type = DECOR;
     scene->objects_list = create_animated_object(scene->objects_list, \
     (char *) BOTTOM_FLEUR_PATH, (sfVector2f) {BOTTOM_FLEUR_X, BOTTOM_FLEUR_Y}, \
     (sfIntRect **) BOTTOM_FLEUR_FRAME_KEYS);
-    scene->objects_list->type = FlEUR;
+    scene->objects_list->type = DECOR;
     scene->objects_list = create_game_object(scene->objects_list, \
     (char *) IN_GAME_MENU_BACKGROUND, (sfVector2f) {0, 0}, DECOR);
     scene->display = IN_GAME_MENU_SCENE;

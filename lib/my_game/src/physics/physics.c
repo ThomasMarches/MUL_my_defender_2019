@@ -37,10 +37,5 @@ void update_physics(game_object_t *actual, scene_t *scene)
     actual->move.y += GRAVITY;
     actual->box.top += actual->move.y;
     actual->box.left += actual->move.x;
-    for (game_object_t *object = scene->objects_list; object; \
-    object = object->next) {
-        if (object->type == SOLID)
-            do_solid_collision_objects(actual, object);
-    }
     actual->box = tmp;
 }

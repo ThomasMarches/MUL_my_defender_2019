@@ -70,7 +70,7 @@ void init_tower(game_t *game, int number)
     game->tower[number].texture =
     sfTexture_createFromFile(get_string_from_param(
         game->tower[number].tower_param, 5), NULL);
-    game->tower[number].sprite = sfSprite_create():
+    game->tower[number].sprite = sfSprite_create();
     sfSprite_setTexture(game->tower[number].sprite,
     game->tower[number].texture, sfTrue);
 }
