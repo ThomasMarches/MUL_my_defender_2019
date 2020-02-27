@@ -153,7 +153,7 @@ const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = \
 
 const unsigned short TITLE_X = (WINDOW_WIDTH - 1274) / 2;
 const unsigned short TITLE_Y = 0;
-const char *TITLE_PATH = "templates/menu/in_game_menu_background.jpg";
+const char *TITLE_PATH = "templates/menu/menu_bg_test_with_text.jpg";
 
 const char *TITLE_UNDERLINE_PATH = "templates/menu/title_underline.png";
 const unsigned short TITLE_UNDERLINE_X = 480;
@@ -204,16 +204,16 @@ const unsigned short RETURN_BUTTON_X = (WINDOW_WIDTH - 264) / 2;
 const unsigned short RETURN_BUTTON_Y = 900;
 
 const unsigned short PLAY_BUTTON_X = (WINDOW_WIDTH - 206) / 2;
-const unsigned short PLAY_BUTTON_Y = 600;
+const unsigned short PLAY_BUTTON_Y = 500;
 const char *PLAY_BUTTON_PATH = "templates/menu/play.png";
 const unsigned short OPTION_BUTTON_X = (WINDOW_WIDTH - 267) / 2;
-const unsigned short OPTION_BUTTON_Y = 700;
+const unsigned short OPTION_BUTTON_Y = 600;
 const char *OPTION_BUTTON_PATH = "templates/menu/option.png";
 const unsigned short INFOS_BUTTON_X = (WINDOW_WIDTH - 224) / 2;
-const unsigned short INFOS_BUTTON_Y = 800;
+const unsigned short INFOS_BUTTON_Y = 700;
 const char *INFOS_BUTTON_PATH = "templates/menu/infos.png";
 const unsigned short EXIT_BUTTON_X = (WINDOW_WIDTH - 196) / 2;
-const unsigned short EXIT_BUTTON_Y = 900;
+const unsigned short EXIT_BUTTON_Y = 800;
 const char *EXIT_BUTTON_PATH = "templates/menu/exit.png";
 
 const sfVector2i MAIN_MENU_COORDS[] = {

@@ -12,8 +12,6 @@ game_object_t *create_main_menu_buttons(void)
 {
     game_object_t *object = NULL;
 
-    object = create_game_object(object, (char *)TITLE_PATH, \
-    (sfVector2f) {0, 0}, DECOR);
     object = create_text_button(object, (char *)PLAY_BUTTON_PATH, \
     (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;
@@ -26,6 +24,8 @@ game_object_t *create_main_menu_buttons(void)
     object = create_text_button(object, (char *)EXIT_BUTTON_PATH, \
     (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
     object->callback = &exit_button_function;
+    object = create_game_object(object, (char *)TITLE_PATH, \
+    (sfVector2f) {0, 0}, DECOR);
     return (object);
 }
 
