@@ -12,7 +12,7 @@
 
 // BASE
 
-const char *PATH_TO_BASE_SPRITESHEET = "templates/tower/base.png";
+const char *BASE_PATH = "templates/tower/base.png";
 
 // ENV
 
@@ -364,6 +364,8 @@ const sfIntRect *GG_BOT_FRAME_KEYS[] = {
 const unsigned short GG_MAIN_MENU_BUTTON_Y = 675;
 
 // LEVEL DESIGN
+
+const char *ROCK_PATH = "templates/env/rock.png";
 
 const unsigned char TILE_WIDTH = 100;
 const unsigned char TILE_HEIGHT = 50;

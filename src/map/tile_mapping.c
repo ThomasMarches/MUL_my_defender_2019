@@ -8,8 +8,6 @@
 #include "my_defender.h"
 #include "my.h"
 
-int is_map_valid(char *map, char *map_name);
-
 void callback_tile(game_object_t *object, scene_t *scene)
 {
 
@@ -26,6 +24,12 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
         break;
     case '1':
         tile = create_game_object(last, GRASS_PATH, (sfVector2f) {x, y}, GRASS);
+        break;
+    case '3':
+        tile = create_game_object(last, ROCK_PATH, (sfVector2f) {x, y}, ROCK);
+        break;
+    case '5':
+        tile = create_game_object(last, BASE_PATH, (sfVector2f) {x, y}, BASE);
         break;
     // etc...
     }

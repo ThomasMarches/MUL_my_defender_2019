@@ -28,7 +28,9 @@ typedef enum {
 
 typedef enum {
     GROUND = 49,
-    GRASS = 50
+    GRASS = 50,
+    BASE = 51,
+    ROCK = 52
 } tile_id;
 
 game_object_t *generate_map(game_object_t *, char *);

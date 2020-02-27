@@ -12,7 +12,7 @@
 
 // BASE
 
-extern const char *PATH_TO_BASE_SPRITESHEET;
+extern const char *BASE_PATH;
 
 // ENV
 
@@ -208,6 +208,8 @@ extern const sfIntRect *GG_BOT_FRAME_KEYS[];
 extern const unsigned short GG_MAIN_MENU_BUTTON_Y;
 
 // LEVEL DESIGN
+
+extern const char *ROCK_PATH;
 
 extern const unsigned char TILE_WIDTH;
 extern const unsigned char TILE_HEIGHT;
