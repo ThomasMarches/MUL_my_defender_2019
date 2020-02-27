@@ -8,6 +8,8 @@
 #include "my_defender.h"
 #include "my.h"
 
+int is_map_valid(char *map, char *map_name);
+
 void callback_tile(game_object_t *object, scene_t *scene)
 {
 

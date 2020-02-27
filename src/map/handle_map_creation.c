@@ -64,7 +64,7 @@ int is_map_valid(char *map, char *map_name)
     if (check_map_content(number_of_grass, number_of_castle,
     number_of_path, map_name) == 84)
         return (84);
-    return (is_map_valid(map, map_name));
+    return (is_path_valid(map, map_name));
 }
 
 char *get_map(char *filepath_to_map)
