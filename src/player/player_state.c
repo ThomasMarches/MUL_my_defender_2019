@@ -5,7 +5,7 @@
 ** player_state
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 void player_dash_update(game_object_t *player)
 {

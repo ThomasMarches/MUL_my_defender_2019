@@ -5,7 +5,7 @@
 ** game_scene
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void draw_game(scene_t *scene, game_t *game, sfRenderWindow *window)

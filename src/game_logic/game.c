@@ -5,7 +5,7 @@
 ** game
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 #include <SFML/Audio.h>
 

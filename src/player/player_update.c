@@ -5,7 +5,7 @@
 ** player_update
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void check_player_pos_x(game_object_t *player)

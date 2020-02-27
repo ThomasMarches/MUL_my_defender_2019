@@ -14,6 +14,5 @@ sfVector2f move_vector(int start_x, int start_y, int dest_x, int dest_y)
 
     vector.x = (dest_x - start_x) / 40;
     vector.y = (dest_y - start_y) / 40;
-
     return (vector);
 }

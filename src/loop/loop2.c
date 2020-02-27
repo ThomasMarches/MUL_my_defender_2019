@@ -5,7 +5,7 @@
 ** loop2
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 int end_loop(game_t *game, sfRenderWindow *window)
 {

@@ -5,7 +5,7 @@
 ** chunk
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 game_object_t *create_chunk(game_object_t *, unsigned int);

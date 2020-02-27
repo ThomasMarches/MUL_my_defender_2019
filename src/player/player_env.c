@@ -5,7 +5,7 @@
 ** player_env
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 void compute_player_collide_spike(game_object_t *player, game_object_t *object)
 {

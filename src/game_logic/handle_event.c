@@ -5,7 +5,7 @@
 ** handle_event
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <SFML/Graphics.h>
 
 void handle_event_infos(scene_t *scene, game_t *game, sfRenderWindow *window)

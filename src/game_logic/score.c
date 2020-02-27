@@ -5,7 +5,7 @@
 ** score
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include "my.h"
 #include "my_graph.h"
 #include <SFML/Graphics.h>

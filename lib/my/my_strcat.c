@@ -8,7 +8,7 @@
 #include "my.h"
 #include <stdlib.h>
 
-char *my_strcat(char *dest, const char *src)
+char *my_strcat(char *dest, char *src)
 {
     int length = 0;
     int length_dest = 0;

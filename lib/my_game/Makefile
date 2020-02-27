@@ -15,7 +15,7 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS = $(CSFML) -I./include -I../my_graph/
 
-CSFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+CSFML = -Wno-unused-command-line-argument -Wno-deprecated -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 all : $(OBJ)
 	ar rc $(NAME) $(OBJ)

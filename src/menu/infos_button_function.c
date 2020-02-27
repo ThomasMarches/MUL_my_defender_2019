@@ -5,7 +5,7 @@
 ** infos_button_function
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 void infos_left_arrow_function(game_object_t *object, void *pt)
 {

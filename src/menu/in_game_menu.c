@@ -5,7 +5,7 @@
 ** in_game_menu
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void main_menu_button_function(game_object_t *object, void *pt)

@@ -5,7 +5,7 @@
 ** handle_key_pressed
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 void handle_key_pressed_game(game_t *game, sfKeyCode key, scene_t *scene)
 {

@@ -5,8 +5,10 @@
 ** my_putstr.c
 */
 
+#include "my.h"
+#include <unistd.h>
+
 void my_putstr(char *string)
 {
-    for (int counter = 0; string[counter != '\0']; counter++)
-        write(1, &string[counter], 1);
+    write(1, string, my_strlen(string));
 }

@@ -43,4 +43,5 @@ game_object_t *find_player(scene_t *);
 
 game_object_t *create_effect(game_object_t *, char *, sfVector2f, sfIntRect **);
 bool update_effect(game_object_t *, scene_t *);
+
 #endif /* !PLAYER_H_ */

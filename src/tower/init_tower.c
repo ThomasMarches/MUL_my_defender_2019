@@ -1,12 +1,16 @@
 /*
 ** EPITECH PROJECT, 2019
-** MUL_my_defender_2019
+** MUL_my_defender_2019'
 ** File description:
 ** init_tower.c
 */
 
 #include "my.h"
-#include "my_runner.h"
+#include "my_defender.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <sys/stat.h>
 
 char *get_string_from_param(char *str, int column)
 {
@@ -15,16 +19,16 @@ char *get_string_from_param(char *str, int column)
     char *temp = malloc(sizeof(char) * 2);
 
     if (temp == NULL)
-        return (84);
+        return (NULL);
     temp[1] = '\0';
     for (int found = 0; found + 1 != column; counter++)
         if (str[counter] == '\n')
             found++;
-    for (; str[counter] '\0' && str[counter] != '\n') {
+    for (; str[counter] != '\0' && str[counter] != '\n'; counter++) {
         temp[0] = str[counter];
         str_to_return = my_strcat(str_to_return, temp);
     }
-    return (str_to_return));
+    return (str_to_return);
 }
 
 int get_int_from_param(char *str, int column, int level)
@@ -42,7 +46,8 @@ int get_int_from_param(char *str, int column, int level)
     for (int found = 0; found + 1 != level; counter++)
         if (str[counter] == ':')
             found++;
-    for (; str[counter] '\0' && str[counter] ':' && str[counter] != '\n') {
+    for (; str[counter] != '\0' && str[counter] != ':' && str[counter]
+    != '\n'; counter++) {
         temp[0] = str[counter];
         int_to_return = my_strcat(int_to_return, temp);
     }
@@ -81,13 +86,15 @@ int init_tower_from_file(char *filepath, game_t *game, int number)
         stat(filepath, &size);
     }
     if (fd == -1)
-        return (NULL);
+        return (84);
     game->tower[number].tower_param = malloc(sizeof(char) *
     (size.st_size + 1));
     game->tower[number].tower_param[size.st_size] = '\0';
     if (game->tower[number].tower_param == NULL)
-        return (NULL);
-    read(fd, game->tower[number].tower_param, size.st_size);
+        return (84);
+    size = read(fd, game->tower[number].tower_param, size.st_size);
+    if (size == -1)
+        return (84);
     close(fd);
     init_tower(game, number);
     return (0);

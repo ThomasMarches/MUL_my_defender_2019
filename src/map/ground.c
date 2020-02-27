@@ -5,7 +5,7 @@
 ** ground
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 game_object_t *create_ground(game_object_t *last, sfVector2f pos)

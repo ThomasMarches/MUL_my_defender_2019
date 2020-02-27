@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** defender
+** bootstap_runner
 ** File description:
 ** game_object
 */

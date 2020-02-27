@@ -5,7 +5,7 @@
 ** spikes
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 game_object_t *create_spike(game_object_t *last, sfVector2f pos)
 {

@@ -7,7 +7,7 @@
 
 #include "define.h"
 #include "my_graph.h"
-#include "my_runner.h"
+#include "my_defender.h"
 #include "my.h"
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
@@ -44,9 +44,8 @@ int my_runner(int argc, char **argv)
     sfMusic_play(music);
     window  = game->window->window;
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
-    while (sfRenderWindow_isOpen(window) && display >= 0) {
+    while (sfRenderWindow_isOpen(window) && display >= 0)
         display = game->scene_loop[display](game, window);
-    }
     destroy_game(game);
     sfMusic_stop(music);
     sfMusic_destroy(music);

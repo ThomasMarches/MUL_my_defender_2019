@@ -5,7 +5,7 @@
 ** menu_options
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 static game_object_t *create_option_object_list(void)

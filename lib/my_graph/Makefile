@@ -17,7 +17,7 @@ NAME = libmy_graph.a
 
 HEADER = my_graph.h
 
-CFLAGS += -W -Wall -Wextra -pedantic -l csfml-system -l csfml-graphics -l csfml-window
+CFLAGS += -Wno-deprecated -Wno-unused-command-line-argument -l csfml-system -l csfml-graphics -l csfml-window
 
 all : $(NAME)
 

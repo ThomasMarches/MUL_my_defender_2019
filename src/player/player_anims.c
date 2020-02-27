@@ -5,7 +5,7 @@
 ** player_anims
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void init_player_attack_anim(anim_t *anims)

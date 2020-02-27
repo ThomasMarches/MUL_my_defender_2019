@@ -5,7 +5,7 @@
 ** bars
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <SFML/Audio.h>
 
 bool update_bar(game_object_t *bar, scene_t *scene)

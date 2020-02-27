@@ -5,7 +5,7 @@
 ** GG_menu
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void restart_button_function(game_object_t *object, void *pt)

@@ -21,7 +21,7 @@ OBJ	=	$(SRC:.c=.o)
 
 LIB = -L./ -lmy
 
-CFLAGS += -W -Wall -Wextra -pedantic -I./include -g3
+CFLAGS += -Wextra -I./include
 
 DEBUG += -W -Wall -Wextra -pedantic -g3
 

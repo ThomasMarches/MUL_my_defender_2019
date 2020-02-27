@@ -5,7 +5,7 @@
 ** indicator
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <SFML/Audio.h>
 
 bool update_indicator(game_object_t *object, scene_t *scene)

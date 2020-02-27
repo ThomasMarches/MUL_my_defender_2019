@@ -44,4 +44,5 @@ void update_physics(game_object_t *, scene_t *);
 void increase_score(game_t *);
 void init_score(game_t *);
 void save_score(game_t *game);
+
 #endif /* !MY_RUNNER_H_ */

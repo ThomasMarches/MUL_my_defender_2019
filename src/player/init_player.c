@@ -5,7 +5,7 @@
 ** player
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
 void init_player_attack_sound_effect(anim_t *anims)

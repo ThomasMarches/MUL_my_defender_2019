@@ -5,7 +5,7 @@
 ** player_input
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 static void player_input_space(game_t *game)
 {

@@ -5,7 +5,7 @@
 ** handle_framerate
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 void handle_framerate(sfClock *clock, scene_t *scene, game_t *game)
 {

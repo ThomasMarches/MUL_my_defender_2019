@@ -5,7 +5,7 @@
 ** player_ground
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 #include <SFML/Graphics.h>
 
 bool update_tile(game_object_t *object, scene_t *scene)

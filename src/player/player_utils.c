@@ -5,7 +5,7 @@
 ** player_utils
 */
 
-#include "my_runner.h"
+#include "my_defender.h"
 
 game_object_t *find_player(scene_t *scene)
 {
