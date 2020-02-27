@@ -39,7 +39,7 @@ game_object_t *generate_map(game_object_t *last, char *path)
     game_object_t *tmp = NULL;
 
     for (int i = 0; map[i] != NULL; i++)
-        for (int j = 0; map[i][j] != '\0'; i++) {
+        for (int j = 0; map[i][j] != '\0'; j++) {
             tmp = generate_tile(last, map[i][j], j * TILE_WIDTH, i *
             TILE_HEIGHT);
             last = (tmp != NULL) ? tmp : last;
