@@ -61,6 +61,7 @@ typedef struct game_object
     sfClock *delta_t;                                     /**< Local clock of the object*/
     bool (*update)(struct game_object *, struct scene *); /**< Update function of the object*/
     void (*callback)(struct game_object *, void *);       /**< Callback function of the object*/
+    void (*draw)(sfRenderWindow *, struct game_object *);
     struct game_object *next;                             /**< Next object in the list*/
     void *extend;
 } game_object_t;
@@ -238,5 +239,8 @@ void update_disappearing_object(game_object_t *object);
 ////////////////////////////////////////////////////////////
 game_object_t *create_animated_object(game_object_t *last, char *, sfVector2f pos,
                                       sfIntRect **frame_keys);
+
+
+void draw_object(sfRenderWindow *, game_object_t *);
 
 #endif /* !GAME_OBJECT_H_ */

@@ -27,6 +27,7 @@ void init_game_object(game_object_t *object)
     object->next = NULL;
     object->type = DECOR;
     object->sprite_color = (sfColor) {0, 0, 0, 0};
+    object->draw = &draw_object;
 }
 
 game_object_t *create_game_object(game_object_t *last, char *sprite_path, \
@@ -79,23 +80,5 @@ void update_objects(scene_t *scene, game_object_t *object, game_t *game)
             object = prev->next;
         else
             object = prev;
-    }
-}
-
-void draw_objects(game_object_t *object, sfRenderWindow *window, \
-int z_index_max)
-{
-    game_object_t *tmp = object;
-
-    if (object == NULL)
-        return;
-    for (int i = z_index_max; i >= 0;) {
-        if (object->texture != NULL && object->z_index == i)
-            sfRenderWindow_drawSprite(window, object->sprite, NULL);
-        object = object->next;
-        if (object == NULL) {
-            object = tmp;
-            i--;
-        }
     }
 }
