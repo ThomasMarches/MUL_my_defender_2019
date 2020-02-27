@@ -16,6 +16,7 @@ int my_strlen(const char *);
 char *my_strcat(char *, char *);
 int my_strcmp(char *, char *);
 int my_getnbr(char const *);
+char **my_str_to_word_array(char *string, char *limit);
 void my_putstr(char *string);
 
 #endif /* !MY_H_ */

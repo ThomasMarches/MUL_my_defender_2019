@@ -223,7 +223,7 @@ extern const char *GROUND_PATH;
 extern const unsigned char GROUND_WIDTH;
 extern const unsigned char GROUND_HEIGHT;
 
-extern const char *SPIKES_PATH;
+extern const char *GRASS_PATH;
 extern const unsigned char SPIKE_WIDTH;
 extern const unsigned char SPIKE_HEIGHT;
 

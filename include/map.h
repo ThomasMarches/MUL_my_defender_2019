@@ -28,7 +28,7 @@ typedef enum {
 
 typedef enum {
     GROUND = 49,
-    SPIKE = 50
+    GRASS = 50
 } tile_id;
 
 game_object_t *init_background(game_object_t *);

@@ -11,6 +11,7 @@ SRC	=	my_nbr_to_str.c	\
 		my_strcat.c	\
 		my_strcmp.c	\
 		my_getnbr.c \
+		my_str_to_word_array.c \
 		my_putstr.c
 
 MAIN = src/main.c
