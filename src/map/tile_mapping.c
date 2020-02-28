@@ -44,6 +44,8 @@ game_object_t *generate_map(game_object_t *last, char *path)
     char **map = my_str_to_word_array(get_map(path), "\n"); // recupére la map;
     game_object_t *tmp = NULL;
 
+    if (is_map_valid(get_map(path), path) == 84)
+        return (NULL);
     for (int i = 0; map[i] != NULL; i++)
         for (int j = 0; map[i][j] != '\0'; j++) {
             tmp = generate_tile(last, map[i][j], j * TILE_WIDTH, i *

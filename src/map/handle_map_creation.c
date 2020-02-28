@@ -16,8 +16,8 @@ int is_path_valid(char *map, char *map_name)
 {
     int counter = 0;
 
-    for (; map[counter] != '\0' && map[counter] != 'X'; counter++);
-    if (map[counter] != 'X')
+    for (; map[counter] != '\0' && map[counter] != '5'; counter++);
+    if (map[counter] != '5')
         return (84);
     if (map[counter] - 1 != '1' && map[counter] + 1 != '1' &&
     map[counter] - 22 != '1' && map[counter] + 22 != '1') {
@@ -64,6 +64,7 @@ int is_map_valid(char *map, char *map_name)
     if (check_map_content(number_of_grass, number_of_castle,
     number_of_path, map_name) == 84)
         return (84);
+    my_putstr("check");
     return (is_path_valid(map, map_name));
 }
 
