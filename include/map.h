@@ -34,5 +34,6 @@ typedef enum {
 } tile_id;
 
 game_object_t *generate_map(game_object_t *, char *);
+char *get_map(char *filepath_to_map);
 
 #endif /* !MAP_H_ */

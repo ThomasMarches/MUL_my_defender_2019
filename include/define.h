@@ -367,8 +367,8 @@ const unsigned short GG_MAIN_MENU_BUTTON_Y = 675;
 
 const char *ROCK_PATH = "templates/env/rock.png";
 
-const unsigned char TILE_WIDTH = 100;
-const unsigned char TILE_HEIGHT = 50;
+const unsigned char TILE_WIDTH = 67;
+const unsigned char TILE_HEIGHT = 64;
 const unsigned char TILES_PER_CHUNK = 18;
 const unsigned short TILE_MAX_HEIGHT = 950;
 
@@ -378,12 +378,12 @@ const unsigned short CHUNK_WIDTH = 1900;
 const unsigned short CHUNK_HEIGHT = 1000;
 
 const char *GROUND_PATH = "templates/env/ground.png";
-const unsigned char GROUND_WIDTH = 100;
-const unsigned char GROUND_HEIGHT = 34;
+const unsigned char GROUND_WIDTH = 67;
+const unsigned char GROUND_HEIGHT = 64;
 
 const char *GRASS_PATH = "templates/env/grass.png";
-const unsigned char SPIKE_WIDTH = 100;
-const unsigned char SPIKE_HEIGHT = 102;
+const unsigned char SPIKE_WIDTH = 67;
+const unsigned char SPIKE_HEIGHT = 66;
 
 //MAP_GESTION
 

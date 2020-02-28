@@ -54,7 +54,7 @@ int is_map_valid(char *map, char *map_name)
     int number_of_castle = 0;
 
     for (int counter = 0; map[counter] != '\0'; counter++) {
-        if (map[counter] == 'X')
+        if (map[counter] == '5')
             number_of_castle++;
         if (map[counter] == '1')
             number_of_path++;
@@ -80,10 +80,10 @@ char *get_map(char *filepath_to_map)
     if (fd == -1)
         return (NULL);
     map = malloc(sizeof(char) * (size.st_size + 1));
-    map[size.st_size] = '\0';
     if (map == NULL)
         return (NULL);
     read(fd, map, size.st_size);
+    map[size.st_size] = '\0';
     close(fd);
     return (map);
 }

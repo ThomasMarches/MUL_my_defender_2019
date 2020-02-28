@@ -48,7 +48,7 @@ int words_counting(char const *string, char *limit)
 char **my_str_to_word_array(char *string, char *limit)
 {
     int nbr = 0, j = 0, x = 0;
-    char **table_string;
+    char **table_string = NULL;
     int words_number = words_counting(string, limit) + 2;
 
     table_string = malloc(sizeof(char *) * words_number + 1);
