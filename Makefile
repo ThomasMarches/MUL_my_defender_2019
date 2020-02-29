@@ -19,7 +19,7 @@ BUILD_DIR = build/
 
 OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
-RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o
+RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
 
 NAME = my_defender
 
