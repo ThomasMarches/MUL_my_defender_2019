@@ -15,6 +15,7 @@ game_t *init_game()
 
     if (game == NULL)
         return (NULL);
+    game->difficulty = 10;
     game->window = init_window();
     init_score(game);
     game->cursor = init_cursor((char *)CURSOR_PATH);
