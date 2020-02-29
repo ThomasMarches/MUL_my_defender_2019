@@ -19,17 +19,18 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 
     switch (id) {
     case '2':
-        tile = create_game_object(last, GROUND_PATH, (sfVector2f) {x, y},
-        GROUND);
+        tile = create_game_object(last, GROUND_PATH, (sfVector2f) {x, y}, GROUND);
+        tile->z_index = 1;
         break;
     case '1':
         tile = create_game_object(last, GRASS_PATH, (sfVector2f) {x, y}, GRASS);
+        tile->z_index = 1;
         break;
     case '3':
         tile = create_game_object(last, ROCK_PATH, (sfVector2f) {x, y}, ROCK);
         break;
     case '5':
-        tile = create_game_object(last, BASE_PATH, (sfVector2f) {x, y}, BASE);
+        tile = create_game_object(last, BASE_PATH, (sfVector2f) {x - 100, y - 120}, BASE);
         break;
     // etc...
     }

@@ -21,7 +21,7 @@ bool update_tower(game_object_t *object, scene_t *scene)
     return (true);
 }
 
-char *init_tower_from_file(char *filepath, game_t *game, int number)
+char *init_tower_from_file(char *filepath)
 {
     int fd = -1;
     struct stat size;
@@ -37,11 +37,11 @@ char *init_tower_from_file(char *filepath, game_t *game, int number)
     tower_param = malloc(sizeof(char) * (size.st_size + 1));
     if (tower_param == NULL)
         return (NULL);
-    tower_param[size.st_size] = '\0';
     if (read(fd, tower_param, size.st_size) == -1)
         return (NULL);
+    tower_param[size.st_size] = '\0';
     close(fd);
-    return (NULL);
+    return (tower_param);
 }
 
 tower_t *create_tower_extend(tower_type_t type)
