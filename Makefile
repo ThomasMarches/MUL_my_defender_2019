@@ -23,7 +23,7 @@ RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o lib/*.a
 
 NAME = my_defender
 
-CFLAGS = $(LDFLAGS) $(HEADER) -fsanitize=address -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
+CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
 LDFLAGS = -L./lib -lmy_game -lmy -lmy_graph $(CSFML)
 

@@ -11,7 +11,6 @@
 typedef enum tower_type {
     NORMAL,
     FIRE,
-    TOWER_MENU,
     ICE
 } tower_type_t;
 
