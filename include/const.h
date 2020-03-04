@@ -229,12 +229,17 @@ extern const char *GRASS_PATH;
 extern const unsigned char SPIKE_WIDTH;
 extern const unsigned char SPIKE_HEIGHT;
 
-//MAP_GESTIOn
+//MAP GESTION
 
 extern const char *CASLTE_NOT_REACHABLE;
 extern const char *TOO_MANY_CASTLE;
 extern const char *NOT_ENOUGH_GROUND;
 extern const char *NOT_ENOUGH_PATH;
 extern const char *NOT_ENOUGH_CASTLE;
+extern const char *WRONG_CHARACTER;
+
+//TOWER MENU
+
+extern const char *TOWER_MENU_PATH;
 
 #endif

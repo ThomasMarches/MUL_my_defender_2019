@@ -19,7 +19,7 @@ void callback_tower_menu(game_object_t *object, void *pt)
 
 game_object_t *create_tower_menu(game_object_t *last)
 {
-    game_object_t *menu = create_game_object(last, "chibre", (sfVector2f) {0, 0}, TOWER_MENU);
+    game_object_t *menu = create_game_object(last, TOWER_MENU_PATH, (sfVector2f) {1550, 1000}, TOWER_MENU);
 
     menu->z_index = 2;
     menu->state = 0;

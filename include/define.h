@@ -22,7 +22,8 @@ const char *ENV_DISPLAY = "DISPLAY";
 
 const char *USAGE_FLAG = "-h";
 const char *USAGE = "DESCRIPTION:\n\t./my_defender \
-MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n";
+MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping ( optionnal )\n \
+\nCREATE MAP AND TOWER:\n\tRefer to the legend.md file";
 
 // WINDOW
 
@@ -38,7 +39,7 @@ const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
 // MUSIC
 
 const char *MENU_MUSIC_PATH = \
-"templates/sounds/background_menu.wav";
+"templates/sounds/background_menu.ogg";
 
 // SCOR
 const char *BASE_SCORE = "Score :";
@@ -392,5 +393,11 @@ const char *TOO_MANY_CASTLE = ": I'm sorry to tell you that this map isn't playa
 const char *NOT_ENOUGH_GROUND = ": I'm sorry to tell you that this map isn't playable, there arent enough ground on it. Refer to the file legend.md for more information";
 const char *NOT_ENOUGH_PATH = ": I'm sorry to tell you that this map isn't playable, there isnt any path. Refer to the file legend.md for more information";
 const char *NOT_ENOUGH_CASTLE = ": I'm sorry to tell you that this map isn't playable, there isnt any castle. Refer to the file legend.md for more information";
+const char *WRONG_CHARACTER = ": I'm sorry to tell you that this map isn't playable, Wrong character are inside the file. Refer to the file legend.md for more information";
+
+
+//TOWER MENU
+
+const char *TOWER_MENU_PATH = "templates/tower/tower_menu.png";
 
 #endif /* !DEFINE_H_ */

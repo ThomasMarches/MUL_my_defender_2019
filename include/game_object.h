@@ -65,7 +65,7 @@ typedef struct game_object
     struct game_object *next;                             /**< Next object in the list*/
     void *extend;
 } game_object_t;
-
+    
 ////////////////////////////////////////////////////////////
 /// \brief Initialize game_object frame
 ///

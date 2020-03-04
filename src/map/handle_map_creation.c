@@ -60,6 +60,12 @@ int is_map_valid(char *map, char *map_name)
             number_of_path++;
         if (map[counter] == '2')
             number_of_grass++;
+        if (map[counter] != '1' && map[counter] != '2' &&
+        map[counter] != '3' && map[counter] != '5' && map[counter] != '\n'
+        && map[counter] != '\0') {
+            my_putstr(my_strcat(map_name, WRONG_CHARACTER));
+            return (84);   
+        }
     }
     if (check_map_content(number_of_grass, number_of_castle,
     number_of_path, map_name) == 84)
