@@ -2,8 +2,8 @@
 5:6:7
 10:15:20
 1:1,5:2
-templates/towers/tower1_level1.jpg
-templates/towers/tower1_level2.jpg
-templates/towers/tower1_level3.jpg
+templates/tower/tower1.png
+templates/tower/tower1.png
+templates/tower/tower1.png
 slow:0/0/0
 multi_damage:0/0/0
