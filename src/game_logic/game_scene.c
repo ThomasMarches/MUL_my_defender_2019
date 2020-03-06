@@ -12,6 +12,7 @@ void draw_game(scene_t *scene, game_t *game, sfRenderWindow *window)
 {
     display_scene(scene, window);
     sfRenderWindow_drawText(window, game->score->text, NULL);
+    draw_cursor(game->cursor, window);
     sfRenderWindow_display(window);
 }
 
@@ -25,7 +26,9 @@ scene_t *init_game_scene(game_t *game)
     scene->background_color = GAME_BACKGROUND_COLOR;
     scene->handle_event = &handle_event_game;
     scene->objects_list = generate_map(NULL, "maps/map");
-    scene->z_index_deepth = 3;
+    scene->objects_list = create_tower_menu(scene->objects_list);
+    scene->z_index_deepth = 5;
+    scene->window = game->window->window;
     game->score->score = 0;
     return (scene);
 }

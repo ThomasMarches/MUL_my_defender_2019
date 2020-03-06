@@ -26,6 +26,7 @@ game_t *init_game()
     game->scene_loop[OPTION_SCENE] = &options_loop;
     game->scene_loop[INFOS_SCENE] = &infos_loop;
     game->scene_loop[END_SCENE] = &end_loop;
+    srand((unsigned int) game);
     return (game);
 }
 
