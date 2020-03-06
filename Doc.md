@@ -4,7 +4,7 @@
 
 In this file we'll show you the different towers, ennemies, the base and its life.
 If you want to create your own map or your own towers
-, refer to the file legend.md
+, refer to the file legend.md at the root of the game folder.
 
 ## Tower 1
 
