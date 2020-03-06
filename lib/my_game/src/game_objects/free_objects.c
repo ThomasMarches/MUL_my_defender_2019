@@ -8,11 +8,9 @@
 #include "my_game.h"
 #include <stdlib.h>
 
-void free_extend(game_object_t *object)
+void free_extend(void *object)
 {
-    if (object->type == TOWER) {
-        free(object->extend);
-    }
+    free(object);
 }
 
 void free_anim(game_object_t *object)

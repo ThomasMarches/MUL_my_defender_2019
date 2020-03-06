@@ -38,7 +38,9 @@ typedef enum
     DECOR,
     EFFECT,
     FLEUR,
-    INFO
+    INFO,
+    TOWER_MENU,
+    ENNEMY
 } object_type;
 
 ////////////////////////////////////////////////////////////

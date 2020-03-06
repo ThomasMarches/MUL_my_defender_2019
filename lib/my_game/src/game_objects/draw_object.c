@@ -20,7 +20,8 @@ int z_index_max)
     if (object == NULL)
         return;
     for (int i = z_index_max; i >= 0;) {
-        if (object->texture != NULL && object->z_index == i)
+        if (object->texture != NULL && object->z_index == i && object->draw \
+        != NULL)
             object->draw(window, object);
         object = object->next;
         if (object == NULL) {
