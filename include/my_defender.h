@@ -21,6 +21,7 @@
 #include "my_graph.h"
 #include "my_game.h"
 #include "tower.h"
+#include "ennemy.h"
 
 typedef struct game_object game_object_t;
 

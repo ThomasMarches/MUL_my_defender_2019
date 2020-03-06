@@ -11,7 +11,6 @@
 typedef enum tower_type {
     NORMAL,
     FIRE,
-    TOWER_MENU,
     ICE
 } tower_type_t;
 
@@ -25,5 +24,7 @@ typedef struct tower_s {
     char *tower_param;
     tower_type_t type;
 } tower_t;
+
+game_object_t *create_tower(game_object_t *, sfVector2f, tower_type_t);
 
 #endif /* !TOWER_H_ */
