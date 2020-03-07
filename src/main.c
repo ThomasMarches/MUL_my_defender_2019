@@ -30,7 +30,7 @@ window_t *init_window(void)
     return (window);
 }
 
-int my_runner(int argc, char **argv)
+int my_defender(int argc, char **argv)
 {
     game_t *game = init_game();
     sfRenderWindow *window = NULL;
@@ -71,5 +71,5 @@ int main(int argc, char **argv, char **env)
         write(1, USAGE, my_strlen(USAGE));
         return (0);
     }
-    return (my_runner(argc, argv));
+    return (my_defender(argc, argv));
 }
