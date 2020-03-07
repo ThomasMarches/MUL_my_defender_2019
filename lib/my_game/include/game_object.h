@@ -39,7 +39,8 @@ typedef enum
     EFFECT,
     FLEUR,
     INFO,
-    TOWER_MENU
+    TOWER_MENU,
+    ENNEMY
 } object_type;
 
 ////////////////////////////////////////////////////////////

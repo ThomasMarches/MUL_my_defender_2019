@@ -73,13 +73,7 @@ void handle_event_game(scene_t *scene, game_t *game, sfRenderWindow *window)
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
-        if (event.type == sfEvtKeyPressed)
-            handle_key_pressed_game(game, event.key.code, scene);
-        else if (event.type == sfEvtKeyReleased &&  event.key.code == \
-        sfKeySpace && game->player->state == JUMPING) {
-            if (game->player->move.y < JUMP_SPEED_MIN)
-            game->player->move.y = - JUMP_SPEED_MIN;
-            update_game_object_state(game->player, FALLING);
-        }
+        if (event.type == sfEvtMouseButtonPressed)
+            is_click_on_object(scene, event.mouseButton, game);
     }
 }

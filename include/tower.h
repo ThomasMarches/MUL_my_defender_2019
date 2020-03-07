@@ -25,4 +25,6 @@ typedef struct tower_s {
     tower_type_t type;
 } tower_t;
 
+game_object_t *create_tower(game_object_t *, sfVector2f, tower_type_t);
+
 #endif /* !TOWER_H_ */

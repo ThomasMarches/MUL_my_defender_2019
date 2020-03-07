@@ -12,9 +12,10 @@
 char *get_string_from_param(char *str, int column)
 {
     int counter = 0;
-    char *str_to_return = NULL;
+    char *str_to_return = malloc(sizeof(char));
     char *temp = malloc(sizeof(char) * 2);
 
+    str_to_return[0] = '\0';
     if (temp == NULL)
         return (NULL);
     temp[1] = '\0';
@@ -31,9 +32,10 @@ char *get_string_from_param(char *str, int column)
 int get_int_from_param(char *str, int column, int level)
 {
     int counter = 0;
-    char *int_to_return = NULL;
+    char *int_to_return = malloc(sizeof(char));
     char *temp = malloc(sizeof(char) * 2);
 
+    int_to_return[0] = '\0';
     if (temp == NULL)
         return (84);
     temp[1] = '\0';

@@ -65,5 +65,6 @@ char **my_str_to_word_array(char *string, char *limit)
         for (; (delimitation_string(string[x], limit) == -1 && string[x]); x++);
     }
     table_string[j] = NULL;
+    free(string);
     return (table_string);
 }

@@ -113,6 +113,7 @@ int game_loop(game_t *game, sfRenderWindow *window)
     while (sfRenderWindow_isOpen(window) && scene->display == GAME_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);
+        draw_cursor(game->cursor, scene->window);
         draw_game(scene, game, window);
     }
     sfClock_destroy(clock);
