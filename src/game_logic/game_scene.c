@@ -27,6 +27,7 @@ scene_t *init_game_scene(game_t *game)
     scene->handle_event = &handle_event_game;
     scene->objects_list = generate_map(NULL, "maps/map");
     scene->objects_list = create_tower_menu(scene->objects_list);
+    scene->objects_list = create_board(scene->objects_list);
     scene->z_index_deepth = 5;
     scene->window = game->window->window;
     game->score->score = 0;

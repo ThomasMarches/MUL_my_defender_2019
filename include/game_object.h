@@ -40,7 +40,8 @@ typedef enum
     FLEUR,
     INFO,
     TOWER_MENU,
-    ENNEMY
+    ENNEMY,
+    TOWER_BOARD
 } object_type;
 
 ////////////////////////////////////////////////////////////

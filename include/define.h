@@ -368,8 +368,8 @@ const unsigned short GG_MAIN_MENU_BUTTON_Y = 675;
 
 const char *ROCK_PATH = "templates/env/rock.png";
 
-const unsigned char TILE_WIDTH = 67; // 30 DE LARGES
-const unsigned char TILE_HEIGHT = 64; // 18 DE LONGS 
+const unsigned char TILE_WIDTH = 67;
+const unsigned char TILE_HEIGHT = 64;
 const unsigned char TILES_PER_CHUNK = 18;
 const unsigned short TILE_MAX_HEIGHT = 950;
 
@@ -395,9 +395,39 @@ const char *NOT_ENOUGH_PATH = ": I'm sorry to tell you that this map isn't playa
 const char *NOT_ENOUGH_CASTLE = ": I'm sorry to tell you that this map isn't playable, there isnt any castle. Refer to the file legend.md for more information";
 const char *WRONG_CHARACTER = ": I'm sorry to tell you that this map isn't playable, Wrong character are inside the file. Refer to the file legend.md for more information";
 
-
 //TOWER MENU
 
 const char *TOWER_MENU_PATH = "templates/tower/tower_menu.png";
+const char *FILEPATH_TABLE[] = {"towers/tower1.txt", "towers/tower2.txt", "towers/tower3.txt", "towers/tower4.txt", NULL};
+const char *TOWER_BOARD_PATH = "templates/interface/background_interface.png";
 
+//ENNEMY
+
+const sfIntRect *FIRST_ENNEMY_RECT_DOWN[] = {
+    &(sfIntRect){0, 0, 48, 48},
+    &(sfIntRect){48, 0, 48, 48},
+    &(sfIntRect){96, 0, 48, 48},
+    NULL
+};
+
+const sfIntRect *FIRST_ENNEMY_RECT_TOP[] = {
+    &(sfIntRect){0, 144, 48, 48},
+    &(sfIntRect){48, 144, 48, 48},
+    &(sfIntRect){96, 144, 48, 48},
+    NULL
+};
+
+const sfIntRect *FIRST_ENNEMY_RECT_LEFT[] = {
+    &(sfIntRect){0, 48, 48, 48},
+    &(sfIntRect){48, 48, 48, 48},
+    &(sfIntRect){96, 48, 48, 48},
+    NULL
+};
+
+const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[] = {
+    &(sfIntRect){0, 96, 48, 48},
+    &(sfIntRect){48, 96, 48, 48},
+    &(sfIntRect){96, 96, 48, 48},
+    NULL
+};
 #endif /* !DEFINE_H_ */

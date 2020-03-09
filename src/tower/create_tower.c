@@ -52,7 +52,9 @@ tower_t *create_tower_extend(tower_type_t type)
         return (NULL);
     tower->type = type;
     tower->level = 1;
-    tower->tower_param = init_tower_from_file("towers/tower1.txt");
+    tower->tower_param = init_tower_from_file(FILEPATH_TABLE[type - 1]);
+    if (tower->tower_param == NULL)
+        return (NULL);
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
     tower->damage = get_int_from_param(tower->tower_param, 2, 1);
     tower->range = get_int_from_param(tower->tower_param, 3, 1);
@@ -60,7 +62,7 @@ tower_t *create_tower_extend(tower_type_t type)
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
     return (tower);
 }
-
+    
 game_object_t *create_tower(game_object_t *last, sfVector2f pos, \
 tower_type_t type)
 {

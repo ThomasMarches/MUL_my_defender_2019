@@ -5,6 +5,8 @@
 ** tower
 */
 
+#include "my_defender.h"
+
 #ifndef TOWER_H_
 #define TOWER_H_
 
@@ -13,6 +15,12 @@ typedef enum tower_type {
     FIRE,
     ICE
 } tower_type_t;
+
+typedef struct board_s {
+    score_t *wave;
+    score_t *life;
+    score_t *points;
+} board_t;
 
 typedef struct tower_s {
     int level;
@@ -26,5 +34,7 @@ typedef struct tower_s {
 } tower_t;
 
 game_object_t *create_tower(game_object_t *, sfVector2f, tower_type_t);
+void increase_board_value(score_t *score, int number, char *str);
+void draw_board_text(sfRenderWindow *window, board_t *info);
 
 #endif /* !TOWER_H_ */
