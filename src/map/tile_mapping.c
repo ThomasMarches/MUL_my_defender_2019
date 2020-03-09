@@ -15,11 +15,13 @@ void callback_tile(game_object_t *object, void *pt)
     tower_type_t type = 0;
     game_object_t *tmp = NULL;
 
+    if (object->type != GRASS)
+        return;
     for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next) {
         if (tmp->type == TOWER_MENU)
             type = tmp->state;
-        if (tmp != object && object->pos.x == tmp->pos.x && \
-        object->pos.y == tmp->pos.y)
+        if ((tmp != object && object->pos.x == tmp->pos.x && \
+        object->pos.y == tmp->pos.y))
             return;
     }
     tmp = create_tower(scene->objects_list, object->pos, type);
