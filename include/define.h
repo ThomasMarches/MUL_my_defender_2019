@@ -394,7 +394,8 @@ const char *NOT_ENOUGH_GROUND = ": I'm sorry to tell you that this map isn't pla
 const char *NOT_ENOUGH_PATH = ": I'm sorry to tell you that this map isn't playable, there isnt any path. Refer to the file legend.md for more information";
 const char *NOT_ENOUGH_CASTLE = ": I'm sorry to tell you that this map isn't playable, there isnt any castle. Refer to the file legend.md for more information";
 const char *WRONG_CHARACTER = ": I'm sorry to tell you that this map isn't playable, Wrong character are inside the file. Refer to the file legend.md for more information";
-
+const char *TOO_MANY_STARTING_POINT = ": I'm sorry to tell you that this map isn't playable, There are too many starting points. Refer to the file legend.md for more information";
+const char *NO_STARTING_POINT = ": I'm sorry to tell you that this map isn't playable, There are no starting point. Refer to the file legend.md for more information";
 //TOWER MENU
 
 const char *TOWER_MENU_PATH = "templates/tower/tower_menu.png";

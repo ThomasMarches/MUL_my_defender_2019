@@ -47,6 +47,23 @@ int number_of_path, char *map_name)
     return (0);
 }
 
+int is_starting_point_valid(char *map, char *map_name)
+{
+    int start_point = 0;
+
+    for (int counter = 0; map[counter] != '\0'; counter++)
+        if (map[counter] == '4')
+            start_point++;
+    if (start_point == 0) {
+        my_putstr(my_strcat(map_name, (char *) NO_STARTING_POINT));
+        return (84);
+    } else if (start_point > 1) {
+        my_putstr(my_strcat(map_name, (char *) TOO_MANY_STARTING_POINT));
+        return (84);
+    }
+    return (0);
+}
+
 int is_map_valid(char *map, char *map_name)
 {
     int number_of_path = 0;
@@ -68,7 +85,8 @@ int is_map_valid(char *map, char *map_name)
         }
     }
     if (check_map_content(number_of_grass, number_of_castle,
-    number_of_path, map_name) == 84)
+    number_of_path, map_name) == 84 ||
+    is_starting_point_valid(map, map_name) == 84)
         return (84);
     return (is_path_valid(map, map_name));
 }

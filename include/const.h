@@ -237,6 +237,9 @@ extern const char *NOT_ENOUGH_GROUND;
 extern const char *NOT_ENOUGH_PATH;
 extern const char *NOT_ENOUGH_CASTLE;
 extern const char *WRONG_CHARACTER;
+extern const char *TOO_MANY_STARTING_POINT;
+extern const char *NO_STARTING_POINT;
+
 
 //TOWER MENU
 
