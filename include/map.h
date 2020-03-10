@@ -26,13 +26,6 @@ typedef enum {
     MOBS_GENERATION,
 } chunk_generation_state;
 
-typedef enum {
-    GROUND = 49,
-    GRASS = 50,
-    BASE = 51,
-    ROCK = 52
-} tile_id;
-
 game_object_t *generate_map(game_object_t *, char *);
 char *get_map(char *);
 int is_map_valid(char *, char *);

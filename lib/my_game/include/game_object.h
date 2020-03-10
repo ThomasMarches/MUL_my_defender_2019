@@ -41,6 +41,10 @@ typedef enum
     INFO,
     TOWER_MENU,
     ENNEMY,
+    GROUND,
+    GRASS,
+    BASE,
+    ROCK,
     TOWER_BOARD
 } object_type;
 
