@@ -241,5 +241,14 @@ extern const char *WRONG_CHARACTER;
 //TOWER MENU
 
 extern const char *TOWER_MENU_PATH;
+extern const char *FILEPATH_TABLE[];
+extern const char *TOWER_BOARD_PATH;
+
+//ENNEMY
+
+extern const sfIntRect *FIRST_ENNEMY_RECT_DOWN[];
+extern const sfIntRect *FIRST_ENNEMY_RECT_TOP[];
+extern const sfIntRect *FIRST_ENNEMY_RECT_LEFT[];
+extern const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[];
 
 #endif

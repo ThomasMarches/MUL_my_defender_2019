@@ -41,6 +41,7 @@ game_t *init_game();
 int game_loop(game_t *, sfRenderWindow *);
 void destroy_game(game_t *);
 void draw_game(scene_t *, game_t *, sfRenderWindow *);
+game_object_t *create_board(game_object_t *);
 
 char *get_map(char *);
 void update_physics(game_object_t *, scene_t *);
