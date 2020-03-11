@@ -62,7 +62,7 @@ tower_t *create_tower_extend(tower_type_t type)
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
     return (tower);
 }
-    
+
 game_object_t *create_tower(game_object_t *last, sfVector2f pos, \
 tower_type_t type)
 {

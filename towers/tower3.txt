@@ -2,6 +2,6 @@
 10:11:12
 6:8:10
 1.25:1,5:2.25
-templates/tower/tower3.png
+templates/tower/icon_tower3.png
 slow:0/0/0
 multi_damage:0/0/0
