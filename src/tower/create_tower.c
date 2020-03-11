@@ -55,6 +55,7 @@ tower_t *create_tower_extend(tower_type_t type)
     tower->tower_param = init_tower_from_file((char *) FILEPATH_TABLE[type - 1]);
     if (tower->tower_param == NULL)
         return (NULL);
+    tower->aoe = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
     tower->damage = get_int_from_param(tower->tower_param, 2, 1);
     tower->range = get_int_from_param(tower->tower_param, 3, 1);

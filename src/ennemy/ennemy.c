@@ -16,7 +16,6 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
     if (ennemy->life <= 0)
         return (false);
     ennemy->position_on_map += 1;
-    printf("%d\n", ennemy->life);
     object->pos.x += object->move.x;
     object->pos.y += object->move.y;
     if (object->pos.x > WINDOW_WIDTH)
@@ -30,15 +29,15 @@ void callback_ennemy(game_object_t *object, void *pt)
 {
 }
 
-ennemy_t *create_ennemy_struct(void)
+ennemy_t *create_ennemy_struct(int i)
 {
     ennemy_t *ennemy = malloc(sizeof(ennemy_t));
 
     if (ennemy == NULL)
         return (NULL);
-    ennemy->position_on_map = 0;
+    ennemy->position_on_map = -i;
     ennemy->slow = 0;
-    ennemy->life = 10;
+    ennemy->life = 1000;
     return (ennemy);
 }
 
@@ -69,7 +68,7 @@ game_object_t *create_ennemy(game_object_t *last, int i)
 
     if (object == NULL)
         return (NULL);
-    object->extend = (void *) create_ennemy_struct();
+    object->extend = (void *) create_ennemy_struct(i);
     if (object->extend == NULL) {
         free(object);
         return (NULL);

@@ -12,27 +12,19 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-game_object_t *create_range_circle(game_object_t *object)
-{
-    tower_t *tower = (tower_t *) object->extend;
-
-    tower->circle = sfCircleShape_create();
-    sfCircleShape_setPosition(tower->circle, object->pos);
-    sfCircleShape_setRadius(tower->circle, tower->range * 65);
-    return (object);
-}
-
 bool is_ennemy_in_range(game_object_t *object, game_object_t *ennemy)
 {
     int distance1 = 0;
     int distance2 = 0;
-
     tower_t *tower = (tower_t *) object->extend;
-    distance1 = (ennemy->pos.x - sfCircleShape_getOrigin(tower->circle).x) *
-    (ennemy->pos.x - sfCircleShape_getOrigin(tower->circle).x);
-    distance2 = (ennemy->pos.y - sfCircleShape_getOrigin(tower->circle).y) *
-    (ennemy->pos.y - sfCircleShape_getOrigin(tower->circle).y);
-    if (sqrt(distance1 + distance2) < (double) sfCircleShape_getRadius(tower->circle) * 65)
+
+    if (ennemy->type != ENNEMY)
+        return (false);
+    distance1 = (ennemy->pos.x - object->pos.x) *
+    (ennemy->pos.x - object->pos.x);
+    distance2 = (ennemy->pos.y - object->pos.y) *
+    (ennemy->pos.y - object->pos.y);
+    if (sqrt(distance1 + distance2) < tower->range * 65)
         return (true);
     return (false);
 }
@@ -73,8 +65,8 @@ void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
         && is_ennemy_in_range(object, tmp)) {
             tmp2 = tmp;
             walk = ((ennemy_t *) tmp->extend)->position_on_map;
+            printf("%d\n", walk);
         }
-    printf("%p\n", tmp2);
     if (tmp2 == NULL)
         return;
     shoot_on_ennemy(object, tmp2, scene);
