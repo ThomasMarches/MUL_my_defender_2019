@@ -35,6 +35,6 @@ typedef struct tower_s {
 
 game_object_t *create_tower(game_object_t *, sfVector2f, tower_type_t);
 void increase_board_value(score_t *score, int number, char *str);
-void draw_board_text(sfRenderWindow *window, board_t *info);
+void draw_board(sfRenderWindow *window, game_object_t *);
 
 #endif /* !TOWER_H_ */

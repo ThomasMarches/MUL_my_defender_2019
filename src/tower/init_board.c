@@ -23,16 +23,19 @@ void increase_board_value(score_t *score, int number, char *str)
     sfText_setString(score->text, score->score_text);
 }
 
-void draw_board_text(sfRenderWindow *window, board_t *info)
+void draw_board(sfRenderWindow *window, game_object_t *object)
 {
-    sfRenderWindow_drawText(window, info->wave->text, NULL);
+    board_t *info = (board_t *) object->extend;
+    (void *) info;
+
+    draw_object(window, object);
     sfRenderWindow_drawText(window, info->life->text, NULL);
+    sfRenderWindow_drawText(window, info->wave->text, NULL);
     sfRenderWindow_drawText(window, info->points->text, NULL);
 }
 
-board_t *create_board_text(void)
+board_t *create_board_text(board_t *info)
 {
-    board_t *info = malloc(sizeof(board_t));
     char *tmp = NULL;
     
     info->wave = malloc(sizeof(score_t));
@@ -44,27 +47,31 @@ board_t *create_board_text(void)
     info->life->score = 10;
     info->points->score = 0;
     tmp = my_nbr_to_str(info->wave->score);
-    info->wave->score_text = my_strcat((char *)"Wave :", tmp);
+    info->wave->score_text = my_strcat((char *)"Wave : ", tmp);
     tmp = my_nbr_to_str(info->life->score);
-    info->life->score_text = my_strcat((char *)"Life :", tmp);
+    info->life->score_text = my_strcat((char *)"Life : ", tmp);
     tmp = my_nbr_to_str(info->points->score);
-    info->points->score_text = my_strcat((char *)"Points :", tmp);
+    info->points->score_text = my_strcat((char *)"Points : ", tmp);
     free(tmp);
-    info->wave->text = init_text(info->wave->score_text, 800, 800, (char *) FONT_PATH);
-    info->life->text = init_text(info->life->score_text, 900, 800, (char *) FONT_PATH);
-    info->points->text = init_text(info->points->score_text, 1000, 800,(char *) FONT_PATH);
+    info->wave->text = init_text(info->wave->score_text, 1700, 840, (char *) FONT_PATH);
+    info->life->text = init_text(info->life->score_text, 1125, 840, (char *) FONT_PATH);
+    info->points->text = init_text(info->points->score_text, 1400, 840,(char *) FONT_PATH);
+    sfText_setCharacterSize(info->points->text, 70);
+    sfText_setCharacterSize(info->life->text, 70);
+    sfText_setCharacterSize(info->wave->text, 70);
     return (info);
 }
 
 game_object_t *create_board(game_object_t *last)
 {
-    game_object_t *board = create_game_object(last, (char *) TOWER_BOARD_PATH, (sfVector2f) {0, 800}, TOWER_BOARD);
+    game_object_t *board = create_game_object(last, (char *) TOWER_BOARD_PATH, (sfVector2f) {0, 760}, TOWER_BOARD);
+    board_t *info = malloc(sizeof(board_t));
 
-    if (board == NULL)
+    if (board == NULL || info == NULL)
         return (last);
-    board->z_index = 4;
-    board->extend = create_board_text();
-    if (board->extend == NULL)
-        return (NULL);
+    info = create_board_text(info);
+    board->z_index = 5;
+    board->draw = &draw_board;
+    board->extend = (void *) info;
     return (board);
 }
