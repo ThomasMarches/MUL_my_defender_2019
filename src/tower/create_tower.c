@@ -44,6 +44,15 @@ char *init_tower_from_file(char *filepath)
     return (tower_param);
 }
 
+void draw_tower(sfRenderWindow *window, game_object_t *object)
+{
+    tower_t *tower = (tower_t *) object->extend;
+
+    if (tower->draw_range == 1)
+        sfRenderWindow_drawCircleShape(window, tower->circle, NULL);
+    sfRenderWindow_drawSprite(window, object->sprite, NULL);
+}
+
 tower_t *create_tower_extend(tower_type_t type)
 {
     tower_t *tower = malloc(sizeof(tower_t));
@@ -56,6 +65,7 @@ tower_t *create_tower_extend(tower_type_t type)
     if (tower->tower_param == NULL)
         return (NULL);
     tower->aoe = 0;
+    tower->draw_range = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
     tower->damage = get_int_from_param(tower->tower_param, 2, 1);
     tower->range = get_int_from_param(tower->tower_param, 3, 1);
@@ -77,8 +87,10 @@ tower_type_t type)
     if (object == NULL)
         return (NULL);
     object->update = &update_tower;
+    object->draw = &draw_tower;
     object->z_index = 2;
     object->extend = (void *) tower;
-    object = create_range_circle(object);
+    object->callback = &draw_range_circle;
+    create_range_circle(object);
     return (object);
 }
