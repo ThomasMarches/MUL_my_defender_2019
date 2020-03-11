@@ -22,6 +22,10 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
         return (false);
     sfSprite_setPosition(object->sprite, object->pos);
     frame++;
+    if (frame == 4) {
+        frame = 0;
+        update_game_object_frame(object);
+    }
     return (true);
 }
 
@@ -77,7 +81,7 @@ game_object_t *create_ennemy(game_object_t *last, int i)
     init_ennemy_anim(object);
     object->state = 0;
     object->update = &update_effect;
-    object->move = (sfVector2f) {10, 0};
+    object->move = (sfVector2f) {5, 0};
     init_game_object_frame(object);
     object->update = &update_ennemy;
     object->callback = &callback_ennemy;

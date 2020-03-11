@@ -65,7 +65,6 @@ void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
         && is_ennemy_in_range(object, tmp)) {
             tmp2 = tmp;
             walk = ((ennemy_t *) tmp->extend)->position_on_map;
-            printf("%d\n", walk);
         }
     if (tmp2 == NULL)
         return;
