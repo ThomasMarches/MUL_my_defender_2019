@@ -30,14 +30,14 @@ void callback_tile(game_object_t *object, void *pt)
 
 game_object_t *create_tile(game_object_t *last, char *path, sfVector2f vec, object_type type)
 {
-    game_object_t *tile = create_game_object(last, path, vec, GROUND);
+    game_object_t *tile = create_game_object(last, path, vec, type);
 
     if (tile == NULL)
         return (NULL);
     tile->callback = &callback_tile;
     tile->z_index = 4;
-    tile->z_index = (type == BASE) ? 0 : last->z_index;
-    tile->box = (sfIntRect) {last->pos.x, last->pos.y, TILE_WIDTH, TILE_HEIGHT};
+    tile->z_index = (type == BASE) ? 0 : tile->z_index;
+    tile->box = (sfIntRect) {tile->pos.x, tile->pos.y, TILE_WIDTH, TILE_HEIGHT};
     return (tile);
 }
 
@@ -57,7 +57,7 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
         return (create_tile(last, (char *) ROCK_PATH, (sfVector2f) {x, y}, ROCK));
         break;
     case '5':
-        return (create_tile(last, (char *) BASE_PATH, (sfVector2f) {x - 100, y - 120}, BASE));
+        return (create_tile(last, (char *) BASE_PATH, (sfVector2f) {x - 33, y - 120}, BASE));
         break;
     default:
         return (NULL);

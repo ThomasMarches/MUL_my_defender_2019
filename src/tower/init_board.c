@@ -67,7 +67,7 @@ game_object_t *create_board(game_object_t *last)
     game_object_t *board = create_game_object(last, (char *) TOWER_BOARD_PATH, (sfVector2f) {0, 760}, TOWER_BOARD);
     board_t *info = malloc(sizeof(board_t));
 
-    if (board == NULL || info == NULL)
+    if (board == NULL|| info == NULL)
         return (last);
     info = create_board_text(info);
     board->z_index = 5;
