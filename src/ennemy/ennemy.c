@@ -15,6 +15,8 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
 
     if (ennemy->life <= 0)
         return (false);
+    ennemy->position_on_map += 1;
+    printf("%d\n", ennemy->life);
     object->pos.x += object->move.x;
     object->pos.y += object->move.y;
     if (object->pos.x > WINDOW_WIDTH)
@@ -34,6 +36,7 @@ ennemy_t *create_ennemy_struct(void)
 
     if (ennemy == NULL)
         return (NULL);
+    ennemy->position_on_map = 0;
     ennemy->slow = 0;
     ennemy->life = 10;
     return (ennemy);

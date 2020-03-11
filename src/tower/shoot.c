@@ -30,12 +30,15 @@ bool is_ennemy_in_range(game_object_t *object, game_object_t *ennemy)
     tower_t *tower = (tower_t *) object->extend;
     if (object->type != ENNEMY)
         return (false);
-    distance1 = (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x) *
-    (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x);
-    distance2 = (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y) *
-    (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y);
-    if ((distance1 + distance2) / (distance1 + distance2) < sfCircleShape_getRadius(tower->circle))
+    printf("ntm");
+    distance1 = (ennemy->pos.x - sfCircleShape_getOrigin(tower->circle).x) *
+    (ennemy->pos.x - sfCircleShape_getOrigin(tower->circle).x);
+    distance2 = (ennemy->pos.y - sfCircleShape_getOrigin(tower->circle).y) *
+    (ennemy->pos.y - sfCircleShape_getOrigin(tower->circle).y);
+    if (sqrt(distance1 + distance2) < (double) sfCircleShape_getRadius(tower->circle) * 65) {
+        printf("ADIEU EPITECH");
         return (true);
+    }
     return (false);
 }
 
@@ -70,12 +73,14 @@ void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
     game_object_t *tmp2 = NULL;
     int walk = 0;
 
-    for (tmp = scene->objects_list; tmp; tmp = tmp->next)
+    for (tmp = scene->objects_list; tmp; tmp = tmp->next) {
+        printf("%d / %d / %d\n", tmp->type, (tmp->type == ENNEMY) ? ((ennemy_t *) tmp->extend)->position_on_map : 0, walk);
         if (tmp->type == ENNEMY && ((ennemy_t *) tmp->extend)->position_on_map > walk
         && is_ennemy_in_range(object, tmp)) {
             tmp2 = tmp;
             walk = ((ennemy_t *) tmp->extend)->position_on_map;
         }
+    }
     if (tmp2 == NULL)
         return;
     shoot_on_ennemy(object, tmp2, scene);
