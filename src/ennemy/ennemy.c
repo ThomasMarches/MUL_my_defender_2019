@@ -11,7 +11,10 @@
 bool update_ennemy(game_object_t *object, scene_t *scene)
 {
     static int frame= 0;
+    ennemy_t *ennemy = (ennemy_t *) object->extend;
 
+    if (ennemy->life <= 0)
+        return (false);
     object->pos.x += object->move.x;
     object->pos.y += object->move.y;
     if (object->pos.x > WINDOW_WIDTH)
