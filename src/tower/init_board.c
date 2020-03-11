@@ -26,7 +26,6 @@ void increase_board_value(score_t *score, int number, char *str)
 void draw_board(sfRenderWindow *window, game_object_t *object)
 {
     board_t *info = (board_t *) object->extend;
-    (void *) info;
 
     draw_object(window, object);
     sfRenderWindow_drawText(window, info->life->text, NULL);
@@ -48,7 +47,7 @@ board_t *config_board_text(board_t *info)
 board_t *create_board_text(board_t *info)
 {
     char *tmp = NULL;
-    
+
     info->wave = malloc(sizeof(score_t));
     info->points = malloc(sizeof(score_t));
     info->life = malloc(sizeof(score_t));

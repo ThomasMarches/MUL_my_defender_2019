@@ -15,4 +15,6 @@ typedef struct ennemy {
     int position_on_map;
 } ennemy_t;
 
+game_object_t *create_ennemy(game_object_t *, int);
+
 #endif /* !ENNEMY_H_ */

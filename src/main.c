@@ -9,5 +9,5 @@
 
 int main(int argc, char **argv, char **env)
 {
-    return (check_error(argc, argv));
+    return (check_error(argc, argv, env));
 }

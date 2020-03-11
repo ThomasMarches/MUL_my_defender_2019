@@ -6,6 +6,7 @@
 */
 
 #include "my_defender.h"
+#include <stdlib.h>
 
 bool update_ennemy(game_object_t *object, scene_t *scene)
 {
@@ -22,7 +23,6 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
 
 void callback_ennemy(game_object_t *object, void *pt)
 {
-    scene_t *scene = (scene_t *) pt;
 }
 
 ennemy_t *create_ennemy_struct(void)
@@ -38,19 +38,19 @@ ennemy_t *create_ennemy_struct(void)
 
 void init_ennemy_anim(game_object_t *object)
 {
-    object->anim[0].frames_key = FIRST_ENNEMY_RECT_RIGHT;
+    object->anim[0].frames_key = (sfIntRect **) FIRST_ENNEMY_RECT_RIGHT;
     object->anim[0].loop = true;
     object->anim[0].frame_id = 0;
     object->anim[0].restart_id = 0;
-    object->anim[1].frames_key = FIRST_ENNEMY_RECT_RIGHT;
+    object->anim[1].frames_key = (sfIntRect **) FIRST_ENNEMY_RECT_RIGHT;
     object->anim[1].loop = true;
     object->anim[1].frame_id = 0;
     object->anim[1].restart_id = 0;
-    object->anim[2].frames_key = FIRST_ENNEMY_RECT_RIGHT;
+    object->anim[2].frames_key = (sfIntRect **) FIRST_ENNEMY_RECT_RIGHT;
     object->anim[2].loop = true;
     object->anim[2].frame_id = 0;
     object->anim[2].restart_id = 0;
-    object->anim[3].frames_key = FIRST_ENNEMY_RECT_RIGHT;
+    object->anim[3].frames_key = (sfIntRect **) FIRST_ENNEMY_RECT_RIGHT;
     object->anim[3].loop = true;
     object->anim[3].frame_id = 0;
     object->anim[3].restart_id = 0;

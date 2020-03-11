@@ -18,7 +18,6 @@ char *get_string_from_param(char *, int);
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     tower_t *tower = (tower_t *) object->extend;
-    (void *) tower;
     return (true);
 }
 
