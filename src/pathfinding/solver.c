@@ -14,10 +14,10 @@ int solve(map_t *map)
 {
     node_t *actual = NULL;
 
-    map->out = (strlen(map->map) - 2);
     if (add_node(&map->l1, (node_t) {0, 0, NULL, NULL}) == false)
         return (84);
     actual = map->l1;
+    for (; map->map[actual->index] != '\0' && map->map[actual->index] != '5'; actual->index++);
     while (actual->index != map->out && map->l1 != NULL) {
         actual = get_best_node(&map->l1);
         if (add_neigbours(actual, map) == 84)
@@ -27,7 +27,7 @@ int solve(map_t *map)
     if (actual->index == map->out)
         print_result(actual, map);
     else
-        write(1, "non", 3);
+        return (free_and_leave(map, 84));
     return (free_and_leave(map, 0));
 }
 

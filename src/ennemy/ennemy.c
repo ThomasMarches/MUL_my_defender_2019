@@ -29,9 +29,6 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
     return (true);
 }
 
-void callback_ennemy(game_object_t *object, void *pt)
-{
-}
 
 ennemy_t *create_ennemy_struct(int i)
 {
@@ -84,7 +81,6 @@ game_object_t *create_ennemy(game_object_t *last, int i)
     object->move = (sfVector2f) {5, 0};
     init_game_object_frame(object);
     object->update = &update_ennemy;
-    object->callback = &callback_ennemy;
     object->z_index = 2;
     return (object);
 }

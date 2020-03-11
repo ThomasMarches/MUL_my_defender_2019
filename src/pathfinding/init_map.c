@@ -14,10 +14,8 @@
 
 void print_result(node_t *node, map_t *map)
 {
-    for (node_t *tmp = node; tmp; tmp = tmp->parent) {
+    for (node_t *tmp = node; tmp; tmp = tmp->parent)
         map->map[tmp->index] = 'o';
-    }
-    write(1, map->map, strlen(map->map));
 }
 
 int free_and_leave(map_t *map, int ret)
@@ -38,5 +36,6 @@ map_t init_map(char *raw_map)
     for (int i = 0; map.map[i] != '\0'; i++)
         if (map.map[i] == '\n')
             map.y++;
+    for (; map.map[map.out] != '\0' && map.map[map.out] != '4'; map.out++);
     return (map);
 }

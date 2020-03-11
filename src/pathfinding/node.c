@@ -50,6 +50,12 @@ void move_node(node_t **l1, node_t **l2, node_t *node)
 {
     node_t *tmp = *l1;
 
+    if (tmp == node) {
+        *l1 = tmp->next;
+        node->next = *l2;
+        *l2 = node;
+        return;
+    }
     for (; tmp && tmp->next != node; tmp = tmp->next);
     if (!tmp)
         return;

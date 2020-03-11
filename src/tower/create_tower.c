@@ -19,6 +19,7 @@ char *get_string_from_param(char *, int);
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     get_ennemy_to_shoot(object, scene);
+    printf("%d\n", ((tower_t *) object->extend)->draw_range);
     return (true);
 }
 
@@ -90,7 +91,7 @@ tower_type_t type)
     object->draw = &draw_tower;
     object->z_index = 2;
     object->extend = (void *) tower;
-    object->callback = &draw_range_circle;
+    object->box = (sfIntRect) {pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT};
     create_range_circle(object);
     return (object);
 }

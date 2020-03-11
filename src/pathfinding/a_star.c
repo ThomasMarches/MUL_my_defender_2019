@@ -30,8 +30,7 @@ int add_neigbour(node_t *actual, map_t *map, int index)
 {
     node_t node = {0, 0, NULL, NULL};
 
-    if (index < 0 || index > (map->x + 1) * map->y || map->map[index] == 'X' \
-    || map->map[index] == '\n')
+    if (index < 0 || index > (map->x + 1) * map->y || map->map[index] != 2)
         return (0);
     node.index = index;
     node.parent = actual;
@@ -50,5 +49,5 @@ int add_neigbours(node_t *actual, map_t *map)
     ret = (ret == 84) ? ret : add_neigbour(actual, map, actual->index + 1);
     ret = (ret == 84) ? ret : add_neigbour(actual, map, actual->index - map->x - 1);
     ret = (ret == 84) ? ret : add_neigbour(actual, map, actual->index + map->x + 1);
-    return (0);
+    return (ret);
 }
