@@ -34,6 +34,9 @@ game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
     case '2':
         return (create_game_object(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
         break;
+    case '4':
+        return (create_game_object(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
+        break;
     case '1':
         return (create_game_object(last, (char *) GRASS_PATH, (sfVector2f) {x, y}, GRASS));
         break;
