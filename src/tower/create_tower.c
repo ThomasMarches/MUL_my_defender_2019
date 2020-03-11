@@ -79,5 +79,6 @@ tower_type_t type)
     object->update = &update_tower;
     object->z_index = 2;
     object->extend = (void *) tower;
+    object = create_range_circle(object);
     return (object);
 }

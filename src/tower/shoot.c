@@ -12,13 +12,14 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-sfCircleShape *create_range_circle(game_object_t *object)
+game_object_t *create_range_circle(game_object_t *object)
 {
     tower_t *tower = (tower_t *) object->extend;
 
     tower->circle = sfCircleShape_create();
     sfCircleShape_setPosition(tower->circle, object->pos);
     sfCircleShape_setRadius(tower->circle, tower->range * 65);
+    return (object);
 }
 
 bool is_ennemy_in_range(game_object_t *object, game_object_t *ennemy)
