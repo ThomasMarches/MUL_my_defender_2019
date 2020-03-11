@@ -23,7 +23,10 @@ typedef struct board_s {
 } board_t;
 
 typedef struct tower_s {
+    sfCircleShape *circle;
     int level;
+    int slow;
+    int aoe;
     int attack_speed;
     int damage;
     int range;

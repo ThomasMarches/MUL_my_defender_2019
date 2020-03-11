@@ -12,6 +12,7 @@ typedef struct ennemy {
     sfVector2f *path;
     int slow;
     int life;
+    int position_on_map;
 } ennemy_t;
 
 #endif /* !ENNEMY_H_ */
