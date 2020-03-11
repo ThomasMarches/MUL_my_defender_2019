@@ -16,5 +16,6 @@ typedef struct ennemy {
 } ennemy_t;
 
 game_object_t *create_ennemy(game_object_t *, int);
+game_object_t *init_wave(game_object_t *);
 
 #endif /* !ENNEMY_H_ */

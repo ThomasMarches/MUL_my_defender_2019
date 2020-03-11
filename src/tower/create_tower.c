@@ -18,7 +18,6 @@ char *get_string_from_param(char *, int);
 
 bool update_tower(game_object_t *object, scene_t *scene)
 {
-    tower_t *tower = (tower_t *) object->extend;
     get_ennemy_to_shoot(object, scene);
     return (true);
 }
@@ -53,7 +52,7 @@ tower_t *create_tower_extend(tower_type_t type)
         return (NULL);
     tower->type = type;
     tower->level = 1;
-    tower->tower_param = init_tower_from_file(FILEPATH_TABLE[type - 1]);
+    tower->tower_param = init_tower_from_file((char *) FILEPATH_TABLE[type - 1]);
     if (tower->tower_param == NULL)
         return (NULL);
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
