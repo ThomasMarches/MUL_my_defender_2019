@@ -40,5 +40,6 @@ game_object_t *create_tower(game_object_t *, sfVector2f, tower_type_t);
 void increase_board_value(score_t *score, int number, char *str);
 void draw_board(sfRenderWindow *window, game_object_t *);
 void get_ennemy_to_shoot(game_object_t *object, scene_t *scene);
+game_object_t *create_range_circle(game_object_t *object);
 
 #endif /* !TOWER_H_ */
