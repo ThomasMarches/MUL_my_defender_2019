@@ -20,28 +20,41 @@ void callback_tile(game_object_t *object, void *pt)
     for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next) {
         if (tmp->type == TOWER_MENU)
             type = tmp->state;
-        if ((tmp != object && object->pos.x == tmp->pos.x && \
-        object->pos.y == tmp->pos.y))
+        if (tmp != object && object->pos.x == tmp->pos.x && \
+        object->pos.y == tmp->pos.y)
             return;
     }
     tmp = create_tower(scene->objects_list, object->pos, type);
     scene->objects_list = (tmp != NULL) ? tmp : scene->objects_list;
 }
 
+game_object_t *create_tile(game_object_t *last, char *path, sfVector2f vec, object_type type)
+{
+    game_object_t *tile = create_game_object(last, path, vec, GROUND);
+
+    if (tile == NULL)
+        return (NULL);
+    tile->callback = &callback_tile;
+    tile->z_index = 4;
+    tile->z_index = (type == BASE) ? 0 : last->z_index;
+    tile->box = (sfIntRect) {last->pos.x, last->pos.y, TILE_WIDTH, TILE_HEIGHT};
+    return (tile);
+}
+
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
     switch (id) {
     case '2':
-        return (create_game_object(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
+        return (create_tile(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
         break;
     case '1':
-        return (create_game_object(last, (char *) GRASS_PATH, (sfVector2f) {x, y}, GRASS));
+        return (create_tile(last, (char *) GRASS_PATH, (sfVector2f) {x, y}, GRASS));
         break;
     case '3':
-        return (create_game_object(last, (char *) ROCK_PATH, (sfVector2f) {x, y}, ROCK));
+        return (create_tile(last, (char *) ROCK_PATH, (sfVector2f) {x, y}, ROCK));
         break;
     case '5':
-        return (create_game_object(last, (char *) BASE_PATH, (sfVector2f) {x - 100, y - 120}, BASE));
+        return (create_tile(last, (char *) BASE_PATH, (sfVector2f) {x - 100, y - 120}, BASE));
         break;
     default:
         return (NULL);
@@ -61,10 +74,6 @@ game_object_t *generate_map(game_object_t *last, char *path)
             tmp = generate_tile(last, map[i][j], j * TILE_WIDTH, i *
             TILE_HEIGHT);
             last = (tmp != NULL) ? tmp : last;
-            last->callback = &callback_tile;
-            last->z_index = 4;
-            last->z_index = (tmp != NULL && map[i][j] == '5') ? 0 : last->z_index;
-            last->box = (sfIntRect) {last->pos.x, last->pos.y, TILE_WIDTH, TILE_HEIGHT};
         }
         free(map[i]);
     }
