@@ -6,6 +6,7 @@
 */
 
 #include "my_defender.h"
+#include "tower.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -18,7 +19,7 @@ char *get_string_from_param(char *, int);
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     tower_t *tower = (tower_t *) object->extend;
-    (void *) tower;
+    get_ennemy_to_shoot(object, scene);
     return (true);
 }
 
@@ -75,6 +76,7 @@ tower_type_t type)
     get_string_from_param(tower->tower_param, 5), pos, TOWER);
     if (object == NULL)
         return (NULL);
+    object->update = &update_tower;
     object->z_index = 2;
     object->extend = (void *) tower;
     return (object);
