@@ -31,7 +31,7 @@ NAME = my_defender
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic -Wno-unused-command-line-argument -Wno-deprecated $(DEBUG)
 
-LDFLAGS = -L./lib -lmy_game -lmy -lmy_graph $(CSFML)
+LDFLAGS = -L./lib -lm -lmy_game -lmy -lmy_graph $(CSFML)
 
 LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
