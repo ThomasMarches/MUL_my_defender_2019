@@ -30,8 +30,10 @@ bool is_ennemy_in_range(game_object_t *object, game_object_t *ennemy)
     tower_t *tower = (tower_t *) object->extend;
     if (object->type != ENNEMY)
         return (false);
-    distance1 = (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x) * (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x);
-    distance2 = (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y) * (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y);
+    distance1 = (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x) *
+    (ennemy->pos.x - sfCircleShape_getPosition(tower->circle).x);
+    distance2 = (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y) *
+    (ennemy->pos.y - sfCircleShape_getPosition(tower->circle).y);
     if ((distance1 + distance2) / (distance1 + distance2) < sfCircleShape_getRadius(tower->circle))
         return (true);
     return (false);
@@ -70,9 +72,12 @@ void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
     int walk = 0;
     
     for (tmp = scene->objects_list; tmp; tmp = tmp->next)
-        if (tmp->type == ENNEMY && ((ennemy_t *) tmp->extend)->position_on_map > walk && is_ennemy_in_range(object, tmp)) {
+        if (tmp->type == ENNEMY && ((ennemy_t *) tmp->extend)->position_on_map > walk
+        && is_ennemy_in_range(object, tmp)) {
             tmp2 = tmp;
             walk = ((ennemy_t *) tmp->extend)->position_on_map;
         }
+    if (tmp2 == NULL)
+        return;
     shoot_on_ennemy(object, tmp2, scene);
 }
