@@ -67,6 +67,7 @@ void update_objects(scene_t *scene, game_object_t *object, game_t *game)
     bool ret = true;
 
     while (object) {
+        printf("%d\n", object->type);
         if (object->update != NULL)
             ret = object->update(object, scene);
         else {
