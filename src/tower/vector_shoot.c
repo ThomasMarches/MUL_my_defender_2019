@@ -43,16 +43,16 @@ tower_type_t type, game_object_t *target)
 
     switch (type - 1) {
     case 0:
-        object = create_game_object(last, NORMAL_BULLET, pos, BULLET);
+        object = create_game_object(last, (char *) NORMAL_BULLET, pos, BULLET);
         break;
     case 1:
-        object = create_game_object(last, SLOW_BULLET, pos, BULLET);
+        object = create_game_object(last, (char *) SLOW_BULLET, pos, BULLET);
         break;
     case 2:
-        object = create_game_object(last, FIRE_BULLET, pos, BULLET);
+        object = create_game_object(last, (char *) FIRE_BULLET, pos, BULLET);
         break;
     case 3:
-        object = create_game_object(last, AOE_BULLET, pos, BULLET);
+        object = create_game_object(last, (char *) AOE_BULLET, pos, BULLET);
         break;
     }
     if (object == NULL)

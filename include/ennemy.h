@@ -14,10 +14,15 @@ typedef struct ennemy {
     map_t map;
     int slow;
     int life;
+    int speed;
     int position_on_map;
 } ennemy_t;
 
-game_object_t *create_ennemy(game_object_t *, int, map_t *);
+game_object_t *create_ennemy(game_object_t *, int, map_t *, int);
+game_object_t *create_ennemy1(game_object_t *, int, map_t *);
+game_object_t *create_ennemy2(game_object_t *, int, map_t *);
+void init_ennemy_anim(game_object_t *);
 game_object_t *init_wave(game_object_t *);
+bool update_ennemy(game_object_t *, scene_t *);
 
 #endif /* !ENNEMY_H_ */
