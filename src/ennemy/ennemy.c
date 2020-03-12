@@ -38,12 +38,18 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
 {
     ennemy_t *ennemy = (ennemy_t *) object->extend;
     game_object_t *tmp2 = NULL;
+    game_object_t *tmp = NULL;
 
+    for (tmp = scene->objects_list; tmp && tmp->type !=
+    TOWER_BOARD; tmp = tmp->next);
+    if (((ennemy_t *) object->extend)->map.solve->child == NULL)
+        increase_board_value(((board_t *) tmp->extend)->life, -1, "Life : ");
     ennemy->position_on_map += 1;
     update_game_object_frame(object);
     if (((ennemy_t *) object->extend)->map.solve->child != NULL && ennemy->life > 0)
         return (move_ennemy(object));
-    for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp2) {
+    increase_board_value(((board_t *) tmp->extend)->points, 10, "Points : ");
+    for (tmp = scene->objects_list; tmp; tmp = tmp2) {
         tmp2 = tmp->next;
         if (tmp->type == BULLET && ((game_object_t *) tmp->extend) == object)
             destroy_game_object(scene, tmp);
@@ -59,7 +65,7 @@ ennemy_t *create_ennemy_struct(int i, map_t *path)
         return (NULL);
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
-    ennemy->life = 100;
+    ennemy->life = 50;
     ennemy->map = *path;
     return (ennemy);
 }
@@ -87,7 +93,9 @@ void init_ennemy_anim(game_object_t *object)
 game_object_t *create_ennemy(game_object_t *last, int i, map_t *map)
 {
     game_object_t *object = create_game_object(last, \
-    "templates/mobs/ennemy.png", (sfVector2f) {((map->in % (map->x + 1)) * TILE_WIDTH) - i * TILE_WIDTH, (map->in / (map->x + 1)) * TILE_WIDTH}, ENNEMY);
+    "templates/mobs/ennemy.png", (sfVector2f) {((map->in % (map->x + 1)) *
+    TILE_WIDTH) - i * TILE_WIDTH, (map->in / (map->x + 1)) * TILE_WIDTH},
+    ENNEMY);
 
     if (object == NULL)
         return (NULL);

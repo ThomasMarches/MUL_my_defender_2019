@@ -444,9 +444,9 @@ const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[] = {
     NULL
 };
 
-const char *FIRE_BULLET = "templates/tower/Sun.png";
-const char *SLOW_BULLET = "templates/tower/Sun.png";
-const char *AOE_BULLET = "templates/tower/Sun.png";
-const char *NORMAL_BULLET = "templates/tower/Sun.png";
+const char *FIRE_BULLET = "templates/tower/fireball.png";
+const char *SLOW_BULLET = "templates/tower/iceball.png";
+const char *AOE_BULLET = "templates/tower/aoeball.png";
+const char *NORMAL_BULLET = "templates/tower/normalball.png";
 
 #endif /* !DEFINE_H_ */
