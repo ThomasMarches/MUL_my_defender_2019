@@ -21,7 +21,7 @@ bool update_tower(game_object_t *object, scene_t *scene)
     tower_t *tower = (tower_t *) object->extend;
 
     tower->delay++;
-    if (tower->delay == 50) {
+    if (tower->attack_speed != 0 && tower->delay == WINDOW_FRAMERATE / tower->attack_speed) {
         tower->delay = 0;
         get_ennemy_to_shoot(object, scene);
     }
