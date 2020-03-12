@@ -19,7 +19,6 @@ char *get_string_from_param(char *, int);
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     get_ennemy_to_shoot(object, scene);
-    printf("%d\n", ((tower_t *) object->extend)->draw_range);
     return (true);
 }
 

@@ -20,6 +20,7 @@ typedef struct node {
     int cost;
     int index;
     struct node *parent;
+    struct node *child;
     struct node *next;
 } node_t;
 
@@ -28,12 +29,14 @@ typedef struct map {
     int y;
     char *map;
     int out;
+    int in;
     node_t *l1;
     node_t *l2;
+    node_t *solve;
 } map_t;
 
 map_t init_map(char *);
-int solver(char *);
+int solve(map_t *);
 node_t *get_best_node(node_t **);
 bool add_node(node_t **, node_t);
 int add_neigbours(node_t *, map_t *);

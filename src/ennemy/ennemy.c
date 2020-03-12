@@ -6,31 +6,48 @@
 */
 
 #include "my_defender.h"
+#include "solver.h"
 #include <stdlib.h>
+
+bool move_ennemy(game_object_t *object)
+{
+    map_t *map = &((ennemy_t *) object->extend)->map;
+    int dest = map->solve->index;
+    int x = dest % (map->x + 1);
+    int y = dest / (map->x + 1);
+
+    object->move.x = (x * TILE_WIDTH) - object->pos.x;
+    object->move.y = (y * TILE_HEIGHT) - object->pos.y;
+    if (object->move.x > 5)
+        object->move.x = 5;
+    else if (object->move.x < -5)
+        object->move.x = -5;
+    if (object->move.y > 5)
+        object->move.y = 5;
+    else if (object->move.y < -5)
+        object->move.y = -5;
+    if (object->move.x == 0 && object->move.y == 0) {
+        map->solve = map->solve->child;
+        move_ennemy(object);
+    } else
+        move_object(object);
+    return (true);
+}
 
 bool update_ennemy(game_object_t *object, scene_t *scene)
 {
-    static int frame= 0;
     ennemy_t *ennemy = (ennemy_t *) object->extend;
 
     if (ennemy->life <= 0)
         return (false);
     ennemy->position_on_map += 1;
-    object->pos.x += object->move.x;
-    object->pos.y += object->move.y;
-    if (object->pos.x > WINDOW_WIDTH)
+    update_game_object_frame(object);
+    if (((ennemy_t *) object->extend)->map.solve->child == NULL)
         return (false);
-    sfSprite_setPosition(object->sprite, object->pos);
-    frame++;
-    if (frame == 4) {
-        frame = 0;
-        update_game_object_frame(object);
-    }
-    return (true);
+    return (move_ennemy(object));
 }
 
-
-ennemy_t *create_ennemy_struct(int i)
+ennemy_t *create_ennemy_struct(int i, map_t *path)
 {
     ennemy_t *ennemy = malloc(sizeof(ennemy_t));
 
@@ -39,6 +56,7 @@ ennemy_t *create_ennemy_struct(int i)
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
     ennemy->life = 1000;
+    ennemy->map = *path;
     return (ennemy);
 }
 
@@ -62,23 +80,24 @@ void init_ennemy_anim(game_object_t *object)
     object->anim[3].restart_id = 0;
 }
 
-game_object_t *create_ennemy(game_object_t *last, int i)
+game_object_t *create_ennemy(game_object_t *last, int i, map_t *map)
 {
     game_object_t *object = create_game_object(last, \
-    "templates/mobs/ennemy.png", (sfVector2f) {- i * TILE_WIDTH, 0}, ENNEMY);
+    "templates/mobs/ennemy.png", (sfVector2f) {((map->in % (map->x + 1)) * TILE_WIDTH) - i * TILE_WIDTH, (map->in / (map->x + 1)) * TILE_WIDTH}, ENNEMY);
 
     if (object == NULL)
         return (NULL);
-    object->extend = (void *) create_ennemy_struct(i);
+    object->extend = (void *) create_ennemy_struct(i, map);
     if (object->extend == NULL) {
         free(object);
         return (NULL);
     }
     object->anim = malloc(sizeof(anim_t) * 4);
-    init_ennemy_anim(object);
+    if (object->anim != NULL)
+        init_ennemy_anim(object);
     object->state = 0;
     object->update = &update_effect;
-    object->move = (sfVector2f) {5, 0};
+    object->move = (sfVector2f) {1, 0};
     init_game_object_frame(object);
     object->update = &update_ennemy;
     object->z_index = 2;

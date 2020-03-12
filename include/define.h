@@ -406,28 +406,40 @@ const char *TOWER_BOARD_PATH = "templates/interface/background_interface.png";
 
 const sfIntRect *FIRST_ENNEMY_RECT_DOWN[] = {
     &(sfIntRect){0, 0, 48, 48},
+    &(sfIntRect){0, 0, 48, 48},
     &(sfIntRect){48, 0, 48, 48},
+    &(sfIntRect){48, 0, 48, 48},
+    &(sfIntRect){96, 0, 48, 48},
     &(sfIntRect){96, 0, 48, 48},
     NULL
 };
 
 const sfIntRect *FIRST_ENNEMY_RECT_TOP[] = {
     &(sfIntRect){0, 144, 48, 48},
+    &(sfIntRect){0, 144, 48, 48},
     &(sfIntRect){48, 144, 48, 48},
+    &(sfIntRect){48, 144, 48, 48},
+    &(sfIntRect){96, 144, 48, 48},
     &(sfIntRect){96, 144, 48, 48},
     NULL
 };
 
 const sfIntRect *FIRST_ENNEMY_RECT_LEFT[] = {
     &(sfIntRect){0, 48, 48, 48},
+    &(sfIntRect){0, 48, 48, 48},
     &(sfIntRect){48, 48, 48, 48},
+    &(sfIntRect){48, 48, 48, 48},
+    &(sfIntRect){96, 48, 48, 48},
     &(sfIntRect){96, 48, 48, 48},
     NULL
 };
 
 const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[] = {
     &(sfIntRect){0, 96, 48, 48},
+    &(sfIntRect){0, 96, 48, 48},
     &(sfIntRect){48, 96, 48, 48},
+    &(sfIntRect){48, 96, 48, 48},
+    &(sfIntRect){96, 96, 48, 48},
     &(sfIntRect){96, 96, 48, 48},
     NULL
 };
