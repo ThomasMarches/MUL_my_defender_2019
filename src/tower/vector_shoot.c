@@ -17,7 +17,8 @@ bool update_bullet(game_object_t *object, scene_t *scene)
     set_bullet_vector(object, (game_object_t *) object->extend);
     move_object(object);
     for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next)
-        if (tmp->type == ENNEMY && object->extend == tmp && sfIntRect_intersects(&object->box, &tmp->box, NULL))
+        if (tmp->type == ENNEMY && object->extend ==
+        tmp && sfIntRect_intersects(&object->box, &tmp->box, NULL))
             return (false);
     return (true);
 }
