@@ -38,5 +38,6 @@ int my_getnbr(char const *str)
         }
         i++;
     }
+    free(str);
     return (sign_nbr(nbr, sign));
 }

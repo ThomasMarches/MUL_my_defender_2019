@@ -58,8 +58,10 @@ board_t *create_board_text(board_t *info)
     info->points->score = 0;
     tmp = my_nbr_to_str(info->wave->score);
     info->wave->score_text = my_strcat((char *)"Wave : ", tmp);
+    free(tmp);
     tmp = my_nbr_to_str(info->life->score);
     info->life->score_text = my_strcat((char *)"Life : ", tmp);
+    free(tmp);
     tmp = my_nbr_to_str(info->points->score);
     info->points->score_text = my_strcat((char *)"Points : ", tmp);
     free(tmp);

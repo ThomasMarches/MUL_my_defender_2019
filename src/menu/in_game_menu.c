@@ -49,10 +49,6 @@ scene_t *create_in_game_menu(void)
     (char *) BOTTOM_FLEUR_PATH, (sfVector2f) {BOTTOM_FLEUR_X, BOTTOM_FLEUR_Y}, \
     (sfIntRect **) BOTTOM_FLEUR_FRAME_KEYS);
     scene->objects_list->type = FLEUR;
-    scene->objects_list = create_game_object(scene->objects_list, \
-    (char *) IN_GAME_MENU_BACKGROUND, (sfVector2f) {0, 0}, DECOR);
-    init_appearing_object(scene->objects_list);
-    scene->objects_list->update = update_appearing_object;
     scene->display = IN_GAME_MENU_SCENE;
     return (scene);
 }

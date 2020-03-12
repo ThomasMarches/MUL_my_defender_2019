@@ -14,6 +14,7 @@ char *get_string_from_param(char *str, int column)
     int counter = 0;
     char *str_to_return = malloc(sizeof(char));
     char *temp = malloc(sizeof(char) * 2);
+    char *tmp = NULL;
 
     str_to_return[0] = '\0';
     if (temp == NULL)
@@ -24,8 +25,11 @@ char *get_string_from_param(char *str, int column)
             found++;
     for (; str[counter] != '\0' && str[counter] != '\n'; counter++) {
         temp[0] = str[counter];
-        str_to_return = my_strcat(str_to_return, temp);
+        tmp = my_strcat(str_to_return, temp);
+        free(str_to_return);
+        str_to_return = tmp;
     }
+    free(temp);
     return (str_to_return);
 }
 
@@ -34,6 +38,7 @@ int get_int_from_param(char *str, int column, int level)
     int counter = 0;
     char *int_to_return = malloc(sizeof(char));
     char *temp = malloc(sizeof(char) * 2);
+    char *tmp = NULL;
 
     int_to_return[0] = '\0';
     if (temp == NULL)
@@ -48,7 +53,10 @@ int get_int_from_param(char *str, int column, int level)
     for (; str[counter] != '\0' && str[counter] != ':' && str[counter]
     != '\n'; counter++) {
         temp[0] = str[counter];
-        int_to_return = my_strcat(int_to_return, temp);
+        tmp = my_strcat(int_to_return, temp);
+        free(int_to_return);
+        int_to_return = tmp;
     }
+    free(temp);
     return (my_getnbr(int_to_return));
 }

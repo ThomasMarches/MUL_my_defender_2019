@@ -24,6 +24,7 @@ int is_path_valid(char *map, char *map_name)
         my_putstr(my_strcat(map_name, (char *) CASLTE_NOT_REACHABLE));
         return (84);
     }
+    free(map);
     return (0);
 }
 

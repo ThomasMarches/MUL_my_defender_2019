@@ -14,28 +14,30 @@
 
 void print_result(node_t *node, map_t *map)
 {
-    for (node_t *tmp = node; tmp; tmp = tmp->parent)
+    node_t *tmp2 = NULL;
+
+    for (node_t *tmp = node; tmp; tmp = tmp->parent) {
         map->map[tmp->index] = 'o';
+        tmp->child = tmp2;
+        tmp2 = tmp;
+    }
+    map->solve = tmp2->child;
 }
 
 int free_and_leave(map_t *map, int ret)
 {
-    if (map->l1 != NULL)
-        free_list(map->l1);
-    if (map->l2 != NULL)
-        free_list(map->l2);
     return (ret);
 }
 
 map_t init_map(char *raw_map)
 {
-    map_t map = {0, 0, NULL, 0, NULL, NULL};
+    map_t map = {0, 0, NULL, 0, 0, NULL, NULL, NULL};
 
     map.map = raw_map;
     for (; map.map[map.x] != '\n' && map.map[map.x] != '\0'; map.x++);
     for (int i = 0; map.map[i] != '\0'; i++)
         if (map.map[i] == '\n')
             map.y++;
-    for (; map.map[map.out] != '\0' && map.map[map.out] != '4'; map.out++);
+    for (; map.map[map.out] != '\0' && map.map[map.out] != '5'; map.out++);
     return (map);
 }

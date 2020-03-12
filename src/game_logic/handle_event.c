@@ -75,5 +75,7 @@ void handle_event_game(scene_t *scene, game_t *game, sfRenderWindow *window)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonPressed)
             is_click_on_object(scene, event.mouseButton, game);
+        if (event.type == sfEvtKeyPressed)
+            handle_key_pressed_game(game, event.key.code, scene);
     }
 }
