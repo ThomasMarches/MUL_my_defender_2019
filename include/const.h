@@ -246,6 +246,7 @@ extern const char *NO_STARTING_POINT;
 extern const char *TOWER_MENU_PATH;
 extern const char *FILEPATH_TABLE[];
 extern const char *TOWER_BOARD_PATH;
+extern const char *UPGRADE_BUTTON_PATH;
 
 //ENNEMY
 

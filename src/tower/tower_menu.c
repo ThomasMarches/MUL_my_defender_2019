@@ -5,6 +5,10 @@
 ** tower_menu
 */
 
+#include "tower.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 #include "my_defender.h"
 
 void callback_tower_menu(game_object_t *object, void *pt)
