@@ -76,6 +76,7 @@ game_object_t *init_wave(game_object_t *last)
     object->draw = NULL;
     object->next = last;
     object->state = 0;
+    object->type = WAVE;
     object->update = &update_wave;
     object->extend = (void *) compute_path();
     if (object->extend == NULL) {

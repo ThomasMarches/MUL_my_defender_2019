@@ -5,12 +5,25 @@
 ** free_objects
 */
 
-#include "my_game.h"
+#include "my_defender.h"
 #include <stdlib.h>
 
-void free_extend(void *object)
+void free_extend(game_object_t *object)
 {
-    free(object);
+    if (object->type == TOWER) {
+        free(((tower_t *) object->extend)->tower_param);
+        sfCircleShape_destroy(((tower_t *) object->extend)->circle);
+    } else if (object->type == TOWER_BOARD) {
+        free_score(((board_t *) object->extend)->life);
+        free_score(((board_t *) object->extend)->wave);
+        free_score(((board_t *) object->extend)->points);
+    }
+    if (object->type == WAVE) {
+        free_list(((map_t *) object->extend)->l1);
+        free_list(((map_t *) object->extend)->l2);
+        free(((map_t *) object->extend)->map);
+    }
+    free(object->extend);
 }
 
 void free_anim(game_object_t *object)
@@ -50,7 +63,7 @@ game_object_t *object)
         sfClock_destroy(object->delta_t);
     free_anim(object);
     if (object->extend != NULL)
-        free_extend(object->extend);
+        free_extend(object);
     free(object);
 }
 

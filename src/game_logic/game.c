@@ -30,14 +30,19 @@ game_t *init_game()
     return (game);
 }
 
+void free_score(score_t *score)
+{
+    sfFont_destroy((sfFont *)sfText_getFont(score->text));
+    sfText_destroy(score->text);
+    free(score->score_text);
+    free(score);
+}
+
 void destroy_game(game_t *game)
 {
     sfRenderWindow_destroy(game->window->window);
     free(game->window);
-    sfFont_destroy((sfFont *)sfText_getFont(game->score->text));
-    sfText_destroy(game->score->text);
-    free(game->score->score_text);
-    free(game->score);
+    free_score(game->score);
     sfSprite_destroy(game->cursor.sprite);
     sfTexture_destroy(game->cursor.texture);
     free(game);

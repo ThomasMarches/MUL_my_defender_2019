@@ -65,6 +65,7 @@ tower_t *create_tower_extend(tower_type_t type)
     if (tower->tower_param == NULL)
         return (NULL);
     tower->aoe = 0;
+    tower->slow = 0;
     tower->draw_range = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
     tower->damage = get_int_from_param(tower->tower_param, 2, 1);
@@ -79,11 +80,12 @@ tower_type_t type)
 {
     tower_t *tower = create_tower_extend(type);
     game_object_t *object = NULL;
+    char *path = get_string_from_param(tower->tower_param, 5);
 
     if (tower == NULL)
         return (NULL);
-    object = create_game_object(last, \
-    get_string_from_param(tower->tower_param, 5), pos, TOWER);
+    object = create_game_object(last, path, pos, TOWER);
+    free(path);
     if (object == NULL)
         return (NULL);
     object->update = &update_tower;

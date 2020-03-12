@@ -45,6 +45,7 @@ typedef enum
     GRASS,
     BASE,
     ROCK,
+    WAVE,
     TOWER_BOARD
 } object_type;
 
