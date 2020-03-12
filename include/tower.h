@@ -33,6 +33,7 @@ typedef struct tower_s {
     int range;
     bool draw_range;
     int cost;
+    int delay;
     int upgrade_cost;
     char *tower_param;
     tower_type_t type;
@@ -45,6 +46,6 @@ void get_ennemy_to_shoot(game_object_t *, scene_t *scene);
 void create_range_circle(game_object_t *);
 void draw_range_circle(game_object_t *, void *);
 void set_bullet_vector(game_object_t *object, game_object_t *direction);
-game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type);
+game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type, game_object_t *);
 
 #endif /* !TOWER_H_ */
