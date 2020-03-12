@@ -21,6 +21,7 @@ typedef struct board_s {
     score_t *wave;
     score_t *life;
     score_t *points;
+    int cost[3][3];
 } board_t;
 
 typedef struct tower_s {
@@ -47,5 +48,6 @@ void create_range_circle(game_object_t *);
 void draw_range_circle(game_object_t *, void *);
 void set_bullet_vector(game_object_t *object, game_object_t *direction);
 game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type, game_object_t *);
+int update_money(game_object_t *object, int price);
 
 #endif /* !TOWER_H_ */

@@ -36,8 +36,8 @@ void draw_board(sfRenderWindow *window, game_object_t *object)
 board_t *config_board_text(board_t *info)
 {
     info->wave->text = init_text(info->wave->score_text, 1700, 840, (char *) FONT_PATH);
-    info->life->text = init_text(info->life->score_text, 1125, 840, (char *) FONT_PATH);
-    info->points->text = init_text(info->points->score_text, 1400, 840,(char *) FONT_PATH);
+    info->life->text = init_text(info->life->score_text, 1070, 840, (char *) FONT_PATH);
+    info->points->text = init_text(info->points->score_text, 1325, 840,(char *) FONT_PATH);
     sfText_setCharacterSize(info->points->text, 70);
     sfText_setCharacterSize(info->life->text, 70);
     sfText_setCharacterSize(info->wave->text, 70);
@@ -55,7 +55,7 @@ board_t *create_board_text(board_t *info)
         return (NULL);
     info->wave->score = 0;
     info->life->score = 10;
-    info->points->score = 0;
+    info->points->score = 1000;
     tmp = my_nbr_to_str(info->wave->score);
     info->wave->score_text = my_strcat((char *)"Wave : ", tmp);
     free(tmp);

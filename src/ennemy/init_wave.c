@@ -80,7 +80,6 @@ game_object_t *init_wave(game_object_t *last)
     object->update = &update_wave;
     object->extend = (void *) compute_path();
     if (object->extend == NULL) {
-        printf("NUL\n");
         free(object);
         return (NULL);
     }

@@ -30,10 +30,8 @@ void set_bullet_vector(game_object_t *object, game_object_t *direction)
 
     direction_y = object->pos.y - direction->pos.y;
     direction_x = object->pos.x - direction->pos.x;
-    printf("%f", atan2(direction_x, direction_y));
     shooting_dir.y = sin(atan2(direction_y, direction_x)) * - 10;
     shooting_dir.x = cos(atan2(direction_y, direction_x)) * - 10;
-    printf("%f / %f\n", shooting_dir.x, shooting_dir.y);
     object->move = shooting_dir;
 }
 
