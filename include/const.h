@@ -254,4 +254,11 @@ extern const sfIntRect *FIRST_ENNEMY_RECT_TOP[];
 extern const sfIntRect *FIRST_ENNEMY_RECT_LEFT[];
 extern const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[];
 
+//BULLET
+
+extern const char *FIRE_BULLET;
+extern const char *SLOW_BULLET;
+extern const char *AOE_BULLET;
+extern const char *NORMAL_BULLET;
+
 #endif

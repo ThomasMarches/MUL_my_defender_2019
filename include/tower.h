@@ -13,7 +13,8 @@
 typedef enum tower_type {
     NORMAL,
     FIRE,
-    ICE
+    ICE,
+    AOE
 } tower_type_t;
 
 typedef struct board_s {
@@ -43,5 +44,7 @@ void draw_board(sfRenderWindow *window, game_object_t *);
 void get_ennemy_to_shoot(game_object_t *, scene_t *scene);
 void create_range_circle(game_object_t *);
 void draw_range_circle(game_object_t *, void *);
+void set_bullet_vector(game_object_t *object, game_object_t *direction);
+game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type);
 
 #endif /* !TOWER_H_ */

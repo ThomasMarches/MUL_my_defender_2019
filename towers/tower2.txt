@@ -1,7 +1,7 @@
 200:400:600
-6:7:8
+1:2:3
 100:150:200
 0.25:0.35:0.50
 templates/tower/icon_tower2.png
-slow:0/0/0
-multi_damage:0/0/0
+slow/0:0:0
+multi_damage/0:0:0

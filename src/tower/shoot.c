@@ -52,6 +52,9 @@ void shoot_on_ennemy(game_object_t *object, game_object_t *tmp, scene_t *scene)
         shoot_aoe(object, tmp, scene);
     else
         ennemy->life = ennemy->life - tower->damage;
+    scene->objects_list = create_bullet(scene->objects_list, object->pos,
+    tower->type);
+    set_bullet_vector(scene->objects_list, tmp);
 }
 
 void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
