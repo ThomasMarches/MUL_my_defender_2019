@@ -55,7 +55,7 @@ ennemy_t *create_ennemy_struct(int i, map_t *path)
         return (NULL);
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
-    ennemy->life = 1000;
+    ennemy->life = 100;
     ennemy->map = *path;
     return (ennemy);
 }
