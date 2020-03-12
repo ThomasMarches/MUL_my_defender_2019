@@ -19,7 +19,6 @@ char *get_string_from_param(char *, int);
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     get_ennemy_to_shoot(object, scene);
-    printf("%d\n", ((tower_t *) object->extend)->draw_range);
     return (true);
 }
 
@@ -65,11 +64,11 @@ tower_t *create_tower_extend(tower_type_t type)
     tower->tower_param = init_tower_from_file((char *) FILEPATH_TABLE[type - 1]);
     if (tower->tower_param == NULL)
         return (NULL);
-    tower->aoe = 0;
+    tower->aoe = get_int_from_param(tower->tower_param, 7, 1);;
     tower->draw_range = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
-    tower->damage = get_int_from_param(tower->tower_param, 2, 1);
-    tower->range = get_int_from_param(tower->tower_param, 3, 1);
+    tower->damage = get_int_from_param(tower->tower_param, 3, 1);
+    tower->range = get_int_from_param(tower->tower_param, 2, 1);
     tower->cost = get_int_from_param(tower->tower_param, 1, 1);
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
     return (tower);
