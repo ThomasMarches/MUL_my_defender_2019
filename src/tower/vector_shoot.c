@@ -5,15 +5,21 @@
 ** vector_shoot.c
 */
 
+#include <math.h>
 #include "my_defender.h"
 #include "my.h"
 #include "my_graph.h"
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-void update_bullet(game_object_t *object)
+bool update_bullet(game_object_t *object, scene_t *scene)
 {
-    sfSprite_move(object->sprite, object->move);
+    set_bullet_vector(object, (game_object_t *) object->extend);
+    move_object(object);
+    for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next)
+        if (tmp->type == ENNEMY && sfIntRect_intersects(&object->box, &tmp->box, NULL))
+            return (false);
+    return (true);
 }
 
 void set_bullet_vector(game_object_t *object, game_object_t *direction)
@@ -22,18 +28,17 @@ void set_bullet_vector(game_object_t *object, game_object_t *direction)
     int direction_y = 0;
     sfVector2f shooting_dir = {1, 0};
 
-    direction->pos = sfSprite_getPosition(direction->sprite);
-    object->pos = sfSprite_getPosition(object->sprite);
     direction_y = object->pos.y - direction->pos.y;
     direction_x = object->pos.x - direction->pos.x;
-    if (direction->pos.x < object->pos.x)
-        shooting_dir.x = -1;
-    shooting_dir.y = direction_y / direction_x;
+    printf("%f", atan2(direction_x, direction_y));
+    shooting_dir.y = sin(atan2(direction_y, direction_x)) * - 10;
+    shooting_dir.x = cos(atan2(direction_y, direction_x)) * - 10;
+    printf("%f / %f\n", shooting_dir.x, shooting_dir.y);
     object->move = shooting_dir;
 }
 
 game_object_t *create_bullet(game_object_t *last, sfVector2f pos,
-tower_type_t type)
+tower_type_t type, game_object_t *target)
 {
     game_object_t *object = NULL;
 
@@ -55,5 +60,7 @@ tower_type_t type)
         return (NULL);
     object->update = &update_bullet;
     object->z_index = 2;
+    object->extend = (void *) target;
+    object->box = (sfIntRect) {pos.x, pos.y, 50, 50};
     return (object);
 }

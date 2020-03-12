@@ -22,7 +22,8 @@ void free_extend(game_object_t *object)
         free_list(((map_t *) object->extend)->l1);
         free_list(((map_t *) object->extend)->l2);
         free(((map_t *) object->extend)->map);
-    }
+    } else if (object->type == BULLET)
+        return;
     free(object->extend);
 }
 
