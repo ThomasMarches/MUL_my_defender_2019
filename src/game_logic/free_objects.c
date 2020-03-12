@@ -44,16 +44,17 @@ void free_sprite_and_texture(game_object_t *object)
         sfTexture_destroy(object->texture);
 }
 
-void destroy_game_object(scene_t *scene, game_object_t *prev, \
-game_object_t *object)
+void destroy_game_object(scene_t *scene, game_object_t *object)
 {
-    if (object == NULL)
-        return;
+    game_object_t *tmp = scene->objects_list;
+
+    if (scene->objects_list == object)
+        scene->objects_list = object->next;
     else {
-        if (prev == NULL)
-            scene->objects_list = object->next;
-        else
-            prev->next = object->next;
+        for (; tmp && tmp->next != object; tmp = tmp->next);
+        if (!tmp)
+            return;
+        tmp->next = object->next;
     }
     free_sprite_and_texture(object);
     if (object->sound_effect != NULL) {
@@ -71,5 +72,5 @@ game_object_t *object)
 void destroy_object_list(scene_t *scene)
 {
     while (scene->objects_list)
-        destroy_game_object(scene, NULL, scene->objects_list);
+        destroy_game_object(scene, scene->objects_list);
 }

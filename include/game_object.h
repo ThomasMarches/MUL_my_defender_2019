@@ -192,10 +192,9 @@ void destroy_object_list(scene_t *scene);
 /// Destroy a game object and free all his var
 ///
 /// \param struct scene scene who the object is destroy, need in case of destroy of the head
-/// \param struct game_object previous object that needed to be destroyed
 /// \param struct game_object object to destroy
 ////////////////////////////////////////////////////////////
-void destroy_game_object(scene_t *scene, game_object_t *prev, game_object_t *object);
+void destroy_game_object(scene_t *scene, game_object_t *object);
 
 ////////////////////////////////////////////////////////////
 /// \brief Do click on object

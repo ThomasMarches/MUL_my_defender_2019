@@ -37,14 +37,18 @@ bool move_ennemy(game_object_t *object)
 bool update_ennemy(game_object_t *object, scene_t *scene)
 {
     ennemy_t *ennemy = (ennemy_t *) object->extend;
+    game_object_t *tmp2 = NULL;
 
-    if (ennemy->life <= 0)
-        return (false);
     ennemy->position_on_map += 1;
     update_game_object_frame(object);
-    if (((ennemy_t *) object->extend)->map.solve->child == NULL)
-        return (false);
-    return (move_ennemy(object));
+    if (((ennemy_t *) object->extend)->map.solve->child != NULL && ennemy->life > 0)
+        return (move_ennemy(object));
+    for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp2) {
+        tmp2 = tmp->next;
+        if (tmp->type == BULLET && ((game_object_t *) tmp->extend) == object)
+            destroy_game_object(scene, tmp);
+    }
+    return (false);
 }
 
 ennemy_t *create_ennemy_struct(int i, map_t *path)
@@ -55,7 +59,7 @@ ennemy_t *create_ennemy_struct(int i, map_t *path)
         return (NULL);
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
-    ennemy->life = 1000;
+    ennemy->life = 10;
     ennemy->map = *path;
     return (ennemy);
 }

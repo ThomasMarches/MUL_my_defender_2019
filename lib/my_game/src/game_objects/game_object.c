@@ -63,23 +63,18 @@ void move_object(game_object_t *object)
 
 void update_objects(scene_t *scene, game_object_t *object, game_t *game)
 {
-    game_object_t *prev = NULL;
     bool ret = true;
+    game_object_t *tmp = NULL;
 
-    while (object) {
+    for (; object; object = object->next, ret = true) {
         if (object->update != NULL)
             ret = object->update(object, scene);
-        else {
-            object = object->next;
-            continue;
-        }
         if (ret == false) {
-            destroy_game_object(scene, prev, object);
-        } else
-            prev = object;
-        if (prev != NULL)
-            object = prev->next;
-        else
-            object = prev;
+            tmp = object;
+            object = object->next;
+            destroy_game_object(scene, tmp);
+        }
+        if (object == NULL)
+            return;
     }
 }

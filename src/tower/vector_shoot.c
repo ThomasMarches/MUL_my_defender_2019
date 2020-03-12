@@ -17,7 +17,7 @@ bool update_bullet(game_object_t *object, scene_t *scene)
     set_bullet_vector(object, (game_object_t *) object->extend);
     move_object(object);
     for (game_object_t *tmp = scene->objects_list; tmp; tmp = tmp->next)
-        if (tmp->type == ENNEMY && sfIntRect_intersects(&object->box, &tmp->box, NULL))
+        if (tmp->type == ENNEMY && object->extend == tmp && sfIntRect_intersects(&object->box, &tmp->box, NULL))
             return (false);
     return (true);
 }
@@ -30,10 +30,8 @@ void set_bullet_vector(game_object_t *object, game_object_t *direction)
 
     direction_y = object->pos.y - direction->pos.y;
     direction_x = object->pos.x - direction->pos.x;
-    printf("%f", atan2(direction_x, direction_y));
     shooting_dir.y = sin(atan2(direction_y, direction_x)) * - 10;
     shooting_dir.x = cos(atan2(direction_y, direction_x)) * - 10;
-    printf("%f / %f\n", shooting_dir.x, shooting_dir.y);
     object->move = shooting_dir;
 }
 
@@ -42,7 +40,7 @@ tower_type_t type, game_object_t *target)
 {
     game_object_t *object = NULL;
 
-    switch (type) {
+    switch (type - 1) {
     case 0:
         object = create_game_object(last, NORMAL_BULLET, pos, BULLET);
         break;
@@ -57,7 +55,7 @@ tower_type_t type, game_object_t *target)
         break;
     }
     if (object == NULL)
-        return (NULL);
+        return (last);
     object->update = &update_bullet;
     object->z_index = 2;
     object->extend = (void *) target;
