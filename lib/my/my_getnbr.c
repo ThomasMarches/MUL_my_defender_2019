@@ -5,6 +5,7 @@
 ** display int enter without other character
 */
 
+#include <stdlib.h>
 #include "my.h"
 
 static int sign_nbr(int nbr, int sign)
@@ -38,6 +39,6 @@ int my_getnbr(char const *str)
         }
         i++;
     }
-    free(str);
+    free((char *) str);
     return (sign_nbr(nbr, sign));
 }

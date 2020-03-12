@@ -48,7 +48,7 @@ void shoot_on_ennemy(game_object_t *object, game_object_t *tmp, scene_t *scene)
 
     if (tower->slow != 0)
         ennemy->slow = tower->slow;
-    if (tower->aoe != 0)
+    else if (tower->aoe != 0)
         shoot_aoe(object, tmp, scene);
     else
         ennemy->life = ennemy->life - tower->damage;
