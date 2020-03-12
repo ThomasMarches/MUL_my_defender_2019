@@ -91,6 +91,10 @@ tower_type_t type)
 
     if (tower == NULL)
         return (NULL);
+    if (tower->cost > update_money(last, tower->cost)) {
+        free(tower);
+        return (NULL);
+    }
     object = create_game_object(last, path, pos, TOWER);
     free(path);
     if (object == NULL)
