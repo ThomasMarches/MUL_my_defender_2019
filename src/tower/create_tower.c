@@ -49,11 +49,11 @@ char *init_tower_from_file(char *filepath)
 void draw_tower(sfRenderWindow *window, game_object_t *object)
 {
     tower_t *tower = (tower_t *) object->extend;
+    game_object_t *button = tower->button;
 
     if (tower->draw_range == 1)
         sfRenderWindow_drawCircleShape(window, tower->circle, NULL);
-    if (tower->display_upgrade == 1 && tower->level != 3) {
-        sfRenderWindow_drawSprite(window, tower->upgrade_spr, NULL);
+    if (button != NULL && button->state == 1 && tower->level != 3) {
         sfRenderWindow_drawText(window, tower->upgrade_txt, NULL);
     }
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
@@ -79,7 +79,6 @@ tower_t *create_tower_extend(tower_type_t type, sfVector2f pos)
     tower->range = get_int_from_param(tower->tower_param, 2, 1);
     tower->cost = get_int_from_param(tower->tower_param, 1, 1);
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
-    tower->display_upgrade = 0;
     return (tower);
 }
 
@@ -106,5 +105,6 @@ tower_type_t type)
     object->extend = (void *) tower;
     object->box = (sfIntRect) {pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT};
     create_range_circle(object);
-    return (object);
+    create_upgrading_content(tower, pos, object);
+    return ((tower->button) ? tower->button : object);
 }
