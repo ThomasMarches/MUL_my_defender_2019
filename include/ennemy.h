@@ -14,6 +14,7 @@ typedef struct ennemy {
     map_t map;
     int slow;
     int life;
+    int max_life;
     int speed;
     int position_on_map;
 } ennemy_t;

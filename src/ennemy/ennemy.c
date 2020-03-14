@@ -59,6 +59,8 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
     TOWER_BOARD; tmp = tmp->next);
     if (((ennemy_t *) object->extend)->map.solve->child == NULL)
         increase_board_value(((board_t *) tmp->extend)->life, -1, "Life : ");
+    if (((board_t *) tmp->extend)->life->score <= (unsigned long long) 0)
+        scene->display = END_SCENE;
     ennemy->position_on_map += ennemy->speed;
     update_game_object_frame(object);
     if (((ennemy_t *) object->extend)->map.solve->child != NULL && ennemy->life > 0)
