@@ -5,27 +5,8 @@
 ** free_objects
 */
 
-#include "my_defender.h"
+#include "my_game.h"
 #include <stdlib.h>
-
-void free_extend(game_object_t *object)
-{
-    if (object->type == TOWER) {
-        free(((tower_t *) object->extend)->tower_param);
-        sfCircleShape_destroy(((tower_t *) object->extend)->circle);
-    } else if (object->type == TOWER_BOARD) {
-        free_score(((board_t *) object->extend)->life);
-        free_score(((board_t *) object->extend)->wave);
-        free_score(((board_t *) object->extend)->points);
-    }
-    if (object->type == WAVE) {
-        free_list(((map_t *) object->extend)->l1);
-        free_list(((map_t *) object->extend)->l2);
-        free(((map_t *) object->extend)->map);
-    } else if (object->type == BULLET)
-        return;
-    free(object->extend);
-}
 
 void free_anim(game_object_t *object)
 {

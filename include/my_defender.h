@@ -49,5 +49,6 @@ void increase_score(game_t *);
 void init_score(game_t *);
 void save_score(game_t *game);
 int check_error(int, char **, char **);
+void free_score(score_t *);
 
 #endif /* !MY_RUNNER_H_ */

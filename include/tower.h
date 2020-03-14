@@ -58,5 +58,7 @@ game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t t
 int update_money(game_object_t *object, int price);
 tower_t *create_upgrading_content(tower_t *tower, sfVector2f pos);
 tower_t *upgrade_tower(tower_t *tower, tower_type_t type, int n);
+int get_int_from_param(char *, int, int);
+char *get_string_from_param(char *, int);
 
 #endif /* !TOWER_H_ */

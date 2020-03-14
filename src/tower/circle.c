@@ -20,10 +20,6 @@ void callback_tower(game_object_t *object, void *pt)
         tower->draw_range = 1;
     else
         tower->draw_range = 0;
-    if (tower->display_upgrade == 0)
-        tower->display_upgrade = 1;
-    else
-        tower->display_upgrade = 0;
 }
 
 void create_range_circle(game_object_t *object)

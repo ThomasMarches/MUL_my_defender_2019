@@ -12,10 +12,6 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
-int get_int_from_param(char *, int, int);
-
-char *get_string_from_param(char *, int);
-
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     tower_t *tower = (tower_t *) object->extend;
@@ -83,7 +79,7 @@ tower_t *create_tower_extend(tower_type_t type, sfVector2f pos)
     tower->range = get_int_from_param(tower->tower_param, 2, 1);
     tower->cost = get_int_from_param(tower->tower_param, 1, 1);
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
-    tower = create_upgrading_content(tower, pos);
+    tower->display_upgrade = 0;
     return (tower);
 }
 
