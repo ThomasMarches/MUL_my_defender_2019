@@ -401,6 +401,7 @@ const char *NO_STARTING_POINT = ": I'm sorry to tell you that this map isn't pla
 const char *TOWER_MENU_PATH = "templates/tower/tower_menu.png";
 const char *FILEPATH_TABLE[] = {"towers/tower1.txt", "towers/tower2.txt", "towers/tower3.txt", "towers/tower4.txt", NULL};
 const char *TOWER_BOARD_PATH = "templates/interface/background_interface.png";
+const char *UPGRADE_BUTTON_PATH = "templates/tower/upgrade_button.png";
 
 //ENNEMY
 

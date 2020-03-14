@@ -56,10 +56,14 @@ void draw_tower(sfRenderWindow *window, game_object_t *object)
 
     if (tower->draw_range == 1)
         sfRenderWindow_drawCircleShape(window, tower->circle, NULL);
+    if (tower->display_upgrade == 1 && tower->level != 3) {
+        sfRenderWindow_drawSprite(window, tower->upgrade_spr, NULL);
+        sfRenderWindow_drawText(window, tower->upgrade_txt, NULL);
+    }
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
 }
 
-tower_t *create_tower_extend(tower_type_t type)
+tower_t *create_tower_extend(tower_type_t type, sfVector2f pos)
 {
     tower_t *tower = malloc(sizeof(tower_t));
 
@@ -79,19 +83,20 @@ tower_t *create_tower_extend(tower_type_t type)
     tower->range = get_int_from_param(tower->tower_param, 2, 1);
     tower->cost = get_int_from_param(tower->tower_param, 1, 1);
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
+    tower = create_upgrading_content(tower, pos);
     return (tower);
 }
 
 game_object_t *create_tower(game_object_t *last, sfVector2f pos, \
 tower_type_t type)
 {
-    tower_t *tower = create_tower_extend(type);
+    tower_t *tower = create_tower_extend(type, pos);
     game_object_t *object = NULL;
     char *path = get_string_from_param(tower->tower_param, 5);
 
     if (tower == NULL)
         return (NULL);
-    if (tower->cost > update_money(last, tower->cost)) {
+    if (tower->cost >= update_money(last, tower->cost)) {
         free(tower);
         return (NULL);
     }

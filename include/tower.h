@@ -21,11 +21,18 @@ typedef struct board_s {
     score_t *wave;
     score_t *life;
     score_t *points;
-    int cost[3][3];
+    sfText *price_tower1;
+    sfText *price_tower2;
+    sfText *price_tower3;
+    sfText *price_tower4;
 } board_t;
 
 typedef struct tower_s {
     sfCircleShape *circle;
+    sfSprite *upgrade_spr;
+    sfTexture *upgrade_text;
+    sfText *upgrade_txt;
+    bool display_upgrade;
     int level;
     int slow;
     int aoe;
@@ -49,5 +56,7 @@ void draw_range_circle(game_object_t *, void *);
 void set_bullet_vector(game_object_t *object, game_object_t *direction);
 game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type, game_object_t *);
 int update_money(game_object_t *object, int price);
+tower_t *create_upgrading_content(tower_t *tower, sfVector2f pos);
+tower_t *upgrade_tower(tower_t *tower, tower_type_t type, int n);
 
 #endif /* !TOWER_H_ */
