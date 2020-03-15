@@ -49,42 +49,6 @@ extern const float MAX_FRAME_RANGE;
 extern const float DELAY_BETWEEN_UPDATE;
 extern const float SECOND_IN_MICRO;
 
-// PLAYER
-
-extern const unsigned int PLAYER_START_X;
-extern const unsigned int PLAYER_START_Y;
-extern const unsigned char PLAYER_SPEED_X;
-extern const unsigned char PLAYER_MAX_SPEED_X;
-extern const unsigned char PLAYER_SPEED_Y;
-extern const char *PLAYER_SPRITE_PATH;
-extern const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[];
-extern const char *PLAYER_RUNNING_SOUND_PATH;
-extern const sfIntRect *PLAYER_JUMPING_FRAME_KEYS[];
-extern const char *PLAYER_JUMPING_SOUND_PATH;
-extern const sfIntRect *PLAYER_FALLING_FRAME_KEYS[];
-extern const char *PLAYER_FALLING_SOUND_PATH;
-
-extern const unsigned char PLAYER_DASH_OFFSET;
-extern const unsigned char PLAYER_DASH_SPEED;
-extern const char *PLAYER_DASHING_SOUND_PATH;
-extern const sfIntRect *PLAYER_DASHING_FRAME_KEYS[];
-
-extern const char *PLAYER_ATTACKING_SOUND_PATH;
-
-extern const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET;
-extern const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[];
-
-extern const unsigned char PLAYER_ATTACKING_TOP_OFFSET;
-extern const sfIntRect *PLAYER_ATTACKING_TOP_FRAME_KEYS[];
-
-extern const unsigned char PLAYER_ATTACKING_DOWN_OFFSET;
-extern const sfIntRect *PLAYER_ATTACKING_DOWN_FRAME_KEYS[];
-
-
-extern const unsigned char PLAYER_DOUBLE_JUMPING_OFFSET;
-extern const sfIntRect *PLAYER_DOUBLE_JUMPING_FRAME_KEYS[];
-extern const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH;
-
 // MAIN MENU
 
 extern const unsigned short TITLE_X;

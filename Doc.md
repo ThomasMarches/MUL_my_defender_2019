@@ -60,7 +60,7 @@ If you want to create your own map or your own towers
 
 ## Ennemy 1
 
-![Ennemy1](/templates/mobs/.png)
+![Ennemy1](/templates/mobs/ennemy.png)
 
 | Characteristics |  |
 | :-----: | :-: |
@@ -70,7 +70,7 @@ If you want to create your own map or your own towers
 
 ## Ennemy 2
 
-![Ennemy2](/templates/mobs/.png)
+![Ennemy2](/templates/mobs/ennemy.png)
 
 | Characteristics |  |
 | :-----: | :-: |

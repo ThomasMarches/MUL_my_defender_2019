@@ -22,8 +22,11 @@ const char *ENV_DISPLAY = "DISPLAY";
 
 const char *USAGE_FLAG = "-h";
 const char *USAGE = "DESCRIPTION:\n\t./my_defender \
-MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping ( optionnal )\n \
-\nCREATE MAP AND TOWER:\n\tRefer to the legend.md file";
+\n\nUSAGE:\n\tLaunch the game and head to the how to play section to see \
+the different contents.\n \
+\nCREATE MAP AND TOWER:\n\tRefer to the legend.md file\n\nDOCUMENTATION:\n\t\
+Head to the doc.md file\n\nINFORMATION ABOUT COMPIL AND LAUNCH THE GAME:\n\t\
+Head to the Readme.md";
 
 // WINDOW
 
@@ -50,105 +53,6 @@ const char *BASE_HIGHSCORE = "Highscore :";
 const float MAX_FRAME_RANGE = 0.25;
 const float DELAY_BETWEEN_UPDATE = 1 / 30.0;
 const float SECOND_IN_MICRO = 1000000.0;
-
-// PLAYER
-
-const unsigned int PLAYER_START_X = 100;
-const unsigned int PLAYER_START_Y = 800;
-const unsigned char PLAYER_SPEED_X = 0;
-const unsigned char PLAYER_MAX_SPEED_X = 2;
-const unsigned char PLAYER_SPEED_Y = 0;
-const char *PLAYER_SPRITE_PATH = \
-"templates/mobs/player/knight_sprite_sheets.png";
-const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 0, 75, 130},
-    &(sfIntRect){0, 0, 75, 130},
-    &(sfIntRect){75, 0, 75, 130},
-    &(sfIntRect){75, 0, 75, 130},
-    &(sfIntRect){150, 0, 75, 130},
-    &(sfIntRect){150, 0, 75, 130},
-    &(sfIntRect){225, 0, 75, 130},
-    &(sfIntRect){225, 0, 75, 130},
-    &(sfIntRect){300, 0, 75, 130},
-    &(sfIntRect){300, 0, 75, 130},
-    &(sfIntRect){375, 0, 75, 130},
-    &(sfIntRect){375, 0, 75, 130},
-    NULL};
-const char *PLAYER_RUNNING_SOUND_PATH = \
-"templates/sounds/hero_run_footsteps_stone.ogg";
-const sfIntRect *PLAYER_JUMPING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 130, 75, 130},
-    NULL};
-const char *PLAYER_JUMPING_SOUND_PATH = "templates/sounds/hero_jump.ogg";
-const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 260, 90, 130},
-    &(sfIntRect){0, 260, 90, 130},
-    &(sfIntRect){90, 260, 90, 130},
-    &(sfIntRect){90, 260, 90, 130},
-    &(sfIntRect){180, 260, 90, 130},
-    &(sfIntRect){180, 260, 90, 130},
-    &(sfIntRect){270, 260, 90, 130},
-    &(sfIntRect){270, 260, 90, 130},
-    NULL
-};
-const char *PLAYER_FALLING_SOUND_PATH = "templates/sounds/hero_falling.ogg";
-
-const unsigned char PLAYER_DASH_OFFSET = 95;
-const unsigned char PLAYER_DASH_SPEED = 50;
-const char *PLAYER_DASHING_SOUND_PATH = "templates/sounds/hero_dash.ogg";
-const sfIntRect *PLAYER_DASHING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 520, 170, 130},
-    &(sfIntRect){0, 520, 170, 130},
-    &(sfIntRect){0, 520, 170, 130},
-    &(sfIntRect){0, 520, 170, 130},
-    NULL
-};
-
-const char *PLAYER_ATTACKING_SOUND_PATH = "templates/sounds/sword_1.ogg";
-
-const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET = 55;
-const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
-    &(sfIntRect){0, 390, 130, 130},
-    &(sfIntRect){130, 390, 130, 130},
-    &(sfIntRect){260, 390, 130, 130},
-    &(sfIntRect){390, 390, 130, 130},
-    NULL
-};
-
-const unsigned char PLAYER_ATTACKING_TOP_OFFSET = 25;
-const sfIntRect *PLAYER_ATTACKING_TOP_FRAME_KEYS[] = {
-    &(sfIntRect){0, 650, 100, 130},
-    &(sfIntRect){100, 650, 100, 130},
-    &(sfIntRect){200, 650, 100, 130},
-    &(sfIntRect){300, 650, 100, 130},
-    &(sfIntRect){400, 650, 100, 130},
-    NULL
-};
-
-const unsigned char PLAYER_ATTACKING_DOWN_OFFSET = 55;
-const sfIntRect *PLAYER_ATTACKING_DOWN_FRAME_KEYS[] = {
-    &(sfIntRect){0, 780, 130, 130},
-    &(sfIntRect){130, 780, 130, 130},
-    &(sfIntRect){260, 780, 130, 130},
-    &(sfIntRect){390, 780, 130, 130},
-    &(sfIntRect){520, 780, 130, 130},
-    NULL
-};
-
-const unsigned char PLAYER_DOUBLE_JUMPING_OFFSET = 55;
-const sfIntRect *PLAYER_DOUBLE_JUMPING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 910, 130, 130},
-    &(sfIntRect){0, 910, 130, 130},
-    &(sfIntRect){0, 910, 130, 130},
-    &(sfIntRect){130, 910, 130, 130},
-    &(sfIntRect){130, 910, 130, 130},
-    &(sfIntRect){130, 910, 130, 130},
-    &(sfIntRect){260, 910, 130, 130},
-    &(sfIntRect){260, 910, 130, 130},
-    &(sfIntRect){260, 910, 130, 130},
-    NULL};
-const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = \
-"templates/sounds/hero_wings.ogg";
 
 // MAIN MENU
 
@@ -388,18 +292,35 @@ const unsigned char SPIKE_HEIGHT = 66;
 
 //MAP_GESTION
 
-const char *CASLTE_NOT_REACHABLE = ": I'm sorry to tell you that this map isn't playable, the castle isnt reachable. Refer to the file legend.md for more information";
-const char *TOO_MANY_CASTLE = ": I'm sorry to tell you that this map isn't playable, there are too many castle. Refer to the file legend.md for more information";
-const char *NOT_ENOUGH_GROUND = ": I'm sorry to tell you that this map isn't playable, there arent enough ground on it. Refer to the file legend.md for more information";
-const char *NOT_ENOUGH_PATH = ": I'm sorry to tell you that this map isn't playable, there isnt any path. Refer to the file legend.md for more information";
-const char *NOT_ENOUGH_CASTLE = ": I'm sorry to tell you that this map isn't playable, there isnt any castle. Refer to the file legend.md for more information";
-const char *WRONG_CHARACTER = ": I'm sorry to tell you that this map isn't playable, Wrong character are inside the file. Refer to the file legend.md for more information";
-const char *TOO_MANY_STARTING_POINT = ": I'm sorry to tell you that this map isn't playable, There are too many starting points. Refer to the file legend.md for more information";
-const char *NO_STARTING_POINT = ": I'm sorry to tell you that this map isn't playable, There are no starting point. Refer to the file legend.md for more information";
+const char *CASLTE_NOT_REACHABLE = ": I'm sorry to tell you that this \
+map isn't playable, the castle isnt reachable. Refer to the file legend.md \
+for more information";
+const char *TOO_MANY_CASTLE = ": I'm sorry to tell you that this map \
+isn't playable, there are too many castle. Refer to the file legend.md \
+for more information";
+const char *NOT_ENOUGH_GROUND = ": I'm sorry to tell you that this map \
+isn't playable, there arent enough ground on it. Refer to the file \
+legend.md for more information";
+const char *NOT_ENOUGH_PATH = ": I'm sorry to tell you that this \
+map isn't playable, there isnt any path. Refer to the file \
+legend.md for more information";
+const char *NOT_ENOUGH_CASTLE = ": I'm sorry to tell you that \
+this map isn't playable, there isnt any castle. Refer to the \
+file legend.md for more information";
+const char *WRONG_CHARACTER = ": I'm sorry to tell you that \
+this map isn't playable, Wrong character are inside the file. \
+Refer to the file legend.md for more information";
+const char *TOO_MANY_STARTING_POINT = ": I'm sorry to tell you \
+that this map isn't playable, There are too many starting points. \
+Refer to the file legend.md for more information";
+const char *NO_STARTING_POINT = ": I'm sorry to tell you that this \
+map isn't playable, There are no starting point. Refer to the file \
+legend.md for more information";
 //TOWER MENU
 
 const char *TOWER_MENU_PATH = "templates/tower/tower_menu.png";
-const char *FILEPATH_TABLE[] = {"towers/tower1.txt", "towers/tower2.txt", "towers/tower3.txt", "towers/tower4.txt", NULL};
+const char *FILEPATH_TABLE[] = {"towers/tower1.txt", "towers/tower2.txt", \
+"towers/tower3.txt", "towers/tower4.txt", NULL};
 const char *TOWER_BOARD_PATH = "templates/interface/background_interface.png";
 const char *UPGRADE_BUTTON_PATH = "templates/tower/upgrade_button.png";
 

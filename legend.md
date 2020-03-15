@@ -4,7 +4,7 @@ In this file, i will explain you how to create a proper map for the game my_defe
 
 ## The file.
 
-You have to create a .txt file in the folder map.
+Head to the folder maps and open the map.txt file.
 
 ## Content of the file.
 
@@ -32,7 +32,7 @@ The game won't launch if the map is invalid.
 11111111122221222221111111111
 11111111121111111121111111111
 11111111121111111121111111111
-22222222221111111121111111111
+42222222221111111121111111111
 11111111111111111122222222225
 11111111111111111111111111111
 11111111111111111111111111111
@@ -47,9 +47,7 @@ Here we will explain you how to create your own towers (damage, range, spriteshe
 
 ## The file.
 
-You have to create a .txt file in the folder map and to go inside the file tower_choose.txt and replace the tower by "tower number:name of the txt file to load settings of the tower".
-
-Exemple: tower1:tower1
+Head to the folder towers and look at tower(number).txt file.
 
 ## Content of the file.
 
@@ -65,8 +63,6 @@ You will put on each line the value you want, and separate the different level o
 10:15:20 // Range
 1:1,5:2 // Attack speed
 templates/towers/tower1_level1.jpg // Sprite sheet of level 1
-templates/towers/tower1_level2.jpg // Sprite sheet of level 2
-templates/towers/tower1_level3.jpg // Sprite sheet of level 3
 slow:0:0:0 // Slow pourcentage
 multi_damage:0:0:0 // AOE damage
 

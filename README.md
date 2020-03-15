@@ -5,6 +5,9 @@
 Welcome to my Defender,
 a tower defense game made with CSFML where your goal is to build tower and protect your base from waves of ennemy !
 
+If you want to custom your game, your map, and your towers, head to the legend.md file.
+You can also head to the doc.md file to see different informations about the different towers and ennemies that the game contains.
+
 ### Windows Installer
 
 Use [this](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-web-community-8.0.18.0.msi) install
@@ -34,30 +37,12 @@ Update :
 
     git pull && make re
 
-## How to
+## How to play
 
-If you want to play on your own map:
-
-    ./my_defender [MAP]
-
-Else to play with the automatic generation
 
     ./my_defender
 
-## Player Input
 
-### Space ( or A on gamepad )
-
-First time : jump ( the more you let the key pressed the more you will jump ).
-In the air : double jump ( you won't be able to jump again until you hit the ground )
-
-### X (or X on gamepad)
-
-Attack : default is right side but you can attack top or down using the arrow ( left joystick on gamepad ). An attack who hit a spike will make you knockback.
-
-### A ( or B on gamepad )
-
-Dash : will dashing you can't be hitted by spike but you can't dash until the player recover
 
 ## Credits
 
