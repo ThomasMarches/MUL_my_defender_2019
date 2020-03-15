@@ -25,7 +25,7 @@ void callback_tower_menu(game_object_t *object, void *pt)
 game_object_t *create_tower_menu(game_object_t *last)
 {
     game_object_t *menu = create_game_object(last, (char *) TOWER_MENU_PATH, \
-    (sfVector2f) {20, 810}, TOWER_MENU);
+    (sfVector2f) {20, 830}, TOWER_MENU);
 
     if (menu == NULL)
         return (last);

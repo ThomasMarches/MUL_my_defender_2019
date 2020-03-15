@@ -31,25 +31,29 @@ void draw_board(sfRenderWindow *window, game_object_t *object)
     sfRenderWindow_drawText(window, info->life->text, NULL);
     sfRenderWindow_drawText(window, info->wave->text, NULL);
     sfRenderWindow_drawText(window, info->points->text, NULL);
+    sfRenderWindow_drawText(window, info->price_tower1, NULL);
+    sfRenderWindow_drawText(window, info->price_tower2, NULL);
+    sfRenderWindow_drawText(window, info->price_tower3, NULL);
+    sfRenderWindow_drawText(window, info->price_tower4, NULL);
 }
 
 void init_price_txt(board_t *info, char *tmp)
 {
-    info->price_tower1 = init_text(tmp, 100, 900, (char *) FONT_PATH);
+    info->price_tower1 = init_text(tmp, 60, 775, (char *) FONT_PATH);
     free(tmp);
     tmp = my_nbr_to_str(150);
-    info->price_tower2 = init_text(tmp, 150, 900, (char *) FONT_PATH);
+    info->price_tower2 = init_text(tmp, 180, 775, (char *) FONT_PATH);
     free(tmp);
     tmp = my_nbr_to_str(100);
-    info->price_tower3 = init_text(tmp, 200, 900, (char *) FONT_PATH);
+    info->price_tower3 = init_text(tmp, 300, 775, (char *) FONT_PATH);
     free(tmp);
     tmp = my_nbr_to_str(150);
-    info->price_tower4 = init_text(tmp, 250, 900, (char *) FONT_PATH);
+    info->price_tower4 = init_text(tmp, 415, 775, (char *) FONT_PATH);
     free(tmp);
-    sfText_setCharacterSize(info->price_tower1, 20);
-    sfText_setCharacterSize(info->price_tower2, 20);
-    sfText_setCharacterSize(info->price_tower3, 20);
-    sfText_setCharacterSize(info->price_tower4, 20);
+    sfText_setCharacterSize(info->price_tower1, 50);
+    sfText_setCharacterSize(info->price_tower2, 50);
+    sfText_setCharacterSize(info->price_tower3, 50);
+    sfText_setCharacterSize(info->price_tower4, 50);
 }
 
 game_object_t *create_board(game_object_t *last)
