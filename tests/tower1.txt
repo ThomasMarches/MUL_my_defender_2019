@@ -1,0 +1,7 @@
+100:150:200
+3:4:5
+10:15:20
+1:1,5:2
+templates/tower/icon_tower1.png
+slow:0/0/0
+multi_damage:0/0/0
