@@ -58,7 +58,7 @@ void set_bullet_vector(game_object_t *object, game_object_t *direction);
 game_object_t *create_bullet(game_object_t *last, sfVector2f pos, tower_type_t type, game_object_t *);
 int update_money(game_object_t *object, int price);
 void create_upgrading_content(tower_t *tower, sfVector2f pos, game_object_t *);
-int upgrade_tower(tower_t *tower, tower_type_t type);
+void upgrade_tower(tower_t *tower, tower_type_t type);
 int get_int_from_param(char *, int, int);
 char *get_string_from_param(char *, int);
 tower_t *create_tower_extend(tower_type_t, sfVector2f);

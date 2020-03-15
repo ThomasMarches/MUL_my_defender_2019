@@ -16,6 +16,9 @@ void callback_tower(game_object_t *object, void *pt)
 {
     tower_t *tower = (tower_t *) object->extend;
     game_object_t *button = tower->button;
+    sfIntRect box = {object->pos.x, object->pos.y, 50, 50};
+    scene_t *scene = pt;
+    sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
 
     if (tower->draw_range == 0)
         tower->draw_range = 1;
@@ -26,7 +29,7 @@ void callback_tower(game_object_t *object, void *pt)
     else {
         if ((button->state == 0 && tower->level != 3))
             button->state = 1;
-        else
+        else if (!sfIntRect_contains(&box, pos.x, pos.y) || tower->level == 3)
             button->state = 0;
     }
 }

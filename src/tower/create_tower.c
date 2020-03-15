@@ -80,7 +80,7 @@ tower_type_t type)
 
     if (tower == NULL)
         return (NULL);
-    if (tower->cost >= update_money(last, tower->cost)) {
+    if (update_money(last, tower->cost) == false) {
         free(tower);
         return (NULL);
     }

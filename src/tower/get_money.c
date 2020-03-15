@@ -33,7 +33,9 @@ int update_money(game_object_t *object, int price)
     if (!tmp)
         return (0);
     info = (board_t *) tmp->extend;
-    if (info->points->score >= (unsigned long long) price)
+    if (info->points->score >= (unsigned long long) price) {
         update_board_value(info->points, price * - 1, "Points : ");
-    return (info->points->score);
+        return (true);
+    }
+    return (false);
 }

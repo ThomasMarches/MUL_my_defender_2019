@@ -24,12 +24,8 @@ void update_tower_circle(tower_t *tower)
     tower->display_upgrade = 0;
 }
 
-int upgrade_tower(tower_t *tower, tower_type_t type)
+void upgrade_tower(tower_t *tower, tower_type_t type)
 {
-    int tmp = tower->upgrade_cost;
-
-    if (tower->level == 3)
-        return (0);
     tower->level += 1;
     tower->delay = 0;
     tower->aoe = get_int_from_param(tower->tower_param, 7, tower->level);
@@ -45,7 +41,6 @@ int upgrade_tower(tower_t *tower, tower_type_t type)
     tower->level + 1);
     update_tower_circle(tower);
     sfText_setString(tower->upgrade_txt, my_nbr_to_str(tower->upgrade_cost));
-    return (tmp);
 }
 
 void draw_upgrade_button(sfRenderWindow *window, game_object_t *object)
@@ -57,14 +52,10 @@ void draw_upgrade_button(sfRenderWindow *window, game_object_t *object)
 void upgrade_button_callback(game_object_t *object, void *pt)
 {
     game_object_t *tower = ((game_object_t *) object->extend);
-    int tmp = 0;
 
-    if (object->state == 1 && get_money(object) >= \
-    ((tower_t *)tower->extend)->upgrade_cost) {
-        if ((tmp = upgrade_tower(tower->extend, \
-        ((tower_t *)tower->extend)->type)) != 0)
-            update_money(object, tmp);
-    }
+    if (((tower_t *)tower->extend)->level < 3 && update_money(object, \
+    ((tower_t *)tower->extend)->upgrade_cost))
+        upgrade_tower(tower->extend, ((tower_t *)tower->extend)->type);
     return;
 }
 
