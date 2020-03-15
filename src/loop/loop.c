@@ -67,6 +67,7 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
     else
         scene->display = MAIN_MENU_SCENE;
     scene->window = window;
+    sfMusic_play(game->music);
     while (sfRenderWindow_isOpen(window) && scene->display == MAIN_MENU_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);

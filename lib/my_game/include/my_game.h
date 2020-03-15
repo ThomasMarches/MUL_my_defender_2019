@@ -26,6 +26,7 @@ typedef struct game {
     window_t *window;                                       /**< Struct window, from my_graph lib, used to handle the variable of the window*/
     char *map;                                              /**< String representing the map of the game*/
     int difficulty;
+    sfMusic *music;
     int (*scene_loop[5]) (game_t *, sfRenderWindow *);      /**< Array of function for all scene*/
     game_object_t *player;                                  /**< Struct game_object reference to the main object of the game*/
     score_t *score;                                         /**< Struct that handle the text variable for the score*/
