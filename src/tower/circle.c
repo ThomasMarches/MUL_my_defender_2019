@@ -22,7 +22,7 @@ void callback_tower(game_object_t *object, void *pt)
 
     if (tower->draw_range == 0)
         tower->draw_range = 1;
-    else
+    else if (!sfIntRect_contains(&box, pos.x, pos.y))
         tower->draw_range = 0;
     if (button == NULL)
         return;

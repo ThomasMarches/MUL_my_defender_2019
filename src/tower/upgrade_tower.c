@@ -26,6 +26,8 @@ void update_tower_circle(tower_t *tower)
 
 void upgrade_tower(tower_t *tower, tower_type_t type)
 {
+    char *tmp = NULL;
+
     tower->level += 1;
     tower->delay = 0;
     tower->aoe = get_int_from_param(tower->tower_param, 7, tower->level);
@@ -40,7 +42,9 @@ void upgrade_tower(tower_t *tower, tower_type_t type)
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, \
     tower->level + 1);
     update_tower_circle(tower);
-    sfText_setString(tower->upgrade_txt, my_nbr_to_str(tower->upgrade_cost));
+    tmp = my_nbr_to_str(tower->upgrade_cost);
+    sfText_setString(tower->upgrade_txt, tmp);
+    free(tmp);
 }
 
 void draw_upgrade_button(sfRenderWindow *window, game_object_t *object)
@@ -63,6 +67,7 @@ void create_upgrading_content(tower_t *tower, sfVector2f pos, \
 game_object_t *object)
 {
     sfVector2f position = pos;
+    char *tmp = NULL;
 
     position.y -= 50;
     tower->button = create_game_object(object, (char *) UPGRADE_BUTTON_PATH, \
@@ -74,6 +79,8 @@ game_object_t *object)
         tower->button->extend = object;
     }
     tower->display_upgrade = 0;
-    tower->upgrade_txt = init_text(my_nbr_to_str(tower->upgrade_cost),
+    tmp = my_nbr_to_str(tower->upgrade_cost);
+    tower->upgrade_txt = init_text(tmp, \
     pos.x + 50, pos.y - 50, (char *) FONT_PATH);
+    free(tmp);
 }

@@ -27,6 +27,8 @@ void free_extend(game_object_t *object)
 {
     if (object->type == TOWER) {
         free(((tower_t *) object->extend)->tower_param);
+        sfFont_destroy((sfFont *) sfText_getFont(((tower_t *) object->extend)->upgrade_txt));
+        sfText_destroy(((tower_t *) object->extend)->upgrade_txt);
         sfCircleShape_destroy(((tower_t *) object->extend)->circle);
     } else if (object->type == TOWER_BOARD) {
         free_tower_board(((board_t *) object->extend));
