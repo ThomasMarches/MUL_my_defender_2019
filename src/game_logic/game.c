@@ -55,6 +55,7 @@ void free_score(score_t *score)
 
 void destroy_game(game_t *game)
 {
+    sfMusic_destroy(game->music);
     sfRenderWindow_destroy(game->window->window);
     free(game->window);
     free_score(game->score);

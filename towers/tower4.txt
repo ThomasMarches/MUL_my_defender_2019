@@ -1,7 +1,7 @@
 100:150:200
 3:4:5
 0:0:0
-1:1,5:2
+2:2:2
 templates/tower/icon_tower4.png
 slow:40:50:60
 multi_damage:0:0:0
