@@ -33,6 +33,17 @@ char *get_string_from_param(char *str, int column)
     return (str_to_return);
 }
 
+int get_to_the_good_position(char *str, int column, int counter, int level)
+{
+    for (int found = 0; found + 1 != column; counter++)
+        if (str[counter] == '\n')
+            found++;
+    for (int found = 0; found + 1 != level && str[counter] != '\0'; counter++)
+        if (str[counter] == ':')
+            found++;
+    return (counter);
+}
+
 int get_int_from_param(char *str, int column, int level)
 {
     int counter = 0;
@@ -41,15 +52,10 @@ int get_int_from_param(char *str, int column, int level)
     char *tmp = NULL;
 
     int_to_return[0] = '\0';
-    if (temp == NULL)
+    if (temp == NULL || int_to_return == NULL)
         return (84);
     temp[1] = '\0';
-    for (int found = 0; found + 1 != column; counter++)
-        if (str[counter] == '\n')
-            found++;
-    for (int found = 0; found + 1 != level && str[counter] != '\0'; counter++)
-        if (str[counter] == ':')
-            found++;
+    counter = get_to_the_good_position(str, column, counter, level);
     for (; str[counter] != '\0' && str[counter] != ':' && str[counter]
     != '\n'; counter++) {
         temp[0] = str[counter];
