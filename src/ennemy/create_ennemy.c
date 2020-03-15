@@ -21,7 +21,8 @@ void draw_ennemy(sfRenderWindow *window, game_object_t *object)
         return;
     sfRectangleShape_setSize(rect, new_vec);
     sfRectangleShape_setFillColor(rect, sfGreen);
-    sfRectangleShape_setPosition(rect, (sfVector2f) {object->pos.x, object->pos.y - 10});
+    sfRectangleShape_setPosition(rect, (sfVector2f) {object->pos.x, \
+    object->pos.y - 10});
     sfRenderWindow_drawRectangleShape(window, rect, NULL);
     sfRectangleShape_destroy(rect);
 }
@@ -55,16 +56,7 @@ game_object_t *create_ennemy2(game_object_t *last, int i, map_t *map)
         free(object);
         return (NULL);
     }
-    object->anim = malloc(sizeof(anim_t) * 4);
-    if (object->anim != NULL)
-        init_ennemy_anim(object);
-    object->state = 0;
-    object->update = &update_effect;
-    object->move = (sfVector2f) {1, 0};
-    init_game_object_frame(object);
-    object->update = &update_ennemy;
-    object->draw = &draw_ennemy;
-    object->z_index = 2;
+    init_ennemy(object);
     return (object);
 }
 
@@ -97,15 +89,6 @@ game_object_t *create_ennemy1(game_object_t *last, int i, map_t *map)
         free(object);
         return (NULL);
     }
-    object->anim = malloc(sizeof(anim_t) * 4);
-    if (object->anim != NULL)
-        init_ennemy_anim(object);
-    object->state = 0;
-    object->update = &update_effect;
-    object->move = (sfVector2f) {1, 0};
-    init_game_object_frame(object);
-    object->update = &update_ennemy;
-    object->draw = &draw_ennemy;
-    object->z_index = 2;
+    init_ennemy(object);
     return (object);
 }

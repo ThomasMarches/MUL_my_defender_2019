@@ -75,7 +75,7 @@ typedef struct game_object
     struct game_object *next;                             /**< Next object in the list*/
     void *extend;
 } game_object_t;
-    
+
 ////////////////////////////////////////////////////////////
 /// \brief Initialize game_object frame
 ///
@@ -134,8 +134,8 @@ void update_game_object_state(struct game_object *object, int state);
 ///
 /// \return struct game_object *object
 ////////////////////////////////////////////////////////////
-struct game_object *create_game_object(struct game_object *last, char *path,
-                                       sfVector2f pos, object_type type);
+struct game_object *create_game_object(struct game_object *last, char *path, \
+                                    sfVector2f pos, object_type type);
 
 ////////////////////////////////////////////////////////////
 /// \brief Initialize a game_object
@@ -247,7 +247,7 @@ void update_disappearing_object(game_object_t *object);
 /// \param sfIntRet **frame_keys of the animation
 ////////////////////////////////////////////////////////////
 game_object_t *create_animated_object(game_object_t *last, char *, sfVector2f pos,
-                                      sfIntRect **frame_keys);
+                                    sfIntRect **frame_keys);
 
 
 void draw_object(sfRenderWindow *, game_object_t *);

@@ -59,5 +59,10 @@ void create_upgrading_content(tower_t *tower, sfVector2f pos, game_object_t *);
 void upgrade_tower(tower_t *tower, tower_type_t type);
 int get_int_from_param(char *, int, int);
 char *get_string_from_param(char *, int);
+tower_t *create_tower_extend(tower_type_t, sfVector2f);
+board_t *create_board_text(board_t *);
+board_t *config_board_text(board_t *);
+void init_price_txt(board_t *, char *);
+char *init_tower_from_file(char *);
 
 #endif /* !TOWER_H_ */

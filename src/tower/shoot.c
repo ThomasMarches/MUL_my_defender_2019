@@ -36,8 +36,10 @@ void shoot_aoe(game_object_t *object, game_object_t *tmp, scene_t *scene)
     ennemy_t *ennemy = (ennemy_t *) tmp->extend;
 
     for (tmp = scene->objects_list; tmp; tmp = tmp->next)
-        if (reference->pos.x - tmp->pos.x < 50 && reference->pos.x - tmp->pos.x > 0
-        && reference->pos.y - tmp->pos.y < 50 && reference->pos.y - tmp->pos.y > 0)
+        if (reference->pos.x - tmp->pos.x < 50 && reference->pos.x - \
+        tmp->pos.x > 0
+        && reference->pos.y - tmp->pos.y < 50 && reference->pos.y - \
+        tmp->pos.y > 0)
             ennemy->life = ennemy->life - tower->aoe;
 }
 
@@ -64,7 +66,8 @@ void get_ennemy_to_shoot(game_object_t *object, scene_t *scene)
     int walk = 0;
 
     for (tmp = scene->objects_list; tmp; tmp = tmp->next)
-        if (tmp->type == ENNEMY && ((ennemy_t *) tmp->extend)->position_on_map > walk
+        if (tmp->type == ENNEMY && ((ennemy_t *) tmp->extend)->position_on_map \
+        > walk
         && is_ennemy_in_range(object, tmp)) {
             tmp2 = tmp;
             walk = ((ennemy_t *) tmp->extend)->position_on_map;

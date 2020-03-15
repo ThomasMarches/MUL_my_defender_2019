@@ -36,25 +36,32 @@ void set_bullet_vector(game_object_t *object, game_object_t *direction)
     object->move = shooting_dir;
 }
 
+game_object_t *create_bullet_from_type(game_object_t *last, sfVector2f pos,
+tower_type_t type)
+{
+    switch (type - 1) {
+    case 0:
+        return (create_game_object(last, (char *) NORMAL_BULLET, pos, BULLET));
+        break;
+    case 1:
+        return (create_game_object(last, (char *) SLOW_BULLET, pos, BULLET));
+        break;
+    case 2:
+        return (create_game_object(last, (char *) FIRE_BULLET, pos, BULLET));
+        break;
+    case 3:
+        return (create_game_object(last, (char *) AOE_BULLET, pos, BULLET));
+        break;
+    }
+    return (NULL);
+}
+
 game_object_t *create_bullet(game_object_t *last, sfVector2f pos,
 tower_type_t type, game_object_t *target)
 {
     game_object_t *object = NULL;
 
-    switch (type - 1) {
-    case 0:
-        object = create_game_object(last, (char *) NORMAL_BULLET, pos, BULLET);
-        break;
-    case 1:
-        object = create_game_object(last, (char *) SLOW_BULLET, pos, BULLET);
-        break;
-    case 2:
-        object = create_game_object(last, (char *) FIRE_BULLET, pos, BULLET);
-        break;
-    case 3:
-        object = create_game_object(last, (char *) AOE_BULLET, pos, BULLET);
-        break;
-    }
+    object = create_bullet_from_type(last, pos, type);
     if (object == NULL)
         return (last);
     object->update = &update_bullet;

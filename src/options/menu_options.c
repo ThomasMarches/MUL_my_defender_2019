@@ -8,6 +8,19 @@
 #include "my_defender.h"
 #include <stdlib.h>
 
+static game_object_t *create_option_object_list2(game_object_t *object)
+{
+    object = create_game_object(object, (char *) BAR_BACKGROUND_PATH, \
+    (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
+    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
+    {0, 0}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
+    return (object);
+}
+
 static game_object_t *create_option_object_list(void)
 {
     game_object_t *object = NULL;
@@ -26,15 +39,7 @@ static game_object_t *create_option_object_list(void)
     (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y});
     object->box = (sfIntRect) {VOLUME_BAR_X - BAR_BOX_OFFSET / 2, \
     VOLUME_BAR_Y, BAR_WIDTH, BAR_HEIGHT + BAR_BOX_OFFSET};
-    object = create_game_object(object, (char *) BAR_BACKGROUND_PATH, \
-    (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y}, DECOR);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
-    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
-    {0, 0}, DECOR);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
-    return (object);
+    return (create_option_object_list2(object));
 }
 
 void draw_options(scene_t *scene, game_t *game, sfRenderWindow *window)

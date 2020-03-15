@@ -63,10 +63,12 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
         scene->display = END_SCENE;
     ennemy->position_on_map += ennemy->speed;
     update_game_object_frame(object);
-    if (((ennemy_t *) object->extend)->map.solve->child != NULL && ennemy->life > 0)
+    if (((ennemy_t *) object->extend)->map.solve->child != NULL && \
+    ennemy->life > 0)
         return (move_ennemy(object));
     else if (((ennemy_t *) object->extend)->map.solve->child != NULL)
-        increase_board_value(((board_t *) tmp->extend)->points, 10, "Points : ");
+        increase_board_value(((board_t *) tmp->extend)->points, 10, \
+        "Points : ");
     for (tmp = scene->objects_list; tmp; tmp = tmp2) {
         tmp2 = tmp->next;
         if (tmp->type == BULLET && ((game_object_t *) tmp->extend) == object)

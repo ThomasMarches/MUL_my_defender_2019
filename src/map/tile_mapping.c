@@ -28,7 +28,8 @@ void callback_tile(game_object_t *object, void *pt)
     scene->objects_list = (tmp != NULL) ? tmp : scene->objects_list;
 }
 
-game_object_t *create_tile(game_object_t *last, char *path, sfVector2f vec, object_type type)
+game_object_t *create_tile(game_object_t *last, char *path, sfVector2f vec, \
+object_type type)
 {
     game_object_t *tile = create_game_object(last, path, vec, type);
 
@@ -41,26 +42,39 @@ game_object_t *create_tile(game_object_t *last, char *path, sfVector2f vec, obje
     return (tile);
 }
 
+game_object_t *generate_tile2(game_object_t *last, int id, int x, int y)
+{
+    switch (id) {
+    case '1':
+        return (create_tile(last, (char *) GRASS_PATH, (sfVector2f) \
+        {x, y}, GRASS));
+        break;
+    case '3':
+        return (create_tile(last, (char *) ROCK_PATH, (sfVector2f) \
+        {x, y}, ROCK));
+        break;
+    case '5':
+        return (create_tile(last, (char *) BASE_PATH, (sfVector2f) \
+        {x - 33, y - 120}, BASE));
+        break;
+    default:
+        return (generate_tile2(last, id, x, y));
+    }
+}
+
 game_object_t *generate_tile(game_object_t *last, int id, int x, int y)
 {
     switch (id) {
     case '2':
-        return (create_tile(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
+        return (create_tile(last, (char *) GROUND_PATH, (sfVector2f) \
+        {x, y}, GROUND));
         break;
     case '4':
-        return (create_game_object(last, (char *) GROUND_PATH, (sfVector2f) {x, y}, GROUND));
-        break;
-    case '1':
-        return (create_tile(last, (char *) GRASS_PATH, (sfVector2f) {x, y}, GRASS));
-        break;
-    case '3':
-        return (create_tile(last, (char *) ROCK_PATH, (sfVector2f) {x, y}, ROCK));
-        break;
-    case '5':
-        return (create_tile(last, (char *) BASE_PATH, (sfVector2f) {x - 33, y - 120}, BASE));
+        return (create_game_object(last, (char *) GROUND_PATH, (sfVector2f) \
+        {x, y}, GROUND));
         break;
     default:
-        return (NULL);
+        return (generate_tile2(last, id, x, y));
     }
 }
 

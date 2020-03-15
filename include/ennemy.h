@@ -25,5 +25,7 @@ game_object_t *create_ennemy2(game_object_t *, int, map_t *);
 void init_ennemy_anim(game_object_t *);
 game_object_t *init_wave(game_object_t *);
 bool update_ennemy(game_object_t *, scene_t *);
+void draw_ennemy(sfRenderWindow *, game_object_t *);
+void init_ennemy(game_object_t *);
 
 #endif /* !ENNEMY_H_ */

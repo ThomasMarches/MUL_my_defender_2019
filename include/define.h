@@ -335,7 +335,7 @@ const char *RESTART_PATH = "templates/menu/restart.png";
 const unsigned short RESTART_X = (WINDOW_WIDTH - 272) / 2;
 const unsigned short RESTART_Y = 575;
 
-const char *GG_TOP_PATH = "templates/GG/GG_top.png";
+const char *GG_TOP_PATH = "templates/gg/gg_top.png";
 const unsigned short GG_TOP_X = (WINDOW_WIDTH - 515) / 2;
 const unsigned short GG_TOP_Y = 0;
 const sfIntRect *GG_TOP_FRAME_KEYS[] = {
@@ -350,7 +350,7 @@ const sfIntRect *GG_TOP_FRAME_KEYS[] = {
     NULL
 };
 
-const char *GG_BOT_PATH = "templates/GG/GG_bot.png";
+const char *GG_BOT_PATH = "templates/gg/gg_bot.png";
 const unsigned short GG_BOT_X = (WINDOW_WIDTH - 515) / 2;
 const unsigned short GG_BOT_Y = WINDOW_HEIGHT - 270;
 const sfIntRect *GG_BOT_FRAME_KEYS[] = {
