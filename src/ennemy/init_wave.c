@@ -18,7 +18,8 @@ void generate_ennemys(game_object_t *object, scene_t *scene)
     game_object_t *tmp = NULL;
 
     for (int i = 0; i < object->state; i++) {
-        tmp = create_ennemy(scene->objects_list, i, (map_t *) object->extend, rand() % 2);
+        tmp = create_ennemy(scene->objects_list, i, (map_t *) \
+        object->extend, rand() % 2);
         scene->objects_list = (tmp) ? tmp : scene->objects_list;
     }
 }

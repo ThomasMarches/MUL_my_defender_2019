@@ -18,8 +18,6 @@ int end_loop(game_t *game, sfRenderWindow *window)
     scene->window = window;
     update_text(game->score->text, sfWhite, (sfVector2f) {400, 400}, 48);
     center_text(game->score->text, WINDOW_WIDTH);
-    update_text(game->highscore->text, sfWhite, (sfVector2f) {400, 300}, 48);
-    center_text(game->highscore->text, WINDOW_WIDTH);
     while (sfRenderWindow_isOpen(window) && scene->display == END_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);

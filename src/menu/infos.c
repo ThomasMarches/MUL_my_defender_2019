@@ -8,6 +8,18 @@
 #include "my_defender.h"
 #include <stdlib.h>
 
+game_object_t *create_infos_objects2(game_object_t *object)
+{
+    object = create_button(object, (char *) ARROW_PATH, (sfVector2f) \
+    {INFOS_ARROW_RIGHT_X, INFOS_ARROW_Y}, (sfIntRect **)ARROW_RIGHT_FRAME_KEYS);
+    object->callback = &infos_right_arrow_function;
+    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
+    {0, 0}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
+    return (object);
+}
+
 game_object_t *create_infos_objects(void)
 {
     game_object_t *object = NULL;
@@ -24,14 +36,7 @@ game_object_t *create_infos_objects(void)
     object = create_button(object, (char *) ARROW_PATH, (sfVector2f) \
     {INFOS_ARROW_LEFT_X, INFOS_ARROW_Y}, (sfIntRect **)ARROW_LEFT_FRAME_KEYS);
     object->callback = &infos_left_arrow_function;
-    object = create_button(object, (char *) ARROW_PATH, (sfVector2f) \
-    {INFOS_ARROW_RIGHT_X, INFOS_ARROW_Y}, (sfIntRect **)ARROW_RIGHT_FRAME_KEYS);
-    object->callback = &infos_right_arrow_function;
-    object = create_game_object(object, (char *)BACKGROUND_INFO, (sfVector2f) \
-    {0, 0}, DECOR);
-    init_appearing_object(object);
-    object->update = &update_appearing_object;
-    return (object);
+    return (create_infos_objects2(object));
 }
 
 scene_t *create_infos_menu(void)

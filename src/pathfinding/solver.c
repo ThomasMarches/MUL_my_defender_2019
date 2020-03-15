@@ -17,7 +17,8 @@ int solve(map_t *map)
     if (add_node(&map->l1, (node_t) {0, 0, NULL, NULL, NULL}) == false)
         return (84);
     actual = map->l1;
-    for (; map->map[actual->index] != '\0' && map->map[actual->index] != '4'; actual->index++);
+    for (; map->map[actual->index] != '\0' && map->map[actual->index] != '4'; \
+    actual->index++);
     map->in = actual->index;
     while (actual->index != map->out && map->l1 != NULL) {
         actual = get_best_node(&map->l1);

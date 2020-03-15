@@ -38,9 +38,12 @@ void init_game_object_frame(game_object_t *game_object)
 
 void update_game_object_state(game_object_t *game_object, int state)
 {
+    anim_t *anim = game_object->anim;
+
+    if (anim == NULL)
+        return;
     update_sound_effect(game_object, state);
     game_object->state = state;
-    anim_t *anim = game_object->anim;
     anim[state].frame_id = 0;
     sfSprite_setTextureRect(game_object->sprite, \
     *anim[state].frames_key[anim[state].frame_id]);

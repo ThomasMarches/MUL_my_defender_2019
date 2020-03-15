@@ -12,16 +12,13 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
-int get_int_from_param(char *, int, int);
-
-char *get_string_from_param(char *, int);
-
 bool update_tower(game_object_t *object, scene_t *scene)
 {
     tower_t *tower = (tower_t *) object->extend;
 
     tower->delay++;
-    if (tower->attack_speed != 0 && tower->delay == WINDOW_FRAMERATE / tower->attack_speed) {
+    if (tower->attack_speed != 0 && tower->delay == WINDOW_FRAMERATE / \
+    tower->attack_speed) {
         tower->delay = 0;
         get_ennemy_to_shoot(object, scene);
     }
@@ -53,38 +50,25 @@ char *init_tower_from_file(char *filepath)
 void draw_tower(sfRenderWindow *window, game_object_t *object)
 {
     tower_t *tower = (tower_t *) object->extend;
+    game_object_t *button = tower->button;
 
     if (tower->draw_range == 1)
         sfRenderWindow_drawCircleShape(window, tower->circle, NULL);
-    if (tower->display_upgrade == 1 && tower->level != 3) {
-        sfRenderWindow_drawSprite(window, tower->upgrade_spr, NULL);
+    if (button != NULL && button->state == 1 && tower->level != 3) {
         sfRenderWindow_drawText(window, tower->upgrade_txt, NULL);
     }
     sfRenderWindow_drawSprite(window, object->sprite, NULL);
 }
 
-tower_t *create_tower_extend(tower_type_t type, sfVector2f pos)
+void init_tower(game_object_t *object, tower_t *tower, sfVector2f pos)
 {
-    tower_t *tower = malloc(sizeof(tower_t));
-
-    if (tower == NULL)
-        return (NULL);
-    tower->type = type;
-    tower->level = 1;
-    tower->delay = 0;
-    tower->tower_param = init_tower_from_file((char *) FILEPATH_TABLE[type - 1]);
-    if (tower->tower_param == NULL)
-        return (NULL);
-    tower->aoe = get_int_from_param(tower->tower_param, 7, 1);
-    tower->slow = get_int_from_param(tower->tower_param, 6, 1);
-    tower->draw_range = 0;
-    tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
-    tower->damage = get_int_from_param(tower->tower_param, 3, 1);
-    tower->range = get_int_from_param(tower->tower_param, 2, 1);
-    tower->cost = get_int_from_param(tower->tower_param, 1, 1);
-    tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, 2);
-    tower = create_upgrading_content(tower, pos);
-    return (tower);
+    object->update = &update_tower;
+    object->draw = &draw_tower;
+    object->z_index = 2;
+    object->extend = (void *) tower;
+    object->box = (sfIntRect) {pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT};
+    create_range_circle(object);
+    create_upgrading_content(tower, pos, object);
 }
 
 game_object_t *create_tower(game_object_t *last, sfVector2f pos, \
@@ -104,11 +88,6 @@ tower_type_t type)
     free(path);
     if (object == NULL)
         return (NULL);
-    object->update = &update_tower;
-    object->draw = &draw_tower;
-    object->z_index = 2;
-    object->extend = (void *) tower;
-    object->box = (sfIntRect) {pos.x, pos.y, TILE_WIDTH, TILE_HEIGHT};
-    create_range_circle(object);
-    return (object);
+    init_tower(object, tower, pos);
+    return ((tower->button) ? tower->button : object);
 }

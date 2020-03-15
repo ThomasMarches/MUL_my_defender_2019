@@ -9,7 +9,18 @@
 #include <stdlib.h>
 #include <SFML/Audio.h>
 
-game_t *init_game()
+int check_map_at_start(void)
+{
+    char *raw_map = get_map("maps/map");
+
+    if (raw_map == NULL)
+        return (84);
+    if (is_map_valid(raw_map, "maps/map") == 84)
+        return (84);
+    return (0);
+}
+
+game_t *init_game(void)
 {
     game_t *game = malloc(sizeof(game_t));
 
@@ -17,6 +28,8 @@ game_t *init_game()
         return (NULL);
     game->music = sfMusic_createFromFile(MENU_MUSIC_PATH);
     sfMusic_setLoop(game->music, sfTrue);
+    if (check_map_at_start() == 84)
+        return (NULL);
     game->difficulty = 10;
     game->window = init_window();
     init_score(game);

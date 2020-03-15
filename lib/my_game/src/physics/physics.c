@@ -22,7 +22,8 @@ void do_solid_collision_objects(game_object_t *actual, game_object_t *object)
             actual->pos.y = object->pos.y + object->box.height;
             actual->box.top = actual->pos.y;
             sfSprite_setPosition(actual->sprite, actual->pos);
-        } else if (actual->last_pos.x < object->pos.x) {
+        }
+        if (actual->last_pos.x < object->pos.x) {
             actual->move.x = 0;
             actual->pos.x = object->pos.x - actual->box.width;
             sfSprite_setPosition(actual->sprite, actual->pos);

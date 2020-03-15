@@ -8,6 +8,25 @@
 #include "my_defender.h"
 #include <stdlib.h>
 
+void draw_ennemy(sfRenderWindow *window, game_object_t *object)
+{
+    sfRectangleShape *rect = NULL;
+    ennemy_t *ennemy = object->extend;
+    sfVector2f new_vec =  (sfVector2f) {(48 * (ennemy->life / \
+    (double) ennemy->max_life)), 10};
+
+    sfRenderWindow_drawSprite(window, object->sprite, NULL);
+    rect = sfRectangleShape_create();
+    if (rect == NULL)
+        return;
+    sfRectangleShape_setSize(rect, new_vec);
+    sfRectangleShape_setFillColor(rect, sfGreen);
+    sfRectangleShape_setPosition(rect, (sfVector2f) {object->pos.x, \
+    object->pos.y - 10});
+    sfRenderWindow_drawRectangleShape(window, rect, NULL);
+    sfRectangleShape_destroy(rect);
+}
+
 ennemy_t *create_ennemy_struct2(int i, map_t *path)
 {
     ennemy_t *ennemy = malloc(sizeof(ennemy_t));
@@ -17,6 +36,7 @@ ennemy_t *create_ennemy_struct2(int i, map_t *path)
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
     ennemy->life = 100;
+    ennemy->max_life = ennemy->life;
     ennemy->speed = 3;
     ennemy->map = *path;
     return (ennemy);
@@ -36,15 +56,7 @@ game_object_t *create_ennemy2(game_object_t *last, int i, map_t *map)
         free(object);
         return (NULL);
     }
-    object->anim = malloc(sizeof(anim_t) * 4);
-    if (object->anim != NULL)
-        init_ennemy_anim(object);
-    object->state = 0;
-    object->update = &update_effect;
-    object->move = (sfVector2f) {1, 0};
-    init_game_object_frame(object);
-    object->update = &update_ennemy;
-    object->z_index = 2;
+    init_ennemy(object);
     return (object);
 }
 
@@ -57,6 +69,7 @@ ennemy_t *create_ennemy_struct1(int i, map_t *path)
     ennemy->position_on_map = -i;
     ennemy->slow = 0;
     ennemy->life = 50;
+    ennemy->max_life = ennemy->life;
     ennemy->speed = 5;
     ennemy->map = *path;
     return (ennemy);
@@ -76,14 +89,6 @@ game_object_t *create_ennemy1(game_object_t *last, int i, map_t *map)
         free(object);
         return (NULL);
     }
-    object->anim = malloc(sizeof(anim_t) * 4);
-    if (object->anim != NULL)
-        init_ennemy_anim(object);
-    object->state = 0;
-    object->update = &update_effect;
-    object->move = (sfVector2f) {1, 0};
-    init_game_object_frame(object);
-    object->update = &update_ennemy;
-    object->z_index = 2;
+    init_ennemy(object);
     return (object);
 }

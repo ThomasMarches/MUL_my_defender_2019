@@ -13,7 +13,7 @@ SRC = $(shell find ./src/ -iname "*.c")
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = $(CSFML) -I./include -I../my_graph/
+CFLAGS = $(CSFML) -I./include -I../my_graph/ -g3
 
 CSFML = -Wno-unused-command-line-argument -Wno-deprecated -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 

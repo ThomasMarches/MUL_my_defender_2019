@@ -39,7 +39,8 @@ static const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
     &(sfIntRect){0, 396, 304, 36},
     NULL};
 
-static const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
+static const char *BUTTON_SOUND_PATH = \
+"templates/sounds/ui_change_selection.ogg";
 
 bool update_text_button(game_object_t *button, scene_t *scene)
 {

@@ -43,6 +43,7 @@ game_object_t *create_bar(game_object_t *last, char *path, sfVector2f pos)
     object->state = UNSELECTED;
     object->callback = &bar_function;
     object->update = &update_bar;
+    object->box = (sfIntRect) {pos.x, pos.y, BAR_WIDTH, BAR_HEIGHT};
     init_appearing_object(object);
     return (object);
 }

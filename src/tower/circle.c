@@ -15,15 +15,20 @@
 void callback_tower(game_object_t *object, void *pt)
 {
     tower_t *tower = (tower_t *) object->extend;
+    game_object_t *button = tower->button;
 
     if (tower->draw_range == 0)
         tower->draw_range = 1;
     else
         tower->draw_range = 0;
-    if (tower->display_upgrade == 0)
-        tower->display_upgrade = 1;
-    else
-        tower->display_upgrade = 0;
+    if (button == NULL)
+        return;
+    else {
+        if ((button->state == 0 && tower->level != 3))
+            button->state = 1;
+        else
+            button->state = 0;
+    }
 }
 
 void create_range_circle(game_object_t *object)

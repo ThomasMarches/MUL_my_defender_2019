@@ -19,6 +19,8 @@ sfVector2f pos, sfIntRect **frame_keys)
 {
     game_object_t *object = create_game_object(last, path, pos, EFFECT);
 
+    if (object == NULL)
+        return (NULL);
     object->anim = malloc(sizeof(anim_t) * 1);
     if (object->anim == NULL)
         return (NULL);
@@ -28,6 +30,7 @@ sfVector2f pos, sfIntRect **frame_keys)
     for (int i = 0; object->anim[0].frames_key[i] != NULL; i++)
         object->anim[0].restart_id = i;
     object->state = 0;
+    object->type = DECOR;
     object->update = &update_animated_object;
     init_game_object_frame(object);
     return (object);
