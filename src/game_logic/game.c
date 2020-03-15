@@ -26,10 +26,8 @@ game_t *init_game(void)
 
     if (game == NULL)
         return (NULL);
-    if (check_map_at_start() == 84) {
-        free(game);
+    if (check_map_at_start() == 84)
         return (NULL);
-    }
     game->difficulty = 10;
     game->window = init_window();
     init_score(game);

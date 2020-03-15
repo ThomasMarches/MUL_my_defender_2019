@@ -22,7 +22,7 @@ tower_t *create_tower_extend(tower_type_t type, sfVector2f pos)
     if (tower->tower_param == NULL)
         return (NULL);
     tower->aoe = get_int_from_param(tower->tower_param, 7, 1);
-    tower->slow = get_int_from_param(tower->tower_param, 6, 1);
+    tower->slow = get_int_from_param(tower->tower_param, 6, 2);
     tower->draw_range = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, 1);
     tower->damage = get_int_from_param(tower->tower_param, 3, 1);
