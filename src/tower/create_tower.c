@@ -28,21 +28,16 @@ bool update_tower(game_object_t *object, scene_t *scene)
 char *init_tower_from_file(char *filepath)
 {
     int fd = -1;
-    struct stat size;
-    char *tower_param = NULL;
+    char *tower_param = malloc(sizeof(char) * 150);
+    int character = 1;
 
-    if (filepath != NULL) {
+    if (filepath != NULL)
         fd = open(filepath, O_RDONLY);
-        stat(filepath, &size);
-    }
-    if (fd == -1)
+    if (fd == -1 || tower_param == NULL)
         return (NULL);
-    tower_param = malloc(sizeof(char) * (size.st_size + 1));
-    if (tower_param == NULL)
-        return (NULL);
-    if (read(fd, tower_param, size.st_size) == -1)
-        return (NULL);
-    tower_param[size.st_size] = '\0';
+    tower_param[0] = '\0';
+    character = read(fd, tower_param, 149);
+    tower_param[character] = '\0';
     close(fd);
     return (tower_param);
 }

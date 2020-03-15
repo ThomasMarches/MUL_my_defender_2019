@@ -95,20 +95,21 @@ int is_map_valid(char *map, char *map_name)
 char *get_map(char *filepath_to_map)
 {
     int fd = -1;
-    char *map = NULL;
-    struct stat size;
+    char *map = malloc(sizeof(char) * 10);
+    char *tmp = malloc(sizeof(char) * 10);
+    int character = 1;
 
-    if (filepath_to_map != NULL) {
+    if (filepath_to_map != NULL)
         fd = open(filepath_to_map, O_RDONLY);
-        stat(filepath_to_map, &size);
+    if (fd == -1 || map == NULL || tmp == NULL)
+        return (NULL);
+    map[0] = '\0';
+    while (character != 0) {
+        character = read(fd, tmp, 9);
+        tmp[character] = '\0';
+        map = my_strcat(map, tmp);
     }
-    if (fd == -1)
-        return (NULL);
-    map = malloc(sizeof(char) * (size.st_size + 1));
-    if (map == NULL)
-        return (NULL);
-    read(fd, map, size.st_size);
-    map[size.st_size] = '\0';
     close(fd);
+    free(tmp);
     return (map);
 }
