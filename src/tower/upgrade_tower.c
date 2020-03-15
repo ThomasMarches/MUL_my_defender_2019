@@ -59,15 +59,9 @@ void upgrade_button_callback(game_object_t *object, void *pt)
     game_object_t *tower = ((game_object_t *) object->extend);
     int tmp = 0;
 
-<<<<<<< HEAD
     if (object->state == 1 && get_money(object) >= \
     ((tower_t *)tower->extend)->upgrade_cost) {
         if ((tmp = upgrade_tower(tower->extend, \
-=======
-    if (object->state == 1 && get_money(object) >=
-    ((tower_t *)tower->extend)->upgrade_cost) {
-        if ((tmp = upgrade_tower(tower->extend,
->>>>>>> 719afbbcfb08c9202927cc06ba078515d84d5a56
         ((tower_t *)tower->extend)->type)) != 0)
             update_money(object, tmp);
     }
