@@ -39,15 +39,16 @@ void draw_board(sfRenderWindow *window, game_object_t *object)
 
 void init_price_txt(board_t *info, char *tmp)
 {
+    tmp = my_nbr_to_str(100);
     info->price_tower1 = init_text(tmp, 60, 775, (char *) FONT_PATH);
     free(tmp);
-    tmp = my_nbr_to_str(150);
+    tmp = my_nbr_to_str(200);
     info->price_tower2 = init_text(tmp, 180, 775, (char *) FONT_PATH);
     free(tmp);
-    tmp = my_nbr_to_str(100);
+    tmp = my_nbr_to_str(125);
     info->price_tower3 = init_text(tmp, 300, 775, (char *) FONT_PATH);
     free(tmp);
-    tmp = my_nbr_to_str(150);
+    tmp = my_nbr_to_str(100);
     info->price_tower4 = init_text(tmp, 415, 775, (char *) FONT_PATH);
     free(tmp);
     sfText_setCharacterSize(info->price_tower1, 50);
