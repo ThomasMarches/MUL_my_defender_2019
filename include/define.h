@@ -42,7 +42,7 @@ const char *MENU_MUSIC_PATH = \
 "templates/sounds/background_menu.ogg";
 
 // SCOR
-const char *BASE_SCORE = "Score :";
+const char *BASE_SCORE = "Score : ";
 const char *BASE_HIGHSCORE = "Highscore :";
 
 // FRAMERATE
