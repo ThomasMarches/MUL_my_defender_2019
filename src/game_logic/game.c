@@ -15,6 +15,8 @@ game_t *init_game()
 
     if (game == NULL)
         return (NULL);
+    game->music = sfMusic_createFromFile(MENU_MUSIC_PATH);
+    sfMusic_setLoop(game->music, sfTrue);
     game->difficulty = 10;
     game->window = init_window();
     init_score(game);

@@ -37,7 +37,7 @@ tower_t *upgrade_tower(tower_t *tower, tower_type_t type, int n)
     tower->draw_range = 0;
     tower->attack_speed = get_int_from_param(tower->tower_param, 4, n);
     tower->damage = get_int_from_param(tower->tower_param, 3, n);
-    tower->range = get_int_from_param(tower->tower_param, n, n);
+    tower->range = get_int_from_param(tower->tower_param, 2, n);
     tower->cost = get_int_from_param(tower->tower_param, 1, n);
     tower->upgrade_cost = get_int_from_param(tower->tower_param, 1, n + 1);
     sfText_setString(tower->upgrade_txt, my_nbr_to_str(tower->upgrade_cost));
