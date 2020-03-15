@@ -11,7 +11,7 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-void increase_board_value(score_t *score, int number, char *str)
+void update_board_value(score_t *score, int number, char *str)
 {
     char *tmp = NULL;
 

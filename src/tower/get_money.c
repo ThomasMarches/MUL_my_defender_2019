@@ -12,6 +12,18 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
+int get_money(game_object_t *object)
+{
+    game_object_t *tmp = NULL;
+    board_t *info = NULL;
+
+    for (tmp = object; tmp && tmp->type != TOWER_BOARD; tmp = tmp->next);
+    if (!tmp)
+        return (0);
+    info = (board_t *) tmp->extend;
+    return (info->points->score);
+}
+
 int update_money(game_object_t *object, int price)
 {
     game_object_t *tmp = NULL;
@@ -22,6 +34,6 @@ int update_money(game_object_t *object, int price)
         return (0);
     info = (board_t *) tmp->extend;
     if (info->points->score >= (unsigned long long) price)
-        increase_board_value(info->points, price * - 1, "Points : ");
+        update_board_value(info->points, price * - 1, "Points : ");
     return (info->points->score);
 }

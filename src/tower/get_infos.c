@@ -47,7 +47,7 @@ int get_int_from_param(char *str, int column, int level)
     for (int found = 0; found + 1 != column; counter++)
         if (str[counter] == '\n')
             found++;
-    for (int found = 0; found + 1 != level; counter++)
+    for (int found = 0; found + 1 != level && str[counter] != '\0'; counter++)
         if (str[counter] == ':')
             found++;
     for (; str[counter] != '\0' && str[counter] != ':' && str[counter]

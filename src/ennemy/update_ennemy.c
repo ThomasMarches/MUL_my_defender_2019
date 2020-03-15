@@ -61,7 +61,7 @@ bool kill_ennemy(game_object_t *object, game_object_t *tmp, \
 game_object_t *tmp2, scene_t *scene)
 {
     if (((ennemy_t *) object->extend)->map.solve->child != NULL)
-        increase_board_value(((board_t *) tmp->extend)->points, 10, \
+        update_board_value(((board_t *) tmp->extend)->points, 10, \
         "Points : ");
     for (tmp = scene->objects_list; tmp; tmp = tmp2) {
         tmp2 = tmp->next;
@@ -79,7 +79,7 @@ bool update_ennemy(game_object_t *object, scene_t *scene)
 
     for (; tmp && tmp->type != TOWER_BOARD; tmp = tmp->next);
     if (((ennemy_t *) object->extend)->map.solve->child == NULL)
-        increase_board_value(((board_t *) tmp->extend)->life, -1, "Life : ");
+        update_board_value(((board_t *) tmp->extend)->life, -1, "Life : ");
     if (((board_t *) tmp->extend)->life->score <= (unsigned long long) 0)
         scene->display = END_SCENE;
     ennemy->position_on_map += ennemy->speed;

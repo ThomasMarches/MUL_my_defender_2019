@@ -37,6 +37,7 @@ void create_range_circle(game_object_t *object)
     sfVector2f position = {0, 0};
     int calc = tower->range * 65;
 
+    tower->pos = object->pos;
     position.x = object->pos.x - calc + 30.5;
     position.y = object->pos.y - calc + 34;
     tower->circle = sfCircleShape_create();

@@ -40,7 +40,7 @@ bool update_wave(game_object_t *object, scene_t *scene)
         object->state += 1;
         generate_ennemys(object, scene);
         delay = 0;
-        increase_board_value(((board_t *) tmp2->extend)->wave, 1, "Wave : ");
+        update_board_value(((board_t *) tmp2->extend)->wave, 1, "Wave : ");
     }
     return (true);
 }
