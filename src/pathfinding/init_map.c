@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/stat.h>
 #include <string.h>
 
 void print_result(node_t *node, map_t *map)

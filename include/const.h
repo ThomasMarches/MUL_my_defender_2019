@@ -219,6 +219,13 @@ extern const sfIntRect *FIRST_ENNEMY_RECT_TOP[];
 extern const sfIntRect *FIRST_ENNEMY_RECT_LEFT[];
 extern const sfIntRect *FIRST_ENNEMY_RECT_RIGHT[];
 
+//TOWER
+
+extern const sfIntRect *TOWER1_TEXTURE_RECT[];
+extern const sfIntRect *TOWER2_TEXTURE_RECT[];
+extern const sfIntRect *TOWER3_TEXTURE_RECT[];
+extern const sfIntRect *TOWER4_TEXTURE_RECT[];
+
 //BULLET
 
 extern const char *FIRE_BULLET;

@@ -371,4 +371,32 @@ const char *SLOW_BULLET = "templates/tower/iceball.png";
 const char *AOE_BULLET = "templates/tower/aoeball.png";
 const char *NORMAL_BULLET = "templates/tower/normalball.png";
 
+const sfIntRect *TOWER1_TEXTURE_RECT[] = {
+    &(sfIntRect){0, 0, 57, 67},
+    &(sfIntRect){57, 0, 57, 67},
+    &(sfIntRect){114, 0, 57, 67},
+    NULL
+};
+
+const sfIntRect *TOWER2_TEXTURE_RECT[] = {
+    &(sfIntRect){0, 0, 53, 67},
+    &(sfIntRect){53, 0, 53, 67},
+    &(sfIntRect){106, 0, 53, 67},
+    NULL
+};
+
+const sfIntRect *TOWER3_TEXTURE_RECT[] = {
+    &(sfIntRect){0, 0, 57, 67},
+    &(sfIntRect){57, 0, 57, 67},
+    &(sfIntRect){114, 0, 57, 67},
+    NULL
+};
+
+const sfIntRect *TOWER4_TEXTURE_RECT[] = {
+    &(sfIntRect){0, 0, 38, 67},
+    &(sfIntRect){38, 0, 38, 67},
+    &(sfIntRect){76, 0, 38, 67},
+    NULL
+};
+
 #endif /* !DEFINE_H_ */

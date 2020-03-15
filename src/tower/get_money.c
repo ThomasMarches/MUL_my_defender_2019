@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/stat.h>
 
 int get_money(game_object_t *object)
 {

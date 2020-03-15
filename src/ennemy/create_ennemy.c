@@ -45,7 +45,7 @@ ennemy_t *create_ennemy_struct2(int i, map_t *path)
 game_object_t *create_ennemy2(game_object_t *last, int i, map_t *map)
 {
     game_object_t *object = create_game_object(last, \
-    "templates/mobs/ennemy.png", (sfVector2f) {((map->in % (map->x + 1)) *
+    "templates/mobs/ennemy_2.png", (sfVector2f) {((map->in % (map->x + 1)) *
     TILE_WIDTH) - i * TILE_WIDTH, (map->in / (map->x + 1)) * TILE_WIDTH},
     ENNEMY);
 

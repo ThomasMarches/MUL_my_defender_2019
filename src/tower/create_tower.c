@@ -22,6 +22,7 @@ bool update_tower(game_object_t *object, scene_t *scene)
         tower->delay = 0;
         get_ennemy_to_shoot(object, scene);
     }
+    update_tower_sprite(object);
     return (true);
 }
 
