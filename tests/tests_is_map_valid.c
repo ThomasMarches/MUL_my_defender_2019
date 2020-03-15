@@ -8,6 +8,7 @@
 #include "my.h"
 #include "my_defender.h"
 #include <unistd.h>
+#include <criterion/criterion.h>
 
 Test(tests_is_map_valid, tests_is_map_valid_no_ground)
 {

@@ -66,5 +66,6 @@ board_t *create_board_text(board_t *);
 board_t *config_board_text(board_t *);
 void init_price_txt(board_t *, char *);
 char *init_tower_from_file(char *);
+void update_tower_sprite(game_object_t *);
 
 #endif /* !TOWER_H_ */
